@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Fraud Alert - Protect Your Wire Transfers</title>
+    <meta name="description" content="Detect wire fraud before it's too late. Email Fraud Alert scans for the 5 most common wire fraud tactics used against real estate and escrow professionals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --amber-light: #fef3c7;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--amber);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 40px;
+            background: var(--dark);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .pricing-card {
+            max-width: 450px;
+            margin: 0 auto;
+            background: var(--dark);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--amber);
+        }
+
+        .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--amber);
+            margin-bottom: 8px;
+        }
+
+        .price span {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        .price-description {
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 3;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 40px;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 60px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-stat {
+                gap: 30px;
+            }
+
+            .features, .how-it-works, .pricing, .cta {
+                padding: 60px 20px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+
+            .footer-links {
+                gap: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🛡️ For Anyone Who Sends or Receives Wire Transfers</div>
+            <h1>Stop Wire Fraud <span>Before You Wire</span></h1>
+            <p>We detect the 5 most common wire fraud tactics used against businesses and individuals. See the danger before you send the money.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn">Start Free Trial</a>
+                <a href="#features" class="btn btn-outline">See How It Works</a>
+            </div>
+            <div class="hero-stat">
+                <div class="stat">
+                    <div class="stat-number">$150K+</div>
+                    <div class="stat-label">Average wire fraud loss</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Fraud tactics detected</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Of fraud starts with email</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Detect</h2>
+                <p>Our extension scans every email for these proven fraud indicators used in wire fraud attacks.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Wire Fraud Keywords</h3>
+                    <p>Scans for high-risk terms like "wire instructions," "routing number," and "updated bank account" that signal payment redirect attacks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <h3>Lookalike Emails</h3>
+                    <p>Compares incoming emails against your contacts to catch impersonators using similar addresses like johnsmith vs john.smith.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Deceptive Domains</h3>
+                    <p>Flags suspicious domain patterns like .com.co, .com.br, and other TLD tricks that impersonate legitimate companies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>Reply-To Mismatch</h3>
+                    <p>Alerts when hitting "reply" would send your response to a different address than the apparent sender—a classic fraud tactic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Display Name Spoofing</h3>
+                    <p>Catches when the display name shows a trusted company but the actual email comes from an unrelated domain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+                    </div>
+                    <h3>Character Tricks</h3>
+                    <p>Detects Cyrillic and Unicode lookalike characters that make "аpple.com" look identical to "apple.com" (Outlook only).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Install once, protect every email. No complicated setup required.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Install the Extension</h3>
+                    <p>Add Email Fraud Alert to Gmail (Chrome extension) or Outlook (Microsoft 365 add-in) in seconds.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Open Any Email</h3>
+                    <p>The extension automatically scans every email you open for fraud indicators. No buttons to click.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Warned</h3>
+                    <p>If something looks suspicious, you'll see a clear warning with exactly what's wrong—before you make a costly mistake.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple Pricing</h2>
+                <p>Protection that costs less than a cup of coffee.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="price">$1.99<span>/month</span></div>
+                <p class="price-description">Cancel anytime. No contracts.</p>
+                <ul class="pricing-features">
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All 5 fraud detection features</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Gmail & Outlook support</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Automatic updates</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Email support</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> 7-day free trial</li>
+                </ul>
+                <a href="#" class="btn" style="width: 100%;">Start Free Trial</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-box">
+            <h2>Don't Wire Without It</h2>
+            <p>One wire fraud can cost you everything. Our tool gives you a chance to verify before you send.</p>
+            <a href="#pricing" class="btn">Get Protected Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting professionals and consumers from wire fraud, one email at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#how">How It Works</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="support.html#faq">FAQ</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Baynac LLC. All rights reserved.</p>
+            <p>Made with 🛡️ in California</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Email Fraud Alert</title>
+    <meta name="description" content="Get help with Email Fraud Alert. Contact support, read FAQs, and learn how to use our wire fraud detection tool.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --amber-light: #fef3c7;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 40px 60px;
+            text-align: center;
+            background: var(--dark-mid);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .support-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--dark-mid);
+            border-radius: 16px;
+            padding: 48px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-section h2 svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .contact-item h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .contact-item a {
+            color: var(--amber);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-section h2 svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .faq-item {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .faq-answer-content a {
+            color: var(--amber);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 120px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .support-content {
+                padding: 40px 20px;
+            }
+
+            .contact-section {
+                padding: 32px 24px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Support Center</h1>
+        <p>Need help? We're here to make sure you're protected.</p>
+    </div>
+
+    <div class="support-content">
+        <div class="contact-section" id="contact">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Us
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div>
+                        <h3>Email Support</h3>
+                        <p><a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a></p>
+                        <p>We respond within 24 hours</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday – Friday</p>
+                        <p>9:00 AM – 5:00 PM PST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-section" id="faq">
+            <h2>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Frequently Asked Questions
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What email platforms do you support?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Email Fraud Alert works with Gmail (via Chrome extension) and Microsoft 365/Outlook (via Office add-in). For Outlook, you'll need a Microsoft 365 subscription—the add-in doesn't work with on-premises Exchange servers or older Outlook versions connected to non-Microsoft email providers.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does the extension read my email content?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        No. We only analyze email metadata—sender address, display name, reply-to address, and domain information. The actual content of your emails is scanned locally for keywords but is never transmitted to our servers. Your privacy is protected.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What does "lookalike email" mean?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Fraudsters often create email addresses that look almost identical to legitimate contacts. For example, if you know john.smith@company.com, an attacker might use johnsmith@company.com, john.smith@companv.com (with a 'v' instead of 'y'), or john.smith@company.co. Our extension compares incoming emails against your contacts to catch these tricks.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I install the extension?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <strong>For Gmail:</strong> Install from the Chrome Web Store, then grant permission to access your Google Contacts when prompted.<br><br>
+                        <strong>For Outlook:</strong> Go to the Microsoft AppSource store, search for "Email Fraud Alert," and click "Get it now." The add-in will appear in your Outlook ribbon when viewing emails.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does this guarantee I won't be defrauded?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        No tool can guarantee 100% protection. Email Fraud Alert is designed to detect the most common wire fraud tactics and warn you before you take action. However, sophisticated attackers may use methods that evade detection. Always verify wire instructions by calling a known phone number—not one provided in the email—before sending any money.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    I got a warning but the email is legitimate. What do I do?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        False positives can happen, especially with new contacts or unusual domain structures. If you're confident the email is legitimate, you can dismiss the warning. The key is that the warning gives you a moment to pause and verify—which is exactly what you should do with any email involving money.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I cancel my subscription?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Email us at <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a> with the email address associated with your account, and we'll cancel your subscription immediately. You'll retain access until the end of your current billing period.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer refunds?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        We offer a 7-day free trial so you can test the product before paying. After that, we don't provide refunds for partial billing periods, but you can cancel anytime and won't be charged again.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Baynac LLC. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
