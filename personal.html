@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Yourself from Email Scams - Email Fraud Alert</title>
+    <meta name="description" content="Phishing, identity theft, and account takeover all start with one fake email. Email Fraud Alert catches scams before you click.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --red: #dc2626;
+            --red-light: rgba(220, 38, 38, 0.15);
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        .hero {
+            padding: 160px 40px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stats-banner {
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 50px 40px;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .section {
+            padding: 80px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .scams-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .scam-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .scam-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--red);
+        }
+
+        .scam-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .scam-example {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: var(--light);
+            font-style: italic;
+        }
+
+        .story-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .story-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .story-card p {
+            font-size: 1.05rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .story-attribution {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .story-source {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .story-loss {
+            font-family: 'Space Mono', monospace;
+            color: var(--red);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .trust-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .trust-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .trust-section p {
+            color: var(--gray);
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-section {
+            padding: 80px 40px;
+            background: var(--dark-mid);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box > p {
+            color: var(--gray);
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+
+        .cta-box .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
+            color: var(--amber);
+            margin-top: 16px;
+        }
+
+        footer {
+            padding: 40px;
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .scams-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .stats-grid {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 1.75rem;
+            }
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-box {
+                padding: 32px 24px;
+            }
+            .trust-section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learn.html">How Scams Work</a>
+            <a href="support.html">Support</a>
+            <a href="index.html#pricing" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🔒 For Anyone Who Uses Email</div>
+            <h1>You're Careful. <span>This Catches What You Miss.</span></h1>
+            <p>Phishing, identity theft, and account takeover all start with one convincing email. You can't spot every fake — but we can.</p>
+            <div class="hero-buttons">
+                <a href="index.html#pricing" class="btn">Protect Yourself</a>
+                <a href="learn.html" class="btn btn-outline">See How Scams Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">3.4B</div>
+                <div class="stat-label">Phishing emails sent every day</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1 in 3</div>
+                <div class="stat-label">People click phishing links</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$500</div>
+                <div class="stat-label">Median loss per phishing victim</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">300hrs</div>
+                <div class="stat-label">Average time to recover from ID theft</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Scams Targeting You</h2>
+                <p>Every day, criminals send billions of emails pretending to be companies you trust. Here's what they're after.</p>
+            </div>
+            <div class="scams-grid">
+                <div class="scam-card">
+                    <h3>Account Takeover</h3>
+                    <p>Fake login pages steal your passwords to access your email, bank, shopping accounts, and social media — then lock you out.</p>
+                    <div class="scam-example">"Unusual sign-in detected on your account. Click here to verify your identity or your account will be suspended in 24 hours."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Identity Theft</h3>
+                    <p>Criminals pose as the IRS, your bank, or employers to harvest your Social Security number, tax info, and personal data.</p>
+                    <div class="scam-example">"Your tax refund of $3,847.00 is pending. Confirm your identity and direct deposit information to receive your payment."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Shopping & Delivery Scams</h3>
+                    <p>Fake shipping notifications from "Amazon," "UPS," or "FedEx" lead to phishing sites that steal your payment information.</p>
+                    <div class="scam-example">"Your package could not be delivered. Click here to update your address and pay the $2.99 redelivery fee."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Payment Fraud</h3>
+                    <p>Fake payment requests from "PayPal," "Venmo," or "Zelle" trick you into sending money or entering credentials.</p>
+                    <div class="scam-example">"You've received $750.00. The sender requests you send $200 back due to an overpayment. Click to complete."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-mid">
+        <div class="container">
+            <div class="section-header">
+                <h2>It Happens to Smart People</h2>
+                <p>These aren't gullible people. They're busy people who got one convincing email at the wrong moment.</p>
+            </div>
+            <div class="story-card">
+                <div class="story-type">Account Takeover</div>
+                <p>"I got an email that looked exactly like it was from Google. It said someone in another country was trying to access my account. I clicked the link, entered my password to 'secure' my account — and that's when they got in. Within hours, they had my email, my Amazon, and were resetting passwords on everything."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Software engineer, 34</span>
+                    <span class="story-loss">Lost: Access to 12 accounts</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-type">Identity Theft</div>
+                <p>"The email looked like it came from my HR department asking me to verify my W-2 information for tax season. Same logo, same format. I filled out the form. Two months later, someone had filed taxes in my name and taken my refund. I'm still dealing with the IRS."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Marketing manager, 41</span>
+                    <span class="story-loss">Lost: $4,200 + 6 months of hassle</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-type">Shopping Scam</div>
+                <p>"I was expecting a package, so when I got a text about a delivery issue, I didn't think twice. The link looked like the UPS site. I entered my credit card for a $3 'redelivery fee.' They charged $3, then $800, then $2,400 before I caught it."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Teacher, 29</span>
+                    <span class="story-loss">Lost: $3,200 (recovered after 3 months)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Email Fraud Alert Protects You</h2>
+                <p>We scan every email for the tactics scammers actually use. If something's off, you'll know before you click.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Lookalike Detection</h3>
+                    <p>Catches fake addresses like support@amaz0n.com or service@paypa1.com that look real at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Deceptive Domains</h3>
+                    <p>Identifies suspicious domains like amazon.com.co or google-security.com that impersonate trusted brands.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Urgent Language Warnings</h3>
+                    <p>Flags pressure tactics like "act immediately" or "your account will be closed" designed to make you panic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>Reply-To Mismatch</h3>
+                    <p>Alerts when your reply would go to a different address than the sender — a hidden hijack tactic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Display Name Spoofing</h3>
+                    <p>Exposes when the name shows "Amazon Support" but the email is from a random Gmail account.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Always-On Protection</h3>
+                    <p>Works automatically in Gmail and Outlook. No buttons to click. Just open your email like normal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <h3>You Don't Have to Be Paranoid. You Just Need a Second Set of Eyes.</h3>
+        <p>Email Fraud Alert works silently in the background. You won't even notice it's there — until it catches something that could have cost you everything.</p>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Stop the Scam Before It Starts</h2>
+            <p>One click can cost you your identity, your accounts, or your money. Get the protection that catches what you miss.</p>
+            <a href="index.html#pricing" class="btn">Get Protected Now</a>
+            <p class="price">$1.99/month — Cancel anytime</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Baynac LLC. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+        </p>
+    </footer>
+</body>
+</html>
