@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Company from Email Fraud - Email Fraud Alert</title>
+    <meta name="description" content="Wire fraud, invoice scams, and business email compromise cost companies billions. Protect your team with Email Fraud Alert for Gmail and Outlook.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --red: #dc2626;
+            --red-light: rgba(220, 38, 38, 0.15);
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        .hero {
+            padding: 160px 40px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stats-banner {
+            background: var(--red-light);
+            border-top: 1px solid rgba(220, 38, 38, 0.2);
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            padding: 50px 40px;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .section {
+            padding: 80px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .industries-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .industry-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--light);
+        }
+
+        .scams-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .scam-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .scam-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--red);
+        }
+
+        .scam-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .scam-example {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: var(--light);
+            font-style: italic;
+        }
+
+        .story-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .story-industry {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .story-card p {
+            font-size: 1.05rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .story-attribution {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .story-source {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .story-loss {
+            font-family: 'Space Mono', monospace;
+            color: var(--red);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cost-comparison {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 50px;
+        }
+
+        .cost-comparison h3 {
+            text-align: center;
+            font-size: 1.35rem;
+            margin-bottom: 30px;
+        }
+
+        .cost-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .cost-item {
+            text-align: center;
+        }
+
+        .cost-amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .cost-amount.bad {
+            color: var(--red);
+        }
+
+        .cost-amount.good {
+            color: #22c55e;
+        }
+
+        .cost-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cost-vs {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        .cta-section {
+            padding: 80px 40px;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box > p {
+            color: var(--gray);
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+
+        .cta-box .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
+            color: var(--amber);
+            margin-top: 16px;
+        }
+
+        .team-note {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .scams-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .cost-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .cost-vs {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .stats-grid {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 1.75rem;
+            }
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-box {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learn.html">How Scams Work</a>
+            <a href="support.html">Support</a>
+            <a href="index.html#pricing" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🏢 For Businesses That Handle Sensitive Transactions</div>
+            <h1>One Fake Email Can <span>Destroy Your Company</span></h1>
+            <p>Wire fraud. Invoice scams. Client impersonation. Business email compromise cost companies $2.9 billion last year. Protect every inbox in your organization.</p>
+            <div class="hero-buttons">
+                <a href="index.html#pricing" class="btn">Protect Your Team</a>
+                <a href="learn.html" class="btn btn-outline">See How Scams Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">$2.9B</div>
+                <div class="stat-label">Lost to business email compromise in 2023</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$150K</div>
+                <div class="stat-label">Average loss per wire fraud incident</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">&lt;1%</div>
+                <div class="stat-label">Recovery rate after funds are wired</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">65%</div>
+                <div class="stat-label">Of attacks target small businesses</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Protection for Every Industry</h2>
+                <p>If your company handles money, sensitive data, or client transactions, you're a target.</p>
+            </div>
+            <div class="industries-grid">
+                <span class="industry-tag">Title & Escrow</span>
+                <span class="industry-tag">Real Estate Brokerages</span>
+                <span class="industry-tag">Law Firms</span>
+                <span class="industry-tag">CPA & Accounting Firms</span>
+                <span class="industry-tag">Insurance Agencies</span>
+                <span class="industry-tag">Medical & Dental Offices</span>
+                <span class="industry-tag">Financial Advisors</span>
+                <span class="industry-tag">Property Management</span>
+                <span class="industry-tag">Mortgage Companies</span>
+                <span class="industry-tag">Construction & Contractors</span>
+                <span class="industry-tag">Any Business with AP/AR</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-mid">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Attacks Targeting Your Company</h2>
+                <p>Criminals study your business, monitor your emails, and strike at the perfect moment.</p>
+            </div>
+            <div class="scams-grid">
+                <div class="scam-card">
+                    <h3>Wire Fraud / Payment Redirect</h3>
+                    <p>Criminals intercept real transactions and send fake wire instructions that look identical to legitimate ones.</p>
+                    <div class="scam-example">"Due to a recent audit, our banking information has changed. Please use the updated wiring instructions attached for tomorrow's closing."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Invoice Fraud</h3>
+                    <p>Fake invoices from "trusted vendors" arrive with slightly different payment details. Your AP team pays the wrong account.</p>
+                    <div class="scam-example">"Please note our new payment address effective immediately. All future payments should be directed to the account listed below."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>CEO / Executive Impersonation</h3>
+                    <p>Criminals pose as company leadership to request urgent wire transfers, gift cards, or sensitive employee data.</p>
+                    <div class="scam-example">"I need you to process a wire transfer today. I'm in a meeting and can't talk. Just reply to this email with confirmation when done."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Client Impersonation</h3>
+                    <p>Attackers pose as your clients to request changes to payment methods, delivery addresses, or sensitive documents.</p>
+                    <div class="scam-example">"Please send the tax documents to my personal email instead. I'm having issues with my company account."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Companies, Real Losses</h2>
+                <p>These attacks don't just happen to big corporations. They happen to companies like yours.</p>
+            </div>
+            <div class="story-card">
+                <div class="story-industry">Title & Escrow</div>
+                <p>"A client received wire instructions that appeared to come from us. Same logo, same format, same signature block. The email address was off by one character. They wired their entire down payment to criminals. We lost the client, faced a lawsuit, and our E&O premiums tripled."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Escrow company owner</span>
+                    <span class="story-loss">Lost: $420,000 + reputation</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-industry">Law Firm</div>
+                <p>"Our bookkeeper received an email from 'me' asking to wire funds from a client trust account. The email came from a domain one letter off from ours. By the time we realized, the money was gone. We had to report ourselves to the State Bar."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Managing partner</span>
+                    <span class="story-loss">Lost: $187,000</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <div class="story-industry">Construction Company</div>
+                <p>"We received an invoice from one of our regular subcontractors with 'updated banking information.' Our AP clerk paid it without question — same company, same invoice format. It was a fake. We paid the real invoice twice."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— CFO</span>
+                    <span class="story-loss">Lost: $83,000</span>
+                </div>
+            </div>
+
+            <div class="cost-comparison">
+                <h3>The Math Is Simple</h3>
+                <div class="cost-grid">
+                    <div class="cost-item">
+                        <div class="cost-amount bad">$150,000</div>
+                        <div class="cost-label">Average wire fraud loss</div>
+                    </div>
+                    <div class="cost-vs">vs</div>
+                    <div class="cost-item">
+                        <div class="cost-amount good">$1.99/mo</div>
+                        <div class="cost-label">Email Fraud Alert per user</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-mid">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Email Fraud Alert Protects Your Team</h2>
+                <p>Every email, every inbox, every time — automatically scanned for impersonation tactics.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Lookalike Email Detection</h3>
+                    <p>Catches fake addresses that look nearly identical to clients, vendors, and colleagues.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>Reply-To Mismatch Alerts</h3>
+                    <p>Warns when hitting "reply" would send your response to a different, dangerous address.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>Wire Fraud Keywords</h3>
+                    <p>Flags high-risk phrases like "updated wire instructions" and "new bank account."</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Deceptive Domain Detection</h3>
+                    <p>Identifies suspicious domains like yourcompany.com.co or yourcompany-secure.com.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Display Name Spoofing</h3>
+                    <p>Exposes when the name shows a trusted contact but the email is from an unknown address.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Works in Gmail & Outlook</h3>
+                    <p>Installs in seconds. No IT department needed. Protects every user immediately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Protect Every Inbox in Your Company</h2>
+            <p>One employee clicking the wrong link can cost you everything. Give your entire team protection that works automatically.</p>
+            <a href="index.html#pricing" class="btn">Get Started Now</a>
+            <p class="price">$1.99/user/month — Cancel anytime</p>
+            <p class="team-note">📧 Contact support@emailfraudalert.com for team pricing on 10+ users</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Baynac LLC. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+        </p>
+    </footer>
+</body>
+</html>
