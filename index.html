@@ -94,6 +94,65 @@
             opacity: 1;
         }
 
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--amber);
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -711,6 +770,14 @@
         </a>
         <div class="nav-links">
             <a href="#features">Features</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
             <a href="#pricing">Pricing</a>
             <a href="support.html">Support</a>
             <a href="#pricing" class="btn">Get Protected</a>
@@ -960,6 +1027,12 @@
                     <a href="#pricing">Pricing</a>
                     <a href="#how">How It Works</a>
                     <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
                 </div>
                 <div class="footer-column">
                     <h4>Support</h4>
