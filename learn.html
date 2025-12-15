@@ -452,9 +452,9 @@
         .email-fake {
             font-family: 'Space Mono', monospace;
             background: rgba(0,0,0,0.3);
-            padding: 10px 14px;
+            padding: 14px 18px;
             border-radius: 6px;
-            font-size: 0.85rem;
+            font-size: 1.1rem;
             margin: 10px 0;
             color: #ffffff;
         }
@@ -466,10 +466,11 @@
 
         .email-fake .bad {
             color: var(--red);
+            font-weight: 700;
         }
 
         .email-fake .good {
-            color: #22c55e;
+            color: #ffffff;
         }
 
         .targets {
@@ -809,9 +810,9 @@
                 <p>Criminals create email addresses nearly identical to someone you trust. A single letter difference is all it takes to steal everything.</p>
                 <div class="example-box">
                     <div class="example-label">Examples</div>
-                    <div class="email-fake"><span class="good">support@chase.com</span> → <span class="bad">support@chаse.com</span></div>
-                    <div class="email-fake"><span class="good">john.smith@company.com</span> → <span class="bad">john.smith@cornpany.com</span></div>
-                    <div class="email-fake"><span class="good">escrow@abctitle.com</span> → <span class="bad">escrow@abctitIe.com</span></div>
+                    <div class="email-fake">support@chase.com → support@cha<span class="bad">s</span>se.com</div>
+                    <div class="email-fake">john.smith@company.com → john.smith@co<span class="bad">rn</span>pany.com</div>
+                    <div class="email-fake">escrow@abctitle.com → escrow@abctit<span class="bad">I</span>e.com</div>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Home buyers</span>
