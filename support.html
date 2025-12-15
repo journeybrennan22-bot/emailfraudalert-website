@@ -94,6 +94,74 @@
             opacity: 1;
         }
 
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .dropdown-toggle:hover {
+            opacity: 1;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+            z-index: 200;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--amber);
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -353,6 +421,15 @@
         </a>
         <div class="nav-links">
             <a href="index.html#features">Features</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
+            <a href="learn.html">How Scams Work</a>
             <a href="index.html#pricing">Pricing</a>
             <a href="support.html">Support</a>
             <a href="index.html#pricing" class="btn">Get Protected</a>
@@ -377,7 +454,7 @@
                     </div>
                     <div>
                         <h3>Email Support</h3>
-                        <p><a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a></p>
+                        <p><a href="/cdn-cgi/l/email-protection#97e4e2e7e7f8e5e3d7f2faf6fefbf1e5f6e2f3f6fbf2e5e3b9f4f8fa"><span class="__cf_email__" data-cfemail="f88b8d8888978a8cb89d959991949e8a998d9c99949d8a8cd69b9795">[email&#160;protected]</span></a></p>
                         <p>We respond within 24 hours</p>
                     </div>
                 </div>
@@ -431,7 +508,7 @@
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Fraudsters often create email addresses that look almost identical to legitimate contacts. For example, if you know john.smith@company.com, an attacker might use johnsmith@company.com, john.smith@companv.com (with a 'v' instead of 'y'), or john.smith@company.co. Our extension compares incoming emails against your contacts to catch these tricks.
+                        Fraudsters often create email addresses that look almost identical to legitimate contacts. For example, if you know <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="22484d4a4c0c514f4b564a62414d4f52434c5b0c414d4f">[email&#160;protected]</a>, an attacker might use <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c6aca9aea8b5abafb2ae86a5a9abb6a7a8bfe8a5a9ab">[email&#160;protected]</a>, <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4c26232422623f212538240c2f23213c2d223a622f2321">[email&#160;protected]</a> (with a 'v' instead of 'y'), or <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2c8cdcacc8cd1cfcbd6cae2c1cdcfd2c3ccdb8cc1cd">[email&#160;protected]</a>. Our extension compares incoming emails against your contacts to catch these tricks.
                     </div>
                 </div>
             </div>
@@ -480,7 +557,7 @@
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Email us at <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a> with the email address associated with your account, and we'll cancel your subscription immediately. You'll retain access until the end of your current billing period.
+                        Email us at <a href="/cdn-cgi/l/email-protection#265553565649545266434b474f4a4054475342474a4354520845494b"><span class="__cf_email__" data-cfemail="7d0e080d0d120f093d18101c14111b0f1c08191c11180f09531e1210">[email&#160;protected]</span></a> with the email address associated with your account, and we'll cancel your subscription immediately. You'll retain access until the end of your current billing period.
                     </div>
                 </div>
             </div>
@@ -502,28 +579,4 @@
     <footer>
         <p>© 2025 Baynac LLC. All rights reserved.</p>
         <p style="margin-top: 12px;">
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-        </p>
-    </footer>
-
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const isActive = item.classList.contains('active');
-                
-                // Close all other items
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                
-                // Toggle current item
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            <a href="index.html">Home
