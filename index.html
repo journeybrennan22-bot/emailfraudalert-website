@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Fraud Alert - Protect Your Wire Transfers</title>
-    <meta name="description" content="Detect wire fraud before it's too late. Email Fraud Alert scans for the 5 most common wire fraud tactics used against real estate and escrow professionals.">
+    <title>Email Fraud Alert - Stop Scams Before They Strike</title>
+    <meta name="description" content="Protect yourself from phishing, identity theft, and email scams. Email Fraud Alert detects impersonation attempts before you click, reply, or send money.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -181,7 +181,7 @@
         .hero p {
             font-size: 1.25rem;
             color: var(--gray);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 40px;
         }
 
@@ -219,10 +219,52 @@
             margin-top: 4px;
         }
 
+        /* Who It's For */
+        .audience {
+            padding: 80px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .audience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .audience h2 {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .audience-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .audience-tag {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--light);
+            transition: all 0.2s;
+        }
+
+        .audience-tag:hover {
+            border-color: var(--amber);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
         /* Features Section */
         .features {
             padding: 100px 40px;
-            background: var(--dark-mid);
+            background: var(--dark);
         }
 
         .container {
@@ -254,7 +296,7 @@
         }
 
         .feature-card {
-            background: var(--dark);
+            background: var(--dark-mid);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
             padding: 32px;
@@ -295,6 +337,66 @@
             color: var(--gray);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* What We Stop */
+        .threats {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .threats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .threat-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.3s;
+        }
+
+        .threat-card:hover {
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .threat-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(220, 38, 38, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .threat-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: #dc2626;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .threat-content h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .threat-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* How It Works */
@@ -340,16 +442,46 @@
             font-size: 0.95rem;
         }
 
+        /* Testimonial */
+        .testimonial {
+            padding: 80px 40px;
+            background: var(--dark-mid);
+        }
+
+        .testimonial-container {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author strong {
+            color: var(--amber);
+            font-weight: 600;
+        }
+
         /* Pricing */
         .pricing {
             padding: 100px 40px;
-            background: var(--dark-mid);
+            background: var(--dark);
         }
 
         .pricing-card {
             max-width: 450px;
             margin: 0 auto;
-            background: var(--dark);
+            background: var(--dark-mid);
             border: 2px solid var(--amber);
             border-radius: 16px;
             padding: 48px;
@@ -426,7 +558,7 @@
         /* CTA Section */
         .cta {
             padding: 100px 40px;
-            background: var(--dark);
+            background: var(--dark-mid);
             text-align: center;
         }
 
@@ -453,7 +585,7 @@
         /* Footer */
         footer {
             padding: 60px 40px 40px;
-            background: var(--dark-mid);
+            background: var(--dark);
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
@@ -534,7 +666,11 @@
                 gap: 30px;
             }
 
-            .features, .how-it-works, .pricing, .cta {
+            .audience {
+                padding: 60px 20px;
+            }
+
+            .features, .threats, .how-it-works, .pricing, .cta {
                 padding: 60px 20px;
             }
 
@@ -554,6 +690,14 @@
             .footer-content {
                 flex-direction: column;
             }
+
+            .testimonial {
+                padding: 60px 20px;
+            }
+
+            .testimonial-quote {
+                font-size: 1.15rem;
+            }
         }
     </style>
 </head>
@@ -569,31 +713,115 @@
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <a href="support.html">Support</a>
-            <a href="#" class="btn">Get Started</a>
+            <a href="#pricing" class="btn">Get Protected</a>
         </div>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="badge">🛡️ For Anyone Who Sends or Receives Wire Transfers</div>
-            <h1>Stop Wire Fraud <span>Before You Wire</span></h1>
-            <p>We detect the 5 most common wire fraud tactics used against businesses and individuals. See the danger before you send the money.</p>
+            <div class="badge">🛡️ Trusted by professionals and families alike</div>
+            <h1>See the Scam <span>Before You Fall For It</span></h1>
+            <p>Every day, criminals impersonate your bank, your boss, your doctor, your lawyer. One wrong click and they have your money or your identity. We catch them first.</p>
             <div class="hero-buttons">
-                <a href="#pricing" class="btn">Get Started</a>
-                <a href="#features" class="btn btn-outline">See How It Works</a>
+                <a href="#pricing" class="btn">Get Protected</a>
+                <a href="learn.html" class="btn btn-outline">See How Scams Work</a>
             </div>
             <div class="hero-stat">
                 <div class="stat">
-                    <div class="stat-number">$150K+</div>
-                    <div class="stat-label">Average wire fraud loss</div>
+                    <div class="stat-number">3.4B</div>
+                    <div class="stat-label">Phishing emails sent daily</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Fraud tactics detected</div>
+                    <div class="stat-number">$12.5B</div>
+                    <div class="stat-label">Lost to email fraud in 2023</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">Of fraud starts with email</div>
+                    <div class="stat-number">1 in 3</div>
+                    <div class="stat-label">People click phishing links</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience">
+        <div class="audience-container">
+            <h2>Protection for everyone with an inbox</h2>
+            <div class="audience-grid">
+                <div class="audience-tag">Home Buyers & Sellers</div>
+                <div class="audience-tag">Small Business Owners</div>
+                <div class="audience-tag">Lawyers & Law Firms</div>
+                <div class="audience-tag">CPAs & Accountants</div>
+                <div class="audience-tag">Medical Practices</div>
+                <div class="audience-tag">Real Estate Agents</div>
+                <div class="audience-tag">Insurance Professionals</div>
+                <div class="audience-tag">Financial Advisors</div>
+                <div class="audience-tag">HR & Payroll Teams</div>
+                <div class="audience-tag">Seniors & Families</div>
+                <div class="audience-tag">Anyone Online</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="threats">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Protect You From</h2>
+                <p>The same impersonation tactics power every type of email fraud. We catch them all.</p>
+            </div>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Wire & Payment Fraud</h3>
+                        <p>Criminals intercept real transactions and redirect your money to their accounts.</p>
+                    </div>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Identity Theft</h3>
+                        <p>Fake emails harvest your SSN, tax info, and personal data to steal your identity.</p>
+                    </div>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Account Takeover</h3>
+                        <p>Fake login pages steal your passwords to access your email, bank, and accounts.</p>
+                    </div>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Invoice Fraud</h3>
+                        <p>Fake invoices from "trusted vendors" trick you into paying the wrong account.</p>
+                    </div>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Medical & Insurance Fraud</h3>
+                        <p>Criminals pose as healthcare providers to steal insurance info and medical records.</p>
+                    </div>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                    </div>
+                    <div class="threat-content">
+                        <h3>Tax Fraud</h3>
+                        <p>Fake IRS and accountant emails steal W-2s to file fraudulent tax returns.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -602,51 +830,51 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2>What We Detect</h2>
-                <p>Our extension scans every email for these proven fraud indicators used in wire fraud attacks.</p>
+                <h2>6 Layers of Protection</h2>
+                <p>We scan every email for the tactics criminals actually use. If something's wrong, you'll know before you click.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     </div>
-                    <h3>Wire Fraud Keywords</h3>
-                    <p>Scans for high-risk terms like "wire instructions," "routing number," and "updated bank account" that signal payment redirect attacks.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                    </div>
-                    <h3>Lookalike Emails</h3>
-                    <p>Compares incoming emails against your contacts to catch impersonators using similar addresses like johnsmith vs john.smith.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Deceptive Domains</h3>
-                    <p>Flags suspicious domain patterns like .com.co, .com.br, and other TLD tricks that impersonate legitimate companies.</p>
+                    <h3>Lookalike Detection</h3>
+                    <p>Catches email addresses that look almost identical to contacts you trust — the #1 tactic in email fraud.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                     </div>
                     <h3>Reply-To Mismatch</h3>
-                    <p>Alerts when hitting "reply" would send your response to a different address than the apparent sender—a classic fraud tactic.</p>
+                    <p>Alerts when your reply would go to a different address than the sender — a hidden trick to hijack conversations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3>Dangerous Keywords</h3>
+                    <p>Flags urgent language designed to make you act without thinking — "verify immediately," "account suspended."</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Deceptive Domains</h3>
+                    <p>Identifies fake domains like amazon.com.co or paypal-secure.com that impersonate trusted companies.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     </div>
                     <h3>Display Name Spoofing</h3>
-                    <p>Catches when the display name shows a trusted company but the actual email comes from an unrelated domain.</p>
+                    <p>Exposes when the name looks trusted but the actual email address is from a random account.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
                     </div>
                     <h3>Character Tricks</h3>
-                    <p>Detects Cyrillic and Unicode lookalike characters that make "аpple.com" look identical to "apple.com" (Outlook only).</p>
+                    <p>Detects foreign alphabet characters that look identical to English letters — impossible to spot with your eyes.</p>
                 </div>
             </div>
         </div>
@@ -661,20 +889,27 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Install the Extension</h3>
-                    <p>Add Email Fraud Alert to Gmail (Chrome extension) or Outlook (Microsoft 365 add-in) in seconds.</p>
+                    <h3>Install in Seconds</h3>
+                    <p>Add Email Fraud Alert to Gmail (Chrome extension) or Outlook (add-in). Takes less than a minute.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Open Any Email</h3>
-                    <p>The extension automatically scans every email you open for fraud indicators. No buttons to click.</p>
+                    <p>We automatically scan every email you open. No buttons to click. No extra steps.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
                     <h3>Get Warned</h3>
-                    <p>If something looks suspicious, you'll see a clear warning with exactly what's wrong—before you make a costly mistake.</p>
+                    <p>If something looks suspicious, you'll see a clear warning before you click, reply, or send money.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="testimonial-container">
+            <p class="testimonial-quote">"The email looked exactly like it came from our title company. Same logo, same signature, same format. If I hadn't seen the warning, I would have wired $380,000 to criminals."</p>
+            <p class="testimonial-author">— <strong>Home buyer in California</strong></p>
         </div>
     </section>
 
@@ -682,27 +917,28 @@
         <div class="container">
             <div class="section-header">
                 <h2>Simple Pricing</h2>
-                <p>Protection that costs less than a cup of coffee.</p>
+                <p>Less than a cup of coffee. More than peace of mind.</p>
             </div>
             <div class="pricing-card">
                 <div class="price">$1.99<span>/month</span></div>
                 <p class="price-description">Cancel anytime. No contracts.</p>
                 <ul class="pricing-features">
-                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All 5 fraud detection features</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All 6 detection features</li>
                     <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Gmail & Outlook support</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Instant email scanning</li>
                     <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Automatic updates</li>
                     <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Email support</li>
                 </ul>
-                <a href="#" class="btn" style="width: 100%;">Get Started</a>
+                <a href="#" class="btn" style="width: 100%;">Get Protected Now</a>
             </div>
         </div>
     </section>
 
     <section class="cta">
         <div class="cta-box">
-            <h2>Don't Wire Without It</h2>
-            <p>One wire fraud can cost you everything. Our tool gives you a chance to verify before you send.</p>
-            <a href="#pricing" class="btn">Get Protected Now</a>
+            <h2>Don't Become a Statistic</h2>
+            <p>1 in 3 people click on phishing links. Be the one who sees it coming.</p>
+            <a href="#pricing" class="btn">Get Email Fraud Alert</a>
         </div>
     </section>
 
@@ -715,7 +951,7 @@
                     </div>
                     Email Fraud Alert
                 </a>
-                <p>Protecting professionals and consumers from wire fraud, one email at a time.</p>
+                <p>Protecting people from email scams, one inbox at a time.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -723,6 +959,7 @@
                     <a href="#features">Features</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
                 </div>
                 <div class="footer-column">
                     <h4>Support</h4>
