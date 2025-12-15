@@ -22,7 +22,7 @@
             --red-light: rgba(220, 38, 38, 0.15);
             --dark: #0f172a;
             --dark-mid: #1e293b;
-            --gray: #64748b;
+            --gray: #ffffff;
             --light: #f8fafc;
             --white: #ffffff;
         }
@@ -438,6 +438,11 @@
         .example-box p {
             margin-bottom: 10px;
             font-size: 0.95rem;
+            color: #ffffff;
+        }
+
+        .example-box p a {
+            color: #ffffff;
         }
 
         .example-box p:last-child {
@@ -451,6 +456,12 @@
             border-radius: 6px;
             font-size: 0.85rem;
             margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .email-fake a {
+            color: #ffffff;
+            text-decoration: none;
         }
 
         .email-fake .bad {
@@ -798,9 +809,9 @@
                 <p>Criminals create email addresses nearly identical to someone you trust. A single letter difference is all it takes to steal everything.</p>
                 <div class="example-box">
                     <div class="example-label">Examples</div>
-                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f98a8c8989968b8db99a91988a9cd79a9694">[email&#160;protected]</a></span> → <span class="bad">support@chаse.com</span></div>
-                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355f5a5d5b1b46585c415d75565a5845545b4c1b565a58">[email&#160;protected]</a></span> → <span class="bad"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="79131611170a14100d11391a161409181700571a1614">[email&#160;protected]</a></span></div>
-                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ee6fccef7e1fbfcebe3fee2e1f7ebfca0ede1e3">[email&#160;protected]</a></span> → <span class="bad"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="78100a3801170d0a551d15081417011d0a561b1715">[email&#160;protected]</a></span></div>
+                    <div class="email-fake"><span class="good">support@chase.com</span> → <span class="bad">support@chаse.com</span></div>
+                    <div class="email-fake"><span class="good">john.smith@company.com</span> → <span class="bad">john.smith@cornpany.com</span></div>
+                    <div class="email-fake"><span class="good">escrow@abctitle.com</span> → <span class="bad">escrow@abctitIe.com</span></div>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Home buyers</span>
@@ -823,8 +834,8 @@
                 <p>The email looks legitimate. But when you hit "Reply," your response goes to a completely different address controlled by the attacker.</p>
                 <div class="example-box">
                     <div class="example-label">How It Works</div>
-                    <p><strong>From:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89eaece6c9f0e6fcfbeae6e4f9e8e7f0a7eae6e4">[email&#160;protected]</a></p>
-                    <p><strong>Reply-To:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe9d9b91be87918b8c9d91938e9f9087d38d9b9d8b8c9bd09d9193">[email&#160;protected]</a></p>
+                    <p><strong>From:</strong> ceo@yourcompany.com</p>
+                    <p><strong>Reply-To:</strong> ceo-yourcompany@gmail.com</p>
                     <p>You think you're emailing your CEO. You're emailing a criminal in another country who now has whatever you sent them.</p>
                 </div>
                 <div class="targets">
@@ -903,9 +914,9 @@
                 <div class="example-box">
                     <div class="example-label">What You See vs. Reality</div>
                     <p><strong>In your inbox:</strong> "Bank of America Security"</p>
-                    <p><strong>Actual address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="01726462747368757839353633373541666c60686d2f626e6c">[email&#160;protected]</a></p>
+                    <p><strong>Actual address:</strong> xr77281@randomdomain.com</p>
                     <p><strong>In your inbox:</strong> "Dr. Smith's Office"</p>
-                    <p><strong>Actual address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef828a8b868c8e83c29a9f8b8e9b8aaf899d8a8a828e8683c19d9a">[email&#160;protected]</a></p>
+                    <p><strong>Actual address:</strong> notreal@spamserver.net</p>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Patients</span>
