@@ -94,6 +94,74 @@
             opacity: 1;
         }
 
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .dropdown-toggle:hover {
+            opacity: 1;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+            z-index: 200;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--amber);
+        }
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -608,6 +676,15 @@
         </a>
         <div class="nav-links">
             <a href="index.html#features">Features</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
+            <a href="learn.html">How Scams Work</a>
             <a href="index.html#pricing">Pricing</a>
             <a href="support.html">Support</a>
             <a href="index.html#pricing" class="btn">Get Protected</a>
@@ -632,8 +709,8 @@
                 <div class="stat-label">Phishing emails sent daily</div>
             </div>
             <div class="stat">
-                <div class="stat-number">$12.5B</div>
-                <div class="stat-label">Lost to email fraud in 2023</div>
+                <div class="stat-number">$1T+</div>
+                <div class="stat-label">Lost to scams globally each year</div>
             </div>
             <div class="stat">
                 <div class="stat-number">36%</div>
@@ -721,9 +798,9 @@
                 <p>Criminals create email addresses nearly identical to someone you trust. A single letter difference is all it takes to steal everything.</p>
                 <div class="example-box">
                     <div class="example-label">Examples</div>
-                    <div class="email-fake"><span class="good">support@chase.com</span> → <span class="bad">support@chаse.com</span></div>
-                    <div class="email-fake"><span class="good">john.smith@company.com</span> → <span class="bad">johnsmith@company.com</span></div>
-                    <div class="email-fake"><span class="good">hr@youremployer.com</span> → <span class="bad">hr@your-employer.com</span></div>
+                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f98a8c8989968b8db99a91988a9cd79a9694">[email&#160;protected]</a></span> → <span class="bad">support@chаse.com</span></div>
+                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="355f5a5d5b1b46585c415d75565a5845545b4c1b565a58">[email&#160;protected]</a></span> → <span class="bad"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="79131611170a14100d11391a161409181700571a1614">[email&#160;protected]</a></span></div>
+                    <div class="email-fake"><span class="good"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ee6fccef7e1fbfcebe3fee2e1f7ebfca0ede1e3">[email&#160;protected]</a></span> → <span class="bad"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="78100a3801170d0a551d15081417011d0a561b1715">[email&#160;protected]</a></span></div>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Home buyers</span>
@@ -746,8 +823,8 @@
                 <p>The email looks legitimate. But when you hit "Reply," your response goes to a completely different address controlled by the attacker.</p>
                 <div class="example-box">
                     <div class="example-label">How It Works</div>
-                    <p><strong>From:</strong> ceo@yourcompany.com</p>
-                    <p><strong>Reply-To:</strong> ceo@yourcompany-secure.com</p>
+                    <p><strong>From:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89eaece6c9f0e6fcfbeae6e4f9e8e7f0a7eae6e4">[email&#160;protected]</a></p>
+                    <p><strong>Reply-To:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fe9d9b91be87918b8c9d91938e9f9087d38d9b9d8b8c9bd09d9193">[email&#160;protected]</a></p>
                     <p>You think you're emailing your CEO. You're emailing a criminal in another country who now has whatever you sent them.</p>
                 </div>
                 <div class="targets">
@@ -826,9 +903,9 @@
                 <div class="example-box">
                     <div class="example-label">What You See vs. Reality</div>
                     <p><strong>In your inbox:</strong> "Bank of America Security"</p>
-                    <p><strong>Actual address:</strong> security847264@gmail.com</p>
+                    <p><strong>Actual address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="01726462747368757839353633373541666c60686d2f626e6c">[email&#160;protected]</a></p>
                     <p><strong>In your inbox:</strong> "Dr. Smith's Office"</p>
-                    <p><strong>Actual address:</strong> medical-update@freemail.ru</p>
+                    <p><strong>Actual address:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef828a8b868c8e83c29a9f8b8e9b8aaf899d8a8a828e8683c19d9a">[email&#160;protected]</a></p>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Patients</span>
@@ -898,33 +975,3 @@
         <div class="cta-box">
             <h2>See the Danger Before You Click</h2>
             <p>Email Fraud Alert automatically scans every email for all 6 impersonation tactics. You'll see a warning before you make a mistake you can't undo.</p>
-            <div class="cta-features">
-                <div class="cta-feature">
-                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                    Gmail & Outlook
-                </div>
-                <div class="cta-feature">
-                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                    Instant scanning
-                </div>
-                <div class="cta-feature">
-                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                    Cancel anytime
-                </div>
-            </div>
-            <a href="index.html#pricing" class="btn">Get Protected Now</a>
-            <p class="price">$1.99/month</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 Baynac LLC. All rights reserved.</p>
-        <p style="margin-top: 12px;">
-            <a href="index.html">Home</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-            <a href="support.html">Support</a>
-        </p>
-    </footer>
-</body>
-</html>
