@@ -34,7 +34,6 @@
             line-height: 1.7;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -104,9 +103,6 @@
             font-weight: 600;
             border-radius: 6px;
             transition: all 0.2s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
         }
 
         .btn:hover {
@@ -114,12 +110,10 @@
             transform: translateY(-1px);
         }
 
-        /* Hero */
         .hero {
             padding: 160px 40px 80px;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
@@ -165,7 +159,6 @@
             font-weight: 700;
             line-height: 1.15;
             margin-bottom: 24px;
-            letter-spacing: -0.02em;
         }
 
         .hero p {
@@ -175,7 +168,6 @@
             margin: 0 auto;
         }
 
-        /* Stats Banner */
         .stats-banner {
             background: var(--dark-mid);
             padding: 40px;
@@ -205,7 +197,6 @@
             font-size: 0.9rem;
         }
 
-        /* Threat Types */
         .threats {
             padding: 80px 40px;
             background: var(--dark);
@@ -285,7 +276,6 @@
             font-weight: 600;
         }
 
-        /* Content */
         .content {
             max-width: 800px;
             margin: 0 auto;
@@ -309,7 +299,6 @@
             margin: 0 auto;
         }
 
-        /* Tactics */
         .tactic {
             margin-bottom: 50px;
             padding-bottom: 50px;
@@ -419,7 +408,6 @@
             color: var(--gray);
         }
 
-        /* Victims Section */
         .victims {
             background: var(--dark-mid);
             padding: 80px 40px;
@@ -479,7 +467,6 @@
             font-weight: 700;
         }
 
-        /* CTA Section */
         .cta {
             background: var(--dark);
             padding: 80px 40px;
@@ -537,7 +524,6 @@
             margin-top: 16px;
         }
 
-        /* Footer */
         footer {
             padding: 40px;
             background: var(--dark-mid);
@@ -560,16 +546,13 @@
             text-decoration: underline;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
             .threats-grid {
                 grid-template-columns: 1fr;
             }
-
             .victim-stories {
                 grid-template-columns: 1fr;
             }
@@ -579,45 +562,35 @@
             nav {
                 padding: 16px 20px;
             }
-
             .nav-links {
                 display: none;
             }
-
             .hero {
                 padding: 120px 20px 60px;
             }
-
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 30px;
             }
-
             .stat-number {
                 font-size: 1.75rem;
             }
-
             .threats, .victims {
                 padding: 60px 20px;
             }
-
             .content {
                 padding: 60px 20px;
             }
-
             .tactic-header {
                 flex-direction: column;
                 gap: 16px;
             }
-
             .cta {
                 padding: 60px 20px;
             }
-
             .cta-box {
                 padding: 32px 24px;
             }
-
             .cta-features {
                 flex-direction: column;
                 gap: 12px;
@@ -664,7 +637,7 @@
             </div>
             <div class="stat">
                 <div class="stat-number">36%</div>
-                <div class="stat-label">Of all data breaches start with phishing</div>
+                <div class="stat-label">Of data breaches start with phishing</div>
             </div>
             <div class="stat">
                 <div class="stat-number">1 in 3</div>
@@ -746,14 +719,12 @@
             </div>
             <div class="tactic-content">
                 <p>Criminals create email addresses nearly identical to someone you trust. A single letter difference is all it takes to steal everything.</p>
-                
                 <div class="example-box">
                     <div class="example-label">Examples</div>
                     <div class="email-fake"><span class="good">support@chase.com</span> → <span class="bad">support@chаse.com</span></div>
                     <div class="email-fake"><span class="good">john.smith@company.com</span> → <span class="bad">johnsmith@company.com</span></div>
                     <div class="email-fake"><span class="good">hr@youremployer.com</span> → <span class="bad">hr@your-employer.com</span></div>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Home buyers</span>
                     <span class="target-tag">Business owners</span>
@@ -773,14 +744,12 @@
             </div>
             <div class="tactic-content">
                 <p>The email looks legitimate. But when you hit "Reply," your response goes to a completely different address controlled by the attacker.</p>
-                
                 <div class="example-box">
                     <div class="example-label">How It Works</div>
                     <p><strong>From:</strong> ceo@yourcompany.com</p>
                     <p><strong>Reply-To:</strong> ceo@yourcompany-secure.com</p>
                     <p>You think you're emailing your CEO. You're emailing a criminal in another country who now has whatever you sent them.</p>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Executives</span>
                     <span class="target-tag">Finance teams</span>
@@ -800,7 +769,6 @@
             </div>
             <div class="tactic-content">
                 <p>Fraud emails use specific phrases designed to create urgency and bypass your critical thinking.</p>
-                
                 <div class="example-box">
                     <div class="example-label">Red Flags</div>
                     <p>"Verify your account immediately"</p>
@@ -810,7 +778,6 @@
                     <p>"Confirm your identity"</p>
                     <p>"Action required within 24 hours"</p>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Bank customers</span>
                     <span class="target-tag">Online shoppers</span>
@@ -830,7 +797,6 @@
             </div>
             <div class="tactic-content">
                 <p>Criminals register domains that look like trusted companies by exploiting international extensions and common typos.</p>
-                
                 <div class="example-box">
                     <div class="example-label">Fake Domains</div>
                     <div class="email-fake"><span class="bad">amazon.com.co</span> — Not Amazon</div>
@@ -838,7 +804,6 @@
                     <div class="email-fake"><span class="bad">apple.support-id.com</span> — Not Apple</div>
                     <div class="email-fake"><span class="bad">irs.gov.tax-refund.com</span> — Not the IRS</div>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Online shoppers</span>
                     <span class="target-tag">Taxpayers</span>
@@ -858,7 +823,6 @@
             </div>
             <div class="tactic-content">
                 <p>Email programs show the display name prominently and hide the actual address. Criminals exploit this to impersonate anyone.</p>
-                
                 <div class="example-box">
                     <div class="example-label">What You See vs. Reality</div>
                     <p><strong>In your inbox:</strong> "Bank of America Security"</p>
@@ -866,7 +830,6 @@
                     <p><strong>In your inbox:</strong> "Dr. Smith's Office"</p>
                     <p><strong>Actual address:</strong> medical-update@freemail.ru</p>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Patients</span>
                     <span class="target-tag">Clients</span>
@@ -886,14 +849,12 @@
             </div>
             <div class="tactic-content">
                 <p>Some foreign alphabet letters look identical to English letters but are technically different characters. Perfect visual forgeries.</p>
-                
                 <div class="example-box">
                     <div class="example-label">Can You Tell the Difference?</div>
                     <div class="email-fake"><span class="good">microsoft.com</span> (Latin letters)</div>
                     <div class="email-fake"><span class="bad">micrоsoft.com</span> (Cyrillic 'о')</div>
                     <p>Your eyes cannot detect this. Only software can.</p>
                 </div>
-
                 <div class="targets">
                     <span class="target-tag">Tech companies</span>
                     <span class="target-tag">Banks</span>
