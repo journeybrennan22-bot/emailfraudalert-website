@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Email Scams Work - Email Fraud Alert</title>
+    <meta name="description" content="Learn how criminals steal money and identities through email. The 6 tactics used in phishing, wire fraud, and identity theft - and how to stop them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --red: #dc2626;
+            --red-light: rgba(220, 38, 38, 0.15);
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 40px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(220, 38, 38, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .warning-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--red-light);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--red);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .warning-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--red);
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: var(--dark-mid);
+            padding: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Threat Types */
+        .threats {
+            padding: 80px 40px;
+            background: var(--dark);
+        }
+
+        .threats-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .threats-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .threats-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .threats-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .threat-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .threat-card:hover {
+            border-color: rgba(220, 38, 38, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .threat-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--red-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .threat-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--red);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .threat-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .threat-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .threat-stat {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        /* Content */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .section-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-intro h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .section-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tactics */
+        .tactic {
+            margin-bottom: 50px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tactic:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tactic-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .tactic-number {
+            width: 44px;
+            height: 44px;
+            background: var(--red-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--red);
+            flex-shrink: 0;
+        }
+
+        .tactic h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .tactic-subtitle {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .tactic-content p {
+            color: var(--light);
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .example-box {
+            background: rgba(220, 38, 38, 0.08);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+        }
+
+        .example-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .example-box p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .example-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-fake {
+            font-family: 'Space Mono', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+
+        .email-fake .bad {
+            color: var(--red);
+        }
+
+        .email-fake .good {
+            color: #22c55e;
+        }
+
+        .targets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .target-tag {
+            background: rgba(255,255,255,0.08);
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        /* Victims Section */
+        .victims {
+            background: var(--dark-mid);
+            padding: 80px 40px;
+        }
+
+        .victims-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .victims-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .victims-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .victim-stories {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .victim-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .victim-type {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--amber);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .victim-card p {
+            color: var(--light);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .victim-loss {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--dark);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box > p {
+            color: var(--gray);
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .cta-feature svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2.5;
+        }
+
+        .cta-box .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
+            color: var(--amber);
+            margin-top: 16px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .threats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .victim-stories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .threats, .victims {
+                padding: 60px 20px;
+            }
+
+            .content {
+                padding: 60px 20px;
+            }
+
+            .tactic-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .cta {
+                padding: 60px 20px;
+            }
+
+            .cta-box {
+                padding: 32px 24px;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="index.html#pricing" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="warning-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 4l7.5 14h-15L12 6zm-1 5v4h2v-4h-2zm0 6v2h2v-2h-2z"/></svg>
+                Email Threat Detected
+            </div>
+            <h1>This Is How They Get You</h1>
+            <p>Every day, criminals impersonate people you trust — your bank, your boss, your lawyer, your doctor. One wrong click and they have your money, your identity, or your data.</p>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">3.4B</div>
+                <div class="stat-label">Phishing emails sent daily</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$12.5B</div>
+                <div class="stat-label">Lost to email fraud in 2023</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">36%</div>
+                <div class="stat-label">Of all data breaches start with phishing</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1 in 3</div>
+                <div class="stat-label">People will click a phishing link</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="threats">
+        <div class="threats-header">
+            <h2>One Fake Email. Many Ways to Hurt You.</h2>
+            <p>The same impersonation tactics power every type of email fraud. Here's what's at stake.</p>
+        </div>
+        <div class="threats-grid">
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                </div>
+                <h3>Wire & Payment Fraud</h3>
+                <p>Criminals intercept real transactions and redirect payments to their accounts. One email. Six figures gone.</p>
+                <div class="threat-stat">Average loss: $150,000</div>
+            </div>
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Identity Theft</h3>
+                <p>Fake emails harvest your SSN, driver's license, medical records, and tax information. Your identity sold for $10.</p>
+                <div class="threat-stat">1.4 million reports in 2023</div>
+            </div>
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>Account Takeover</h3>
+                <p>Fake login pages steal your passwords. They access your email, bank, and social media — and lock you out.</p>
+                <div class="threat-stat">22% of Americans affected</div>
+            </div>
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <h3>Invoice Fraud</h3>
+                <p>Businesses receive fake invoices from "vendors" they trust. Accounts payable sends the check. Wrong account.</p>
+                <div class="threat-stat">$2.4B lost annually</div>
+            </div>
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <h3>Medical & Insurance Fraud</h3>
+                <p>Fake healthcare emails steal your insurance info, file false claims, and compromise your medical records.</p>
+                <div class="threat-stat">Healthcare breaches up 93%</div>
+            </div>
+            <div class="threat-card">
+                <div class="threat-icon">
+                    <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                </div>
+                <h3>Tax Fraud</h3>
+                <p>Criminals pose as the IRS, your accountant, or your employer to steal W-2s and file fraudulent returns.</p>
+                <div class="threat-stat">$5.7B in fraudulent refunds</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="section-intro">
+            <h2>6 Tactics. Millions of Victims.</h2>
+            <p>Every email scam uses the same playbook. Learn to recognize the tricks — or let us catch them for you.</p>
+        </div>
+
+        <div class="tactic" id="lookalike">
+            <div class="tactic-header">
+                <div class="tactic-number">1</div>
+                <div>
+                    <h3>Lookalike Email Addresses</h3>
+                    <p class="tactic-subtitle">One character. Total impersonation.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Criminals create email addresses nearly identical to someone you trust. A single letter difference is all it takes to steal everything.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Examples</div>
+                    <div class="email-fake"><span class="good">support@chase.com</span> → <span class="bad">support@chаse.com</span></div>
+                    <div class="email-fake"><span class="good">john.smith@company.com</span> → <span class="bad">johnsmith@company.com</span></div>
+                    <div class="email-fake"><span class="good">hr@youremployer.com</span> → <span class="bad">hr@your-employer.com</span></div>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Home buyers</span>
+                    <span class="target-tag">Business owners</span>
+                    <span class="target-tag">Employees</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tactic" id="reply-to">
+            <div class="tactic-header">
+                <div class="tactic-number">2</div>
+                <div>
+                    <h3>Reply-To Hijacking</h3>
+                    <p class="tactic-subtitle">Your reply goes to them, not who you think.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>The email looks legitimate. But when you hit "Reply," your response goes to a completely different address controlled by the attacker.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">How It Works</div>
+                    <p><strong>From:</strong> ceo@yourcompany.com</p>
+                    <p><strong>Reply-To:</strong> ceo@yourcompany-secure.com</p>
+                    <p>You think you're emailing your CEO. You're emailing a criminal in another country who now has whatever you sent them.</p>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Executives</span>
+                    <span class="target-tag">Finance teams</span>
+                    <span class="target-tag">Assistants</span>
+                    <span class="target-tag">Anyone</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tactic" id="keywords">
+            <div class="tactic-header">
+                <div class="tactic-number">3</div>
+                <div>
+                    <h3>Dangerous Keywords</h3>
+                    <p class="tactic-subtitle">The language of fraud.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Fraud emails use specific phrases designed to create urgency and bypass your critical thinking.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Red Flags</div>
+                    <p>"Verify your account immediately"</p>
+                    <p>"Updated wire instructions"</p>
+                    <p>"Unusual sign-in activity detected"</p>
+                    <p>"Your account will be suspended"</p>
+                    <p>"Confirm your identity"</p>
+                    <p>"Action required within 24 hours"</p>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Bank customers</span>
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tactic" id="domain">
+            <div class="tactic-header">
+                <div class="tactic-number">4</div>
+                <div>
+                    <h3>Deceptive Domains</h3>
+                    <p class="tactic-subtitle">Familiar names, criminal origins.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Criminals register domains that look like trusted companies by exploiting international extensions and common typos.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Fake Domains</div>
+                    <div class="email-fake"><span class="bad">amazon.com.co</span> — Not Amazon</div>
+                    <div class="email-fake"><span class="bad">paypal-secure.com</span> — Not PayPal</div>
+                    <div class="email-fake"><span class="bad">apple.support-id.com</span> — Not Apple</div>
+                    <div class="email-fake"><span class="bad">irs.gov.tax-refund.com</span> — Not the IRS</div>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Taxpayers</span>
+                    <span class="target-tag">Tech users</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tactic" id="display-name">
+            <div class="tactic-header">
+                <div class="tactic-number">5</div>
+                <div>
+                    <h3>Display Name Spoofing</h3>
+                    <p class="tactic-subtitle">The name you trust, the address you ignore.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Email programs show the display name prominently and hide the actual address. Criminals exploit this to impersonate anyone.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">What You See vs. Reality</div>
+                    <p><strong>In your inbox:</strong> "Bank of America Security"</p>
+                    <p><strong>Actual address:</strong> security847264@gmail.com</p>
+                    <p><strong>In your inbox:</strong> "Dr. Smith's Office"</p>
+                    <p><strong>Actual address:</strong> medical-update@freemail.ru</p>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Patients</span>
+                    <span class="target-tag">Clients</span>
+                    <span class="target-tag">Customers</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tactic" id="characters">
+            <div class="tactic-header">
+                <div class="tactic-number">6</div>
+                <div>
+                    <h3>Invisible Character Tricks</h3>
+                    <p class="tactic-subtitle">Identical to your eyes. Different to computers.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Some foreign alphabet letters look identical to English letters but are technically different characters. Perfect visual forgeries.</p>
+                
+                <div class="example-box">
+                    <div class="example-label">Can You Tell the Difference?</div>
+                    <div class="email-fake"><span class="good">microsoft.com</span> (Latin letters)</div>
+                    <div class="email-fake"><span class="bad">micrоsoft.com</span> (Cyrillic 'о')</div>
+                    <p>Your eyes cannot detect this. Only software can.</p>
+                </div>
+
+                <div class="targets">
+                    <span class="target-tag">Tech companies</span>
+                    <span class="target-tag">Banks</span>
+                    <span class="target-tag">Government</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="victims">
+        <div class="victims-header">
+            <h2>It Happens to Everyone</h2>
+            <p>Smart people. Careful people. Professionals. No one is immune.</p>
+        </div>
+        <div class="victim-stories">
+            <div class="victim-card">
+                <div class="victim-type">Home Buyer</div>
+                <p>"The email looked exactly like my title company. Same logo, same signature. I wired my down payment to the wrong account."</p>
+                <div class="victim-loss">Lost: $387,000</div>
+            </div>
+            <div class="victim-card">
+                <div class="victim-type">Small Business</div>
+                <p>"Our accountant received an email from 'me' asking to change a vendor's direct deposit. It wasn't from me."</p>
+                <div class="victim-loss">Lost: $43,000</div>
+            </div>
+            <div class="victim-card">
+                <div class="victim-type">Senior Citizen</div>
+                <p>"The email said my Social Security was suspended. I panicked and gave them everything they asked for."</p>
+                <div class="victim-loss">Lost: Identity + $12,000</div>
+            </div>
+            <div class="victim-card">
+                <div class="victim-type">Law Firm</div>
+                <p>"A client received wire instructions that appeared to come from us. They weren't. The money was gone in minutes."</p>
+                <div class="victim-loss">Lost: $1.2 million</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-box">
+            <h2>See the Danger Before You Click</h2>
+            <p>Email Fraud Alert automatically scans every email for all 6 impersonation tactics. You'll see a warning before you make a mistake you can't undo.</p>
+            <div class="cta-features">
+                <div class="cta-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    Gmail & Outlook
+                </div>
+                <div class="cta-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    Instant scanning
+                </div>
+                <div class="cta-feature">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                    Cancel anytime
+                </div>
+            </div>
+            <a href="index.html#pricing" class="btn">Get Protected Now</a>
+            <p class="price">$1.99/month</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Baynac LLC. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+        </p>
+    </footer>
+</body>
+</html>
