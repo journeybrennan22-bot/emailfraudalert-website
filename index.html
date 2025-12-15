@@ -577,6 +577,24 @@
             margin-bottom: 32px;
         }
 
+        .pricing-contrast {
+            font-size: 1.25rem;
+        }
+
+        .pricing-contrast strong {
+            color: var(--accent);
+        }
+
+        .urgency-line {
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(231, 76, 60, 0.1);
+            border-radius: 8px;
+            color: #e74c3c;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
         .pricing-features {
             text-align: left;
             margin-bottom: 32px;
@@ -985,7 +1003,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Simple Pricing</h2>
-                <p>Less than a cup of coffee. More than peace of mind.</p>
+                <p class="pricing-contrast">The average victim loses <strong>$106,557</strong>. Protection costs <strong>less than $24/year</strong>.</p>
             </div>
             <div class="pricing-card">
                 <div class="price">$1.99<span>/month</span></div>
@@ -998,6 +1016,7 @@
                     <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Email support</li>
                 </ul>
                 <a href="#" class="btn" style="width: 100%;">Get Protected Now</a>
+                <p class="urgency-line">⚠️ 37% of wire fraud happens within 24 hours of first contact</p>
             </div>
         </div>
     </section>
