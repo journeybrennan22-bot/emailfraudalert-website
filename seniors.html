@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Parents from Email Scams - Email Fraud Alert</title>
+    <meta name="description" content="Seniors lost $81.5 billion to email scams last year. Protect your parents from government impersonation, tech support scams, and fraud with Email Fraud Alert.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --red: #dc2626;
+            --red-light: rgba(220, 38, 38, 0.15);
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        .hero {
+            padding: 160px 40px 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stats-banner {
+            background: var(--red-light);
+            border-top: 1px solid rgba(220, 38, 38, 0.2);
+            border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+            padding: 50px 40px;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--light);
+            font-size: 0.9rem;
+        }
+
+        .section {
+            padding: 80px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .scams-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .scam-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .scam-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--red);
+        }
+
+        .scam-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .scam-example {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: var(--light);
+            font-style: italic;
+        }
+
+        .story-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .story-card p {
+            font-size: 1.1rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .story-attribution {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .story-source {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .story-loss {
+            font-family: 'Space Mono', monospace;
+            color: var(--red);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            padding: 80px 40px;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 1.75rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box > p {
+            color: var(--gray);
+            margin-bottom: 28px;
+            font-size: 1.05rem;
+        }
+
+        .cta-box .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
+            color: var(--amber);
+            margin-top: 16px;
+        }
+
+        .gift-note {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            padding: 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .scams-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero {
+                padding: 120px 20px 60px;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .stats-grid {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 1.75rem;
+            }
+            .cta-section {
+                padding: 60px 20px;
+            }
+            .cta-box {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="learn.html">How Scams Work</a>
+            <a href="support.html">Support</a>
+            <a href="index.html#pricing" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">👨‍👩‍👧‍👦 For Adult Children Protecting Their Parents</div>
+            <h1>They Worked a Lifetime for This. <span>Don't Let a Scammer Take It.</span></h1>
+            <p>Seniors lost $81.5 billion to email scams last year. One fake email from "Medicare" or "the IRS" can wipe out decades of savings. Give them protection they can't see coming.</p>
+            <div class="hero-buttons">
+                <a href="index.html#pricing" class="btn">Protect Them Now</a>
+                <a href="learn.html" class="btn btn-outline">See How Scams Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">$81.5B</div>
+                <div class="stat-label">Lost by seniors to fraud in 2024</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4x</div>
+                <div class="stat-label">Increase in losses since 2020</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">$100K+</div>
+                <div class="stat-label">Losses up 5x in 4 years</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">68%</div>
+                <div class="stat-label">Of losses are life-changing amounts</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Scams Targeting Your Parents</h2>
+                <p>Criminals know exactly how to exploit trust, authority, and urgency. These are the most common attacks on seniors.</p>
+            </div>
+            <div class="scams-grid">
+                <div class="scam-card">
+                    <h3>Government Impersonation</h3>
+                    <p>Fake emails claiming to be from Social Security, Medicare, or the IRS threaten benefits suspension or legal action.</p>
+                    <div class="scam-example">"Your Social Security number has been suspended due to suspicious activity. Call immediately to avoid arrest."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Tech Support Scams</h3>
+                    <p>Fake Microsoft or Apple alerts claim their computer is infected, tricking them into granting remote access.</p>
+                    <div class="scam-example">"VIRUS DETECTED! Your computer has been compromised. Call this number immediately for support."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Sweepstakes & Lottery</h3>
+                    <p>Emails announcing fake winnings require "processing fees" or personal information to claim prizes that don't exist.</p>
+                    <div class="scam-example">"Congratulations! You've won $2.5 million. Pay the $499 processing fee to receive your check."</div>
+                </div>
+                <div class="scam-card">
+                    <h3>Grandparent Scams</h3>
+                    <p>Criminals pose as grandchildren in trouble, begging for money to be wired immediately for bail, hospital bills, or emergencies.</p>
+                    <div class="scam-example">"Grandma, it's me. I'm in jail and I need you to wire $8,000 right now. Please don't tell Mom and Dad."</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-mid">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Stories, Real Losses</h2>
+                <p>These aren't statistics. They're someone's parents, grandparents, and neighbors.</p>
+            </div>
+            <div class="story-card">
+                <p>"My mother received an email that looked exactly like it came from Medicare. It said her coverage was being terminated and she needed to 'verify her identity' immediately. She gave them everything — Social Security number, bank account, Medicare ID. By the time I found out, they had drained her savings."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Daughter of 78-year-old victim</span>
+                    <span class="story-loss">Lost: $67,000</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <p>"Dad got a call after clicking an email link saying his computer was infected. He let them remote in to 'fix it.' They convinced him to move his money to a 'safe account' while they secured his computer. He lost his entire retirement."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Son of 82-year-old victim</span>
+                    <span class="story-loss">Lost: $340,000</span>
+                </div>
+            </div>
+            <div class="story-card">
+                <p>"The email said my grandmother won a sweepstakes. All she had to do was pay the taxes upfront. She paid $500, then $2,000, then $15,000 — each time they said it was the 'final fee.' By the end, she had refinanced her house."</p>
+                <div class="story-attribution">
+                    <span class="story-source">— Granddaughter of 74-year-old victim</span>
+                    <span class="story-loss">Lost: $180,000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2>How Email Fraud Alert Protects Them</h2>
+                <p>We catch the scam before they fall for it — automatically, invisibly, every time they open an email.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>Government Impersonation Detection</h3>
+                    <p>Catches fake IRS, SSA, and Medicare emails using lookalike domains and spoofed sender names.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Urgent Language Warnings</h3>
+                    <p>Flags high-pressure phrases like "act immediately" or "your account will be suspended."</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <h3>Lookalike Email Detection</h3>
+                    <p>Spots fake addresses that look almost identical to real ones — the #1 scam tactic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </div>
+                    <h3>Reply-To Mismatch Alerts</h3>
+                    <p>Warns when hitting "reply" would send their response to a different, dangerous address.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <h3>Display Name Spoofing</h3>
+                    <p>Exposes when the name shows "Social Security Admin" but the email is from a random Gmail.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3>Silent Protection</h3>
+                    <p>Works automatically in Gmail and Outlook. No buttons to click. No training required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-box">
+            <h2>Give Them Protection, Not Worry</h2>
+            <p>Install it on their computer in 60 seconds. They'll never know it's there — until it saves them from a scam.</p>
+            <a href="index.html#pricing" class="btn">Protect Your Parents Now</a>
+            <p class="price">$1.99/month — Cancel anytime</p>
+            <p class="gift-note">💝 Makes a meaningful gift. Protects what matters most.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Baynac LLC. All rights reserved.</p>
+        <p style="margin-top: 12px;">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+        </p>
+    </footer>
+</body>
+</html>
