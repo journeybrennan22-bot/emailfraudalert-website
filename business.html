@@ -328,34 +328,31 @@
 
         .target-list {
             list-style: none;
-            max-width: 500px;
-            margin: 0 auto 32px;
+            display: inline-block;
             text-align: left;
+            margin: 0 auto 32px;
         }
 
         .target-list li {
-            padding: 8px 0;
-            padding-left: 24px;
-            position: relative;
-            font-size: 1.05rem;
+            padding: 10px 0;
+            font-size: 1.1rem;
             color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .target-list li::before {
             content: '•';
             color: var(--amber);
-            font-weight: 700;
-            position: absolute;
-            left: 0;
+            font-size: 1.5rem;
+            line-height: 1;
         }
 
         .target-tagline {
             font-size: 1.15rem;
-            color: var(--gray);
-        }
-
-        .target-tagline strong {
             color: var(--amber);
+            font-weight: 600;
         }
 
         .scams-grid {
@@ -712,7 +709,7 @@
                     <li>Handles client funds or trust accounts</li>
                     <li>Manages sensitive financial or personal data</li>
                 </ul>
-                <p class="target-tagline"><strong>1 employee or 1,000 — if money moves through your inbox, criminals are watching.</strong></p>
+                <p class="target-tagline">1 employee or 1,000 — if money or client data moves through your inbox, criminals are watching.</p>
             </div>
         </div>
     </section>
