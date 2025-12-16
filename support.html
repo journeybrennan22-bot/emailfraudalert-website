@@ -557,7 +557,7 @@
                 </div>
                 <div class="faq-answer">
                     <div class="faq-answer-content">
-                        Email us at <a href="/cdn-cgi/l/email-protection#0c7f797c7c637e784c69616d65606a7e6d79686d60697e78226f6361"><span class="__cf_email__" data-cfemail="d9aaaca9a9b6abad99bcb4b8b0b5bfabb8acbdb8b5bcabadf7bab6b4">[email&#160;protected]</span></a> with the email address associated with your account, and we'll cancel your subscription immediately. You'll retain access until the end of your current billing period.
+                        Email us at <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a> with the email address associated with your account, and we'll cancel your subscription immediately. You'll retain access until the end of your current billing period.
                     </div>
                 </div>
             </div>
@@ -581,4 +581,29 @@
         <p style="margin-top: 12px;">
             <a href="index.html">Home</a>
             <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
         
