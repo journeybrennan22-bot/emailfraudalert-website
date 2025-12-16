@@ -258,12 +258,15 @@
         }
 
         .stats-grid {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            display: flex;
+            justify-content: space-evenly;
             text-align: center;
+        }
+
+        .stat {
+            flex: 0 1 auto;
         }
 
         .stat-number {
