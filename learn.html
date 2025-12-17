@@ -367,6 +367,34 @@
             margin: 0 auto;
         }
 
+        .action-box {
+            background: rgba(245, 158, 11, 0.15);
+            border: 2px solid var(--amber);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 50px;
+        }
+
+        .action-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--amber);
+        }
+
+        .action-box ol {
+            margin: 0;
+            padding-left: 24px;
+        }
+
+        .action-box li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .action-box li:last-child {
+            margin-bottom: 0;
+        }
+
         .tactic {
             margin-bottom: 50px;
             padding-bottom: 50px;
@@ -666,6 +694,9 @@
                 flex-direction: column;
                 gap: 12px;
             }
+            .action-box {
+                padding: 20px 24px;
+            }
         }
     </style>
 </head>
@@ -780,14 +811,19 @@
     </section>
 
     <section class="content">
-<div class="action-box">
-    <h3>You Got a Warning. Here's What to Do:</h3>
-    <ol>
-        <li><strong>Don't</strong> reply, click links, or send money</li>
-        <li><strong>Call</strong> the sender at a number you find yourself — not from the email</li>
-        <li><strong>When in doubt,</strong> delete it</li>
-    </ol>
-</div>
+        <div class="section-intro">
+            <h2>6 Tactics. Millions of Victims.</h2>
+            <p>Every email scam uses the same playbook. Learn to recognize the tricks — or let us catch them for you.</p>
+        </div>
+
+        <div class="action-box">
+            <h3>You Got a Warning. Here's What to Do:</h3>
+            <ol>
+                <li><strong>Don't</strong> reply, click links, or send money</li>
+                <li><strong>Call</strong> the sender at a number you find yourself — not from the email</li>
+                <li><strong>When in doubt,</strong> delete it</li>
+            </ol>
+        </div>
 
         <div class="tactic" id="lookalike">
             <div class="tactic-header">
