@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Email Scams Work - Email Fraud Alert</title>
-    <meta name="description" content="Learn how criminals steal money and identities through email. The 6 tactics used in email scams, wire fraud, and identity theft - and how to stop them.">
+    <meta name="description" content="Learn how criminals steal money and identities through email. The 10 tactics used in email scams, wire fraud, and identity theft - and how to stop them.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -338,6 +338,35 @@
             color: var(--gray);
         }
 
+        .highlight-stat {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            font-size: 1rem;
+            color: var(--amber);
+        }
+
+        .keyword-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .keyword-category h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--amber);
+            margin-bottom: 8px;
+        }
+
+        .keyword-category p {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
         .victims {
             background: var(--dark-mid);
             padding: 80px 40px;
@@ -524,6 +553,9 @@
             .victim-stories {
                 grid-template-columns: 1fr;
             }
+            .keyword-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -601,28 +633,67 @@
         </div>
 
         <div class="section-intro">
-            <h2>6 Tactics Scammers Use</h2>
+            <h2>10 Tactics Scammers Use</h2>
             <p>Recognize the tricks — here's what we scan for.</p>
         </div>
 
-        <div class="tactic" id="lookalike">
+        <!-- TACTIC 1: Brand Impersonation -->
+        <div class="tactic" id="brand-impersonation">
             <div class="tactic-header">
                 <div class="tactic-number">1</div>
+                <div>
+                    <h3>Brand Impersonation</h3>
+                    <p class="tactic-subtitle">The brand you trust, the sender you shouldn't.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Scammers know you trust certain companies. So they write emails that mention DocuSign, PayPal, Microsoft, or Amazon — complete with logos and official-sounding language. But the actual sender has nothing to do with that company.</p>
+                <div class="highlight-stat">Our brand impersonation detection covers the most-targeted companies globally, catching an estimated 80-85% of brand-based phishing attacks.</div>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>You get an email saying "Your DocuSign document is ready for signature." It looks real. The formatting matches what you've seen before. But the sender address is notifications@secure-doc-center.com, not docusign.com. You click, enter your credentials, and now they have access to your accounts — or worse, you wire money based on fraudulent instructions in the "document."</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Scan For</div>
+                    <p>When an email mentions a known brand, we check if the sender domain actually belongs to that brand. DocuSign only sends from @docusign.com and @docusign.net. PayPal only sends from @paypal.com. Microsoft only sends from @microsoft.com, @office.com, and a handful of other verified domains.</p>
+                    <p>If the email talks about one company but comes from somewhere else, you'll see a warning.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Brands We Protect Against</div>
+                    <p>Microsoft, Google, Amazon, PayPal, Apple, Facebook, Netflix, DocuSign, Adobe Sign, Dropbox, LinkedIn, DHL, FedEx, UPS, USPS, Zelle, Venmo, Cash App, Zoom, QuickBooks, Yahoo, McAfee, Coinbase, and more.</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Business users</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 2: Lookalike Email Addresses -->
+        <div class="tactic" id="lookalike">
+            <div class="tactic-header">
+                <div class="tactic-number">2</div>
                 <div>
                     <h3>Lookalike Email Addresses</h3>
                     <p class="tactic-subtitle">One character. Total impersonation.</p>
                 </div>
             </div>
             <div class="tactic-content">
-                <p>Criminals create email addresses nearly identical to someone you trust — your bank, your boss, your escrow officer. They change one letter, add an extra character, or swap an "l" for a "1." You glance at it, it looks right, so you trust it.</p>
+                <p>Criminals create email addresses nearly identical to someone you trust — your bank, your boss, your escrow officer, your client. They change one letter, add an extra character, or swap an "l" for a "1." You glance at it, it looks right, so you trust it.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
-                    <p>An escrow officer gets an email from "the seller" asking to change the wiring instructions for their proceeds. The email address is off by one character — but who checks? The officer wires $380,000 to a criminal's account. Within hours, the money hops through a chain of banks and lands overseas. It's gone. And the escrow company is on the hook for every dollar.</p>
+                    <p>An escrow officer gets an email from "the seller" asking to change the wiring instructions for their proceeds. The email address is off by one character — sara.milller@gmail.com instead of sara.miller@gmail.com. Who checks for three L's? The officer wires $380,000 to a criminal's account. Within hours, the money hops through a chain of banks and lands overseas. It's gone.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What Makes Our Detection Different</div>
+                    <p>Most security tools compare against a generic database. We compare incoming emails against YOUR actual contacts. If you've emailed sara.miller@gmail.com before and suddenly get an email from sara.milller@gmail.com, we flag it immediately. The closer the match, the more likely it's an impersonation attempt.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">Examples</div>
                     <div class="email-fake">support@chase.com → support@cha<span class="bad">s</span>se.com</div>
-                    <div class="email-fake">service@paypal.com → service@paypa<span class="bad">1</span>.com</div>
+                    <div class="email-fake">john@firstam.com → john@firstar<span class="bad">n</span>.com</div>
                     <div class="email-fake">sara.miller@gmail.com → sara.mi<span class="bad">ll</span>ler@gmail.com</div>
                 </div>
                 <div class="targets">
@@ -634,9 +705,10 @@
             </div>
         </div>
 
+        <!-- TACTIC 3: Reply-To Hijacking -->
         <div class="tactic" id="reply-to">
             <div class="tactic-header">
-                <div class="tactic-number">2</div>
+                <div class="tactic-number">3</div>
                 <div>
                     <h3>Reply-To Hijacking</h3>
                     <p class="tactic-subtitle">Your reply goes to them, not who you think.</p>
@@ -646,7 +718,11 @@
                 <p>The "From" address looks legitimate — maybe even your CEO's real email. But hidden in the email header is a different "Reply-To" address. When you hit reply, your response goes straight to the scammer, not the person you think you're emailing.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
-                    <p>You get an email that appears to be from your boss asking you to process a vendor payment. You reply with questions, they answer convincingly, and you send the wire. Every reply went to a criminal in another country.</p>
+                    <p>You get an email that appears to be from your boss asking you to process a vendor payment. You reply with questions, they answer convincingly, and you send the wire. You had a whole email conversation. But every single reply went to a criminal in another country who was pretending to be your boss.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Why This Is Dangerous</div>
+                    <p>This attack is completely invisible in normal email use. The "From" line shows your boss's name and email. You have to manually inspect the email headers to see the reply-to mismatch — and nobody does that.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">How It Works</div>
@@ -663,111 +739,24 @@
             </div>
         </div>
 
-        <div class="tactic" id="keywords">
-            <div class="tactic-header">
-                <div class="tactic-number">3</div>
-                <div>
-                    <h3>Dangerous Keywords</h3>
-                    <p class="tactic-subtitle">The language of fraud.</p>
-                </div>
-            </div>
-            <div class="tactic-content">
-                <p>Scam emails use specific phrases designed to pressure you into acting before you think. They create urgency, threaten consequences, or request sensitive financial actions. These aren't random — they're proven manipulation tactics.</p>
-                <div class="example-box">
-                    <div class="example-label">How Scammers Use It</div>
-                    <p>You receive an email saying "Your account will be suspended in 24 hours" or "Updated wire instructions — please confirm receipt." The urgency makes you act fast. You send money or credentials without verifying, and it's gone.</p>
-                </div>
-                <div class="example-box">
-                    <div class="example-label">Red Flags</div>
-                    <p>"Verify your account immediately"</p>
-                    <p>"Updated wire instructions"</p>
-                    <p>"Unusual sign-in activity detected"</p>
-                    <p>"Your account will be suspended"</p>
-                    <p>"Confirm your identity"</p>
-                    <p>"Action required within 24 hours"</p>
-                </div>
-                <div class="targets">
-                    <span class="target-tag">Bank customers</span>
-                    <span class="target-tag">Online shoppers</span>
-                    <span class="target-tag">Account holders</span>
-                    <span class="target-tag">Everyone</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="tactic" id="domain">
-            <div class="tactic-header">
-                <div class="tactic-number">4</div>
-                <div>
-                    <h3>Deceptive Domains</h3>
-                    <p class="tactic-subtitle">Familiar names, criminal origins.</p>
-                </div>
-            </div>
-            <div class="tactic-content">
-                <p>Criminals register domains that look like trusted companies by adding words, using foreign extensions, or exploiting typos. At a glance, they look official. They're not.</p>
-                <div class="example-box">
-                    <div class="example-label">How Scammers Use It</div>
-                    <p>You get an email from "support@amazon-secure.com" or "billing@paypal.com.co" asking you to verify your payment method. The logo looks real. The domain looks close enough. You click, enter your credentials, and they now own your account.</p>
-                </div>
-                <div class="example-box">
-                    <div class="example-label">Fake Domains</div>
-                    <div class="email-fake"><span class="bad">amazon.com.co</span> — Not Amazon</div>
-                    <div class="email-fake"><span class="bad">paypal-secure.com</span> — Not PayPal</div>
-                    <div class="email-fake"><span class="bad">apple.support-id.com</span> — Not Apple</div>
-                    <div class="email-fake"><span class="bad">irs.gov.tax-refund.com</span> — Not the IRS</div>
-                </div>
-                <div class="targets">
-                    <span class="target-tag">Online shoppers</span>
-                    <span class="target-tag">Taxpayers</span>
-                    <span class="target-tag">Tech users</span>
-                    <span class="target-tag">Everyone</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="tactic" id="display-name">
-            <div class="tactic-header">
-                <div class="tactic-number">5</div>
-                <div>
-                    <h3>Display Name Spoofing</h3>
-                    <p class="tactic-subtitle">The name you trust, the address you ignore.</p>
-                </div>
-            </div>
-            <div class="tactic-content">
-                <p>Email programs show the sender's display name prominently — "Bank of America Security" or "Dr. Smith's Office" — while hiding the actual email address. Criminals set any display name they want, regardless of what address they're actually sending from.</p>
-                <div class="example-box">
-                    <div class="example-label">How Scammers Use It</div>
-                    <p>Your inbox shows an email from "Chase Fraud Department." You open it concerned. But the actual address is xr7829@randomserver.net. You click the link, enter your banking login, and they drain your account.</p>
-                </div>
-                <div class="example-box">
-                    <div class="example-label">What You See vs. Reality</div>
-                    <p><strong>In your inbox:</strong> "Bank of America Security"</p>
-                    <p><strong>Actual address:</strong> xr77281@randomdomain.com</p>
-                    <p><strong>In your inbox:</strong> "Dr. Smith's Office"</p>
-                    <p><strong>Actual address:</strong> notreal@spamserver.net</p>
-                </div>
-                <div class="targets">
-                    <span class="target-tag">Patients</span>
-                    <span class="target-tag">Clients</span>
-                    <span class="target-tag">Customers</span>
-                    <span class="target-tag">Everyone</span>
-                </div>
-            </div>
-        </div>
-
+        <!-- TACTIC 4: Invisible Character Tricks -->
         <div class="tactic" id="characters">
             <div class="tactic-header">
-                <div class="tactic-number">6</div>
+                <div class="tactic-number">4</div>
                 <div>
                     <h3>Invisible Character Tricks</h3>
                     <p class="tactic-subtitle">Identical to your eyes. Different to computers.</p>
                 </div>
             </div>
             <div class="tactic-content">
-                <p>The Russian letter "о" looks exactly like the English letter "o" — but to a computer, they're completely different characters. Criminals swap these lookalike letters to create email addresses that are visually perfect forgeries. You literally cannot see the difference.</p>
+                <p>The Cyrillic letter "а" looks exactly like the English letter "a" — but to a computer, they're completely different characters. Criminals swap these lookalike letters (called homoglyphs) to create email addresses that are visually perfect forgeries. You literally cannot see the difference.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
-                    <p>You receive an email from "accounts@micrоsoft.com" — except that "о" is Cyrillic, not English. Your eyes see Microsoft. The email looks legitimate. You reset your password through their fake link, and they now control your account.</p>
+                    <p>You receive an email from "accounts@microsoft.com" — except that "о" in microsoft is Cyrillic, not English. Your eyes see Microsoft. The email looks legitimate. You reset your password through their fake link, and they now control your account.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Why Only Software Can Catch This</div>
+                    <p>Human eyes cannot distinguish between these characters. They look identical. Only software scanning the actual character codes can detect the substitution.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">Can You Tell the Difference?</div>
@@ -779,6 +768,209 @@
                     <span class="target-tag">Tech companies</span>
                     <span class="target-tag">Banks</span>
                     <span class="target-tag">Government</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 5: Display Name Spoofing -->
+        <div class="tactic" id="display-name">
+            <div class="tactic-header">
+                <div class="tactic-number">5</div>
+                <div>
+                    <h3>Display Name Spoofing</h3>
+                    <p class="tactic-subtitle">The name you trust, the address you ignore.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Email programs show the sender's display name prominently — "Bank of America Security" or "IT Support" or "DocuSign" — while hiding or minimizing the actual email address. Criminals set any display name they want, regardless of what address they're actually sending from.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>Your inbox shows an email from "Chase Fraud Department." You open it, concerned about your account. But the actual sending address is xr7829@randomserver.net. You click the link, enter your banking login, and they drain your account.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Scan For</div>
+                    <p>We flag emails where the display name contains trusted company keywords or official-sounding phrases but the actual email domain doesn't match. If someone calls themselves "PayPal Support" but emails from a Gmail address, that's a red flag.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What You See vs. Reality</div>
+                    <p><strong>In your inbox:</strong> "Bank of America Security"</p>
+                    <p><strong>Actual address:</strong> xr77281@randomdomain.com</p>
+                    <p><strong>In your inbox:</strong> "DocuSign"</p>
+                    <p><strong>Actual address:</strong> notreal@spamserver.net</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Patients</span>
+                    <span class="target-tag">Clients</span>
+                    <span class="target-tag">Customers</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 6: Dangerous Keywords -->
+        <div class="tactic" id="keywords">
+            <div class="tactic-header">
+                <div class="tactic-number">6</div>
+                <div>
+                    <h3>Dangerous Keywords</h3>
+                    <p class="tactic-subtitle">The language of fraud.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Scam emails use specific phrases designed to pressure you into acting before you think. They create urgency, threaten consequences, impersonate authority figures, or request sensitive financial actions. These aren't random — they're proven manipulation tactics.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>You receive an email saying "Your account will be suspended in 24 hours" or "Updated wire instructions — please confirm receipt." The urgency makes you act fast. You send money or credentials without verifying, and it's gone.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Scan For</div>
+                    <p>Over 50 phrases across four categories:</p>
+                    <div class="keyword-grid">
+                        <div class="keyword-category">
+                            <h4>Wire Fraud Terms</h4>
+                            <p>"Wire transfer," "routing number," "bank account details," "updated wire instructions," "ACH transfer"</p>
+                        </div>
+                        <div class="keyword-category">
+                            <h4>Urgency Tactics</h4>
+                            <p>"Act now," "urgent action required," "account suspended," "expires today," "last chance"</p>
+                        </div>
+                        <div class="keyword-category">
+                            <h4>Authority Impersonation</h4>
+                            <p>"CEO request," "CFO request," "boss asked," "owner request," "executive request"</p>
+                        </div>
+                        <div class="keyword-category">
+                            <h4>Financial Verification</h4>
+                            <p>"Verify your account," "confirm your identity," "update payment method," "unusual activity"</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Bank customers</span>
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 7: Deceptive TLDs -->
+        <div class="tactic" id="deceptive-tlds">
+            <div class="tactic-header">
+                <div class="tactic-number">7</div>
+                <div>
+                    <h3>Deceptive TLDs</h3>
+                    <p class="tactic-subtitle">Familiar names, hidden geography.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Criminals register domains that look like trusted .com addresses by using country-code extensions that include ".com" in them. At a glance, paypal.com.br looks like it might be related to paypal.com. It's not — it's a completely separate domain that anyone can register.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>You get an email from billing@amazon.com.co asking you to verify your payment method. You see "amazon.com" and your brain fills in the rest. But .com.co is a completely different domain, and anyone can register one. The real Amazon has nothing to do with this email.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Deceptive Patterns We Flag</div>
+                    <div class="email-fake"><span class="bad">amazon.com.co</span> — Not Amazon</div>
+                    <div class="email-fake"><span class="bad">paypal.com.br</span> — Not PayPal</div>
+                    <div class="email-fake"><span class="bad">apple.com.mx</span> — Not Apple</div>
+                    <div class="email-fake"><span class="bad">irs.gov.tax-refund.com</span> — Not the IRS</div>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Taxpayers</span>
+                    <span class="target-tag">Tech users</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 8: Foreign Sender Identification -->
+        <div class="tactic" id="foreign-sender">
+            <div class="tactic-header">
+                <div class="tactic-number">8</div>
+                <div>
+                    <h3>Foreign Sender Identification</h3>
+                    <p class="tactic-subtitle">Know where your email actually comes from.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>When an email arrives from a foreign country-code domain, we tell you exactly which country. This isn't about blocking international email — it's about giving you context to make informed decisions.</p>
+                <div class="example-box">
+                    <div class="example-label">Why This Matters</div>
+                    <p>If you're expecting wire instructions from your US-based title company and the email comes from a foreign domain, that's critical information. Your American bank shouldn't be emailing you from overseas. Your local escrow company doesn't operate from another country.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Do</div>
+                    <p>Instead of a generic warning, we identify the actual country of origin. You'll see exactly where the email came from, so you can decide if that makes sense for the context.</p>
+                    <p>We identify every country-code TLD in the world — over 250 countries.</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Financial professionals</span>
+                    <span class="target-tag">Real estate</span>
+                    <span class="target-tag">Business owners</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 9: Suspicious TLDs -->
+        <div class="tactic" id="suspicious-tlds">
+            <div class="tactic-header">
+                <div class="tactic-number">9</div>
+                <div>
+                    <h3>Suspicious TLDs</h3>
+                    <p class="tactic-subtitle">The domains scammers love.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Some top-level domains are favorites of criminals because they're free, anonymous, or have minimal registration requirements. While legitimate sites exist on these domains, they're disproportionately used for phishing and scams.</p>
+                <div class="example-box">
+                    <div class="example-label">Why We Flag These</div>
+                    <p>According to security research, certain TLDs have malicious registration rates above 10%. A legitimate business email is unlikely to come from these domains. If your "bank" is emailing you from one of these addresses, something is very wrong.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">High-Risk Domains We Flag</div>
+                    <div class="email-fake"><span class="bad">.tk, .ml, .ga, .cf</span> — Free domains, massively abused</div>
+                    <div class="email-fake"><span class="bad">.cc</span> — Popular with scammers due to cheap registration</div>
+                    <p>These TLDs aren't inherently malicious, but they require extra scrutiny when combined with financial requests or brand impersonation.</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Bank customers</span>
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 10: Third-Party Routing -->
+        <div class="tactic" id="routing">
+            <div class="tactic-header">
+                <div class="tactic-number">10</div>
+                <div>
+                    <h3>Third-Party Routing</h3>
+                    <p class="tactic-subtitle">The hidden path your email took.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Sometimes an email shows one sender address but actually traveled through completely different servers. Email programs show this as "via" — like "john@company.com via sketchy-server.net." This can be legitimate (companies use email services like SendGrid or Mailchimp), but it can also indicate spoofing.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>An attacker sends an email that appears to be from your colleague but routes it through a random server they control. The "from" address looks right, but the email infrastructure tells a different story.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Do</div>
+                    <p>We maintain a whitelist of legitimate email routing services. When an email is routed through a server NOT on our whitelist — especially something random or suspicious — we flag it.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Legitimate Routing Services (No Warning)</div>
+                    <p>SendGrid, Mailchimp, Constant Contact, Amazon SES, Google, Microsoft Office 365, Salesforce, HubSpot, and other major email infrastructure providers.</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Business users</span>
+                    <span class="target-tag">Enterprise</span>
+                    <span class="target-tag">IT teams</span>
                     <span class="target-tag">Everyone</span>
                 </div>
             </div>
@@ -817,7 +1009,7 @@
     <section class="cta">
         <div class="cta-box">
             <h2>See the Danger Before You Click</h2>
-            <p>Email Fraud Alert automatically scans every email for all 6 impersonation tactics. You'll see a warning before you make a mistake you can't undo.</p>
+            <p>Email Fraud Alert automatically scans every email for all 10 scam tactics. You'll see a warning before you make a mistake you can't undo.</p>
             <div class="cta-features">
                 <div class="cta-feature">
                     <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
