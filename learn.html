@@ -749,7 +749,7 @@
                 </div>
             </div>
             <div class="tactic-content">
-                <p>The Cyrillic letter "а" looks exactly like the English letter "a" — but to a computer, they're completely different characters. Criminals swap these lookalike letters (called homoglyphs) to create email addresses that are visually perfect forgeries. You literally cannot see the difference.</p>
+                <p>The Cyrillic letter "а" looks exactly like the English letter "a" — but to a computer, they're completely different characters. Criminals swap these lookalike letters to create email addresses that are visually perfect forgeries. You literally cannot see the difference.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
                     <p>You receive an email from "accounts@microsoft.com" — except that "о" in microsoft is Cyrillic, not English. Your eyes see Microsoft. The email looks legitimate. You reset your password through their fake link, and they now control your account.</p>
@@ -949,7 +949,7 @@
             <div class="tactic-header">
                 <div class="tactic-number">10</div>
                 <div>
-                    <h3>Third-Party Routing</h3>
+                    <h3>Suspicious Routing</h3>
                     <p class="tactic-subtitle">The hidden path your email took.</p>
                 </div>
             </div>
@@ -957,11 +957,11 @@
                 <p>Sometimes an email shows one sender address but actually traveled through completely different servers. Email programs show this as "via" — like "john@company.com via sketchy-server.net." This can be legitimate (companies use email services like SendGrid or Mailchimp), but it can also indicate spoofing.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
-                    <p>An attacker sends an email that appears to be from your colleague but routes it through a random server they control. The "from" address looks right, but the email infrastructure tells a different story.</p>
+                    <p>An attacker sends an email that appears to be from your colleague but routes it through a random server they control. The "from" address looks right, but the email's path tells a different story.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">What We Do</div>
-                    <p>We maintain a whitelist of legitimate email routing services. When an email is routed through a server NOT on our whitelist — especially something random or suspicious — we flag it.</p>
+                    <p>We maintain a list of trusted email routing services. When an email is routed through a server NOT on our whitelist — especially something random or suspicious — we flag it.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">Legitimate Routing Services (No Warning)</div>
