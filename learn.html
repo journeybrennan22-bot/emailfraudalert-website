@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How Email Scams Work - Email Fraud Alert</title>
-    <meta name="description" content="Learn how criminals steal money and identities through email. The 10 tactics used in email scams, wire fraud, and identity theft - and how to stop them.">
+    <meta name="description" content="Learn how criminals steal money and identities through email. The 12 tactics used in email scams, wire fraud, and identity theft - and how to stop them.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
@@ -367,6 +367,25 @@
             margin-bottom: 4px;
         }
 
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .brand-category h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--amber);
+            margin-bottom: 8px;
+        }
+
+        .brand-category p {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
         .victims {
             background: var(--dark-mid);
             padding: 80px 40px;
@@ -556,6 +575,9 @@
             .keyword-grid {
                 grid-template-columns: 1fr;
             }
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -633,39 +655,98 @@
         </div>
 
         <div class="section-intro">
-            <h2>10 Tactics Scammers Use</h2>
+            <h2>12 Tactics Scammers Use</h2>
             <p>Recognize the tricks — here's what we scan for.</p>
         </div>
 
-        <!-- TACTIC 1: Brand Impersonation -->
+        <!-- TACTIC 1: Brand & Government Impersonation -->
         <div class="tactic" id="brand-impersonation">
             <div class="tactic-header">
                 <div class="tactic-number">1</div>
                 <div>
-                    <h3>Brand Impersonation</h3>
+                    <h3>Brand & Government Impersonation</h3>
                     <p class="tactic-subtitle">The brand you trust, the sender you shouldn't.</p>
                 </div>
             </div>
             <div class="tactic-content">
-                <p>Scammers know you trust certain companies. So they write emails that mention DocuSign, PayPal, Microsoft, or Amazon — complete with logos and official-sounding language. But the actual sender has nothing to do with that company.</p>
-                <div class="highlight-stat">Our brand impersonation detection covers the most-targeted companies globally, catching an estimated 87-90% of brand-based phishing attacks.</div>
+                <p>Scammers know you trust certain companies and government agencies. So they write emails that mention DocuSign, PayPal, Microsoft, the IRS, or your state DMV — complete with logos and official-sounding language. But the actual sender has nothing to do with that organization.</p>
+                <div class="highlight-stat">Our detection covers 100+ brands and government agencies across 13 categories — the most-targeted organizations globally, catching an estimated 87-90% of brand-based phishing attacks.</div>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
                     <p>You get an email saying "Your DocuSign document is ready for signature." It looks real. The formatting matches what you've seen before. But the sender address is notifications@secure-doc-center.com, not docusign.com. You click, enter your credentials, and now they have access to your accounts — or worse, you wire money based on fraudulent instructions in the "document."</p>
+                    <p>Or you receive a notice that your "driver's license renewal requires immediate action" from what looks like your state DMV. The sender? A random domain with no .gov address in sight.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">What We Scan For</div>
-                    <p>When an email mentions a known brand, we check if the sender domain actually belongs to that brand. DocuSign only sends from @docusign.com and @docusign.net. PayPal only sends from @paypal.com. Microsoft only sends from @microsoft.com, @office.com, and a handful of other verified domains.</p>
-                    <p>If the email talks about one company but comes from somewhere else, you'll see a warning.</p>
+                    <p>When an email mentions a known brand or government agency, we check if the sender domain actually belongs to that organization. DocuSign only sends from @docusign.com and @docusign.net. PayPal only sends from @paypal.com. The IRS only sends from @irs.gov. Your state DMV only sends from .gov addresses.</p>
+                    <p>If the email talks about one organization but comes from somewhere else, you'll see a warning.</p>
                 </div>
                 <div class="example-box">
-                    <div class="example-label">Brands We Protect Against</div>
-                    <p>Microsoft, Google, Amazon, PayPal, Apple, Facebook, Netflix, DocuSign, Adobe Sign, Dropbox, LinkedIn, DHL, FedEx, UPS, USPS, Zelle, Venmo, Cash App, Zoom, QuickBooks, Yahoo, McAfee, Coinbase, Walmart, Target, Costco, Best Buy, Home Depot, Lowe's, eBay, and more.</p>
+                    <div class="example-label">Brands & Agencies We Protect Against</div>
+                    <div class="brand-grid">
+                        <div class="brand-category">
+                            <h4>Shopping & Retail</h4>
+                            <p>Amazon, Walmart, Target, Costco, Best Buy, Home Depot, Lowe's, eBay</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Financial Services</h4>
+                            <p>PayPal, Zelle, Venmo, Cash App, Visa, Mastercard, Chase, Bank of America, Wells Fargo, Citibank, Capital One, American Express, Robinhood, Fidelity, Charles Schwab, TD Ameritrade</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Tech & Productivity</h4>
+                            <p>Microsoft, Google, Apple, Yahoo, Zoom, QuickBooks, DocuSign, Adobe Sign, Dropbox, LinkedIn</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Telecom</h4>
+                            <p>AT&T, Verizon, T-Mobile, Comcast/Xfinity, Spectrum, Cox, CenturyLink, Cricket, Boost Mobile, Metro by T-Mobile, Vodafone, O2, EE, BT, Three</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Social Media</h4>
+                            <p>Facebook, Instagram, WhatsApp, TikTok, Snapchat, X/Twitter, Pinterest, Telegram, Discord, Reddit, Threads, Signal</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Streaming & Entertainment</h4>
+                            <p>Netflix, Spotify, Disney+, Hulu, HBO Max, YouTube, Apple TV+, Peacock, Paramount+, Audible, Tidal, SiriusXM</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Gaming</h4>
+                            <p>Steam, Epic Games, PlayStation, Xbox, Nintendo, Roblox, EA, Activision Blizzard, Riot Games, Ubisoft, Valve, Twitch</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Shipping & Logistics</h4>
+                            <p>DHL, FedEx, UPS, USPS, Royal Mail</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Insurance</h4>
+                            <p>State Farm, GEICO, Progressive, Allstate, USAA, Liberty Mutual, Farmers, Nationwide, UnitedHealthcare, Anthem, Aetna, Cigna, Blue Cross Blue Shield, Humana, MetLife, Prudential, New York Life, Northwestern Mutual</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Travel & Airlines</h4>
+                            <p>Airbnb, Booking.com, Expedia, Southwest, Delta, United, American Airlines, JetBlue, Marriott, Hilton</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Security Software</h4>
+                            <p>Norton, McAfee, Avast, AVG, Kaspersky, Bitdefender, Malwarebytes</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Crypto</h4>
+                            <p>Coinbase, Binance, Kraken, Crypto.com, Gemini</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Government Agencies</h4>
+                            <p>IRS, Social Security Administration, DMV (all 50 states), Medicare, state tax agencies, and other .gov entities</p>
+                        </div>
+                        <div class="brand-category">
+                            <h4>Auto & Memberships</h4>
+                            <p>AAA, Costco Membership, Sam's Club</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Online shoppers</span>
                     <span class="target-tag">Business users</span>
-                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Taxpayers</span>
+                    <span class="target-tag">Gamers</span>
                     <span class="target-tag">Everyone</span>
                 </div>
             </div>
@@ -865,6 +946,7 @@
             </div>
             <div class="tactic-content">
                 <p>Criminals register domains that look like trusted .com addresses by using country-code extensions that include ".com" in them. At a glance, paypal.com.br looks like it might be related to paypal.com. It's not — it's a completely separate domain that anyone can register.</p>
+                <p>They also use commercial domains designed to look like real country codes. Extensions like .uk.com, .us.com, and .de.com aren't official government domains — they're sold by private registrars to anyone willing to pay. But they look close enough to fool most people.</p>
                 <div class="example-box">
                     <div class="example-label">How Scammers Use It</div>
                     <p>You get an email from billing@amazon.com.co asking you to verify your payment method. You see "amazon.com" and your brain fills in the rest. But .com.co is a completely different domain, and anyone can register one. The real Amazon has nothing to do with this email.</p>
@@ -875,6 +957,13 @@
                     <div class="email-fake"><span class="bad">paypal.com.br</span> — Not PayPal</div>
                     <div class="email-fake"><span class="bad">apple.com.mx</span> — Not Apple</div>
                     <div class="email-fake"><span class="bad">irs.gov.tax-refund.com</span> — Not the IRS</div>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Fake Country-Lookalike Domains We Flag</div>
+                    <div class="email-fake"><span class="bad">.uk.com</span> — Not a real UK domain</div>
+                    <div class="email-fake"><span class="bad">.us.com</span> — Not a real US domain</div>
+                    <div class="email-fake"><span class="bad">.de.com, .eu.com, .au.com, .cn.com, .jp.com, .ru.com, .sa.com, .za.com</span></div>
+                    <p>These are commercial domains sold by private registrars. They have nothing to do with the countries they reference. Anyone in the world can register one.</p>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Online shoppers</span>
@@ -891,19 +980,19 @@
                 <div class="tactic-number">8</div>
                 <div>
                     <h3>International Sender</h3>
-                    <p class="tactic-subtitle">Your local bank shouldn't be emailing from overseas.</p>
+                    <p class="tactic-subtitle">Context about where your email actually came from.</p>
                 </div>
             </div>
             <div class="tactic-content">
-                <p>When an email arrives from a foreign country-code domain, we tell you exactly which country. This isn't about blocking international email — it's about giving you context to make informed decisions.</p>
+                <p>When an email arrives from a country-code domain, we tell you exactly which country. This isn't about blocking international email — it's about giving you context to make informed decisions.</p>
                 <div class="example-box">
                     <div class="example-label">Why This Matters</div>
-                    <p>If you're expecting wire instructions from your US-based title company and the email comes from a foreign domain, that's critical information. Your American bank shouldn't be emailing you from overseas. Your local escrow company doesn't operate from another country.</p>
+                    <p>If you're expecting wire instructions from your title company and the email comes from a foreign domain, that's critical information. Your bank shouldn't be emailing you from a different country. Your local escrow company doesn't operate overseas.</p>
                 </div>
                 <div class="example-box">
                     <div class="example-label">What We Do</div>
                     <p>Instead of a generic warning, we identify the actual country of origin. You'll see exactly where the email came from, so you can decide if that makes sense for the context.</p>
-                    <p>We identify every country-code domain in the world — over 250 countries.</p>
+                    <p>We identify every country-code domain in the world — over 250 countries and territories.</p>
                 </div>
                 <div class="targets">
                     <span class="target-tag">Financial professionals</span>
@@ -977,6 +1066,73 @@
                 </div>
             </div>
         </div>
+
+        <!-- TACTIC 11: Gibberish Domains -->
+        <div class="tactic" id="gibberish-domains">
+            <div class="tactic-header">
+                <div class="tactic-number">11</div>
+                <div>
+                    <h3>Gibberish Domains</h3>
+                    <p class="tactic-subtitle">Real companies don't email from keyboard smashes.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Scammers burn through domains fast. They register a random string, blast out thousands of phishing emails, and abandon it before anyone catches on. The result: emails from domains that look like someone fell asleep on the keyboard. No real business operates from xk7rm9.com or ndsm4.fr or vUqC@evda.hoyh.systctlpro.uk.com.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>You get an email about a "payment confirmation" or "account verification." The display name looks official. The logo looks right. But the actual sender address is something like alert4644@ndsm4.fr or notifications@xr7tk2q.shop. You'd catch it if you looked closely — but most people don't look at sender addresses at all.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Scan For</div>
+                    <p>Our gibberish detection analyzes domain names for patterns that don't appear in legitimate business domains. We look for domains with no vowels (like "ndsm4" or "xkrtg"), unusually high ratios of numbers to letters, and chains of random-looking subdomains stacked together. A domain that fails multiple checks gets flagged.</p>
+                    <p>Legitimate short abbreviations like msn.com, bbc.co.uk, and npm.org are excluded — we only flag patterns that are statistically unlikely to be real businesses.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Examples</div>
+                    <div class="email-fake"><span class="bad">alert4644@ndsm4.fr</span> — No vowels, random string</div>
+                    <div class="email-fake"><span class="bad">vUqC@evda.hoyh.systctlpro.uk.com</span> — Stacked gibberish subdomains</div>
+                    <div class="email-fake"><span class="bad">info@xr7tk2q9.shop</span> — High digit ratio, suspicious TLD</div>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Bank customers</span>
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- TACTIC 12: Mass-Distributed Emails -->
+        <div class="tactic" id="mass-distributed">
+            <div class="tactic-header">
+                <div class="tactic-number">12</div>
+                <div>
+                    <h3>Mass-Distributed Emails</h3>
+                    <p class="tactic-subtitle">Your bank doesn't CC 30 strangers on your account alert.</p>
+                </div>
+            </div>
+            <div class="tactic-content">
+                <p>Legitimate invoices, payment confirmations, and account alerts are sent to one person — you. When an email about "your" account or "your" payment is blasted to 10, 20, or 50 recipients at once, that's a mass phishing campaign, not a personal notification.</p>
+                <div class="example-box">
+                    <div class="example-label">How Scammers Use It</div>
+                    <p>You receive an email saying "Your payment of $459.99 has been processed." It looks like a receipt from a company you use. But look at the To and CC fields — the same email was sent to dozens of people. The scammer is casting a wide net, hoping a few recipients will panic and click the "dispute this charge" link.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">What We Scan For</div>
+                    <p>We count the total recipients in the To and CC fields. When an email is sent to 10 or more people and contains content that should be personal — payment confirmations, account alerts, invoice notifications — we flag it. Real companies sending bulk email use BCC or marketing platforms. Scammers just dump addresses into the To field.</p>
+                </div>
+                <div class="example-box">
+                    <div class="example-label">Why It Works</div>
+                    <p>Most people never look at who else received the email. They see their name, they see an amount, they panic. The mass distribution is hiding in plain sight — you just have to know to look for it.</p>
+                </div>
+                <div class="targets">
+                    <span class="target-tag">Bank customers</span>
+                    <span class="target-tag">Online shoppers</span>
+                    <span class="target-tag">Account holders</span>
+                    <span class="target-tag">Everyone</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="victims">
@@ -1011,7 +1167,7 @@
     <section class="cta">
         <div class="cta-box">
             <h2>See the Danger Before You Click</h2>
-            <p>Email Fraud Alert automatically scans every email for all 10 scam tactics. You'll see a warning before you make a mistake you can't undo.</p>
+            <p>Email Fraud Alert automatically scans every email for all 12 scam tactics. You'll see a warning before you make a mistake you can't undo.</p>
             <div class="cta-features">
                 <div class="cta-feature">
                     <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -1070,7 +1226,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Email Fraud Alert. All rights reserved.</p>
+            <p>&copy; 2026 Email Fraud Alert. All rights reserved.</p>
         </div>
     </footer>
 </body>
