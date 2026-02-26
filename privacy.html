@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy – Email Fraud Alert</title>
+  <style>
+    :root { --brand:#f59e0b; --text:#1a1a1a; --muted:#666; }
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,Inter,system-ui,sans-serif;line-height:1.6;color:#333;margin:0}
+    main{max-width:840px;margin:0 auto;padding:40px 20px}
+    h1{color:var(--text);border-bottom:2px solid var(--brand);padding-bottom:10px;margin-top:0}
+    h2{color:var(--text);margin-top:28px}
+    h3{margin-top:20px}
+    p{margin:12px 0}
+    ul{margin:8px 0 16px 20px}
+    .last-updated{color:var(--muted);font-style:italic}
+    a{color:var(--brand)}
+    .note{background:#fff7ed;border-left:4px solid var(--brand);padding:10px 12px;margin:14px 0}
+    footer{margin-top:36px;color:var(--muted)}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last Updated: February 26, 2026</p>
+
+  <p>
+    Email Fraud Alert ("EFA", "we", "us", or "our") is operated by Baynac LLC.
+    This Privacy Policy explains what information our Outlook add-in and browser extension (the "Service") process,
+    how that information is used, and the choices available to you.
+  </p>
+
+  <div class="note">
+    <strong>Plain language summary:</strong> EFA performs fraud analysis locally on your device.
+    We do <em>not</em> collect, store, or transmit your email content, subject lines, attachments, or recipients.
+    For reputation checks, EFA may transmit only a sender's <em>registrable domain</em> (e.g., <code>example.com</code>) over HTTPS to our reputation service.
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>
+    Data Controller: Baynac LLC, doing business as Email Fraud Alert.<br/>
+    Website: <a href="https://www.emailfraudalert.com">www.emailfraudalert.com</a><br/>
+    Contact: <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a>
+  </p>
+
+  <h2>2. Information we process</h2>
+  <h3>2.1 Local email analysis</h3>
+  <p>
+    To detect potential fraud, EFA analyzes technical characteristics of the message within your mail client
+    (for example: sender address, display name, reply‑to domain, header authentication results, URLs and attachments).
+    This analysis happens <strong>locally on your device</strong> or within the Outlook runtime.
+    We do not transmit email bodies, subjects, attachments, or recipients to our servers.
+  </p>
+
+  <h3>2.2 Domain reputation checks (optional)</h3>
+  <p>
+    When enabled, EFA may query our reputation service to assess sender risk. In doing so, the client transmits
+    <strong>only the registrable domain</strong> (eTLD+1), e.g., <code>example.com</code>.
+    <strong>We do not send full URLs, subdomains, paths, IP addresses, message headers, or any email content.</strong>
+    Requests are sent over encrypted HTTPS. Limited, non-personal service telemetry (e.g., uptime metrics) may be collected by our edge provider.
+  </p>
+
+  <h3>2.3 Contacts (for lookalike detection)</h3>
+  <p>
+    With your permission, EFA may read your contacts (e.g., Microsoft 365 Outlook contacts) to compare incoming senders to known correspondents and detect lookalikes.
+    This comparison is performed <strong>locally</strong>. <strong>Contact data never leaves your device</strong> and is never sent to our servers.
+  </p>
+
+  <h3>2.4 Account & billing (paid plans only)</h3>
+  <p>
+    If you subscribe to a paid plan, we collect your email address and billing details through our payment processor (Stripe).
+    We do not store your full credit card number.
+  </p>
+
+  <h2>3. Information we do <em>not</em> collect</h2>
+  <ul>
+    <li>Email body/content</li>
+    <li>Subject lines</li>
+    <li>Attachments</li>
+    <li>Recipient names or addresses</li>
+    <li>Full URLs or paths (for reputation checks we use only the registrable domain)</li>
+    <li>Your contact list contents on our servers (contacts are processed locally only)</li>
+    <li>Browsing history or personal files</li>
+  </ul>
+
+  <h2>4. How we use information</h2>
+  <ul>
+    <li>To detect and warn you about potential email fraud locally</li>
+    <li>To check sender registrable domains against threat intelligence and domain‑age signals</li>
+    <li>To provide and support paid subscriptions (via Stripe)</li>
+    <li>To provide customer support</li>
+    <li>To improve detection quality using <strong>aggregated, non‑identifying usage metrics only</strong>
+        (not email content or message metadata)</li>
+  </ul>
+
+  <h2>5. Data processing locations</h2>
+  <p>
+    Email analysis runs on your device/Outlook environment. Reputation checks (registrable domain only)
+    are handled by our reputation service hosted with Cloudflare and/or our cloud provider.
+    All communications use HTTPS/TLS.
+  </p>
+
+  <h2>6. Third‑party services</h2>
+  <ul>
+    <li><strong>Cloudflare</strong> – secure delivery and reputation service hosting (requests contain only registrable domains). See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.</li>
+    <li><strong>Stripe</strong> – subscription and payment processing. See <a href="https://stripe.com/privacy">Stripe's Privacy Policy</a>.</li>
+    <li><strong>Microsoft Graph API</strong> – optional contact access for lookalike detection (processed locally). See <a href="https://privacy.microsoft.com/">Microsoft's Privacy Statement</a>.</li>
+  </ul>
+
+  <h2>7. Security</h2>
+  <p>
+    We implement administrative, technical, and organizational measures appropriate to the nature of
+    the limited data we process. Reputation queries are transmitted via HTTPS. Sensitive operations like billing are handled by audited third parties (e.g., Stripe).
+    As with any software, no system is 100% secure; report issues to the contact below.
+  </p>
+
+  <h2>8. Data retention</h2>
+  <p>
+    We do not retain email content or message metadata. Reputation results may be cached on the client briefly to improve performance and are not associated with a user or message.
+    Account and billing records are retained while your subscription is active and as required by law. We do not sell personal data.
+  </p>
+
+  <h2>9. Your rights & choices</h2>
+  <ul>
+    <li><strong>Access/Deletion:</strong> You may request access to or deletion of your account/billing data by contacting support.</li>
+    <li><strong>Revoke permissions:</strong> You can revoke the add‑in/extension's permissions (e.g., contact access) at any time in your Microsoft 365 settings.</li>
+    <li><strong>Opt‑out:</strong> You may uninstall the add‑in/extension at any time.</li>
+  </ul>
+
+  <h2>10. Legal bases & regional disclosures</h2>
+  <p>
+    Where applicable (e.g., GDPR), our processing may rely on legitimate interests (fraud detection; service delivery),
+    contract (paid subscriptions), and consent (optional permissions).
+    For CCPA/CPRA, we do not "sell" or "share" personal information as defined by law.
+  </p>
+
+  <h2>11. Children's privacy</h2>
+  <p>
+    The Service is not directed to children under 13 (or the age of digital consent in your jurisdiction).
+    We do not knowingly collect information from children.
+  </p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time.
+    Material changes will be indicated by updating the "Last Updated" date above and posting the revised policy at this URL.
+  </p>
+
+  <h2>13. Contact</h2>
+  <p>
+    Baynac LLC (Email Fraud Alert)<br/>
+    <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a><br/>
+    <a href="https://www.emailfraudalert.com">www.emailfraudalert.com</a>
+  </p>
+
+  <footer>
+    For transparency, this policy applies to our Outlook add‑in and browser extension.
+  </footer>
+</main>
+</body>
+</html>
