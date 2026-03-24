@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Business from Wire Fraud | Email Fraud Alert</title>
+    <meta name="description" content="Businesses lose $6.7 billion to email fraud annually. 83% is never recovered. Email Fraud Alert stops the scam before the wire is sent. $1.99/user/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-red: #dc2626;
+            --border-color: #222222;
+            --gradient-red: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-dark);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--gradient-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--accent-red);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 12px;
+            line-height: 1.6;
+        }
+
+        .hero-blockers {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-dark {
+            background: var(--bg-card);
+        }
+
+        .section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-center {
+            text-align: center;
+        }
+
+        .section-center .section-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Target Section */
+        .target-content {
+            max-width: 700px;
+        }
+
+        .target-content p strong {
+            color: var(--text-primary);
+        }
+
+        /* Bank Section */
+        .bank-section h2 {
+            color: var(--accent-red);
+        }
+
+        .system-line {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: 24px;
+        }
+
+        /* Blame Section */
+        .blame-list {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 2;
+        }
+
+        .blame-outcome {
+            font-size: 19px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: 24px;
+        }
+
+        /* Training Section */
+        .human-line {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: 16px;
+        }
+
+        /* Insurance Box */
+        .insurance-box {
+            background: rgba(220, 38, 38, 0.08);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .insurance-box h2 {
+            color: var(--accent-red);
+            margin-bottom: 24px;
+        }
+
+        /* Speed Section */
+        .speed-flow {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 2.2;
+            margin-bottom: 24px;
+        }
+
+        .speed-punchline {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .stats-tagline {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Case Studies */
+        .cases h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .case-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .case-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+        }
+
+        .case-company {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .case-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cases-pattern {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Reputation */
+        .reputation-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .reputation-list {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 2;
+            margin-bottom: 24px;
+        }
+
+        .reputation-punchline {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Why EFA */
+        .why-efa-content {
+            max-width: 750px;
+        }
+
+        .detection-list {
+            margin: 24px 0;
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 2;
+        }
+
+        .gateway-line {
+            font-size: 20px;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-top: 24px;
+        }
+
+        /* ROI */
+        .roi-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .roi-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .roi-item {
+            text-align: center;
+        }
+
+        .roi-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .roi-value {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .roi-value.loss {
+            color: var(--accent-red);
+        }
+
+        .roi-value.protection {
+            color: #22c55e;
+        }
+
+        .roi-vs {
+            font-size: 24px;
+            color: var(--text-muted);
+        }
+
+        .roi-return {
+            font-size: 22px;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .roi-truth {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0a0a 100%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            margin-bottom: 24px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.2;
+        }
+
+        .final-cta-body {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .final-cta-highlight {
+            font-size: 22px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.5);
+        }
+
+        .final-cta-note {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .roi-comparison {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .roi-vs {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .insurance-box {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Email Fraud <span>Alert</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="business.html">Business</a></li>
+                <li><a href="seniors.html">Seniors</a></li>
+                <li><a href="learn.html">Learn</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta">Get Protected</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-label">Business Protection</span>
+            <h1>One Email. One Mistake.<br>That's All It Takes.</h1>
+            <p class="hero-subtitle">Businesses lose billions to email fraud every year. Most of it is never recovered.</p>
+            <p class="hero-blockers">Your firewall won't stop it. Your training won't catch it.</p>
+            <p class="hero-tagline">Email Fraud Alert stops the scam before the wire is sent.</p>
+            <a href="#pricing" class="hero-cta">Protect Your Business</a>
+        </div>
+    </section>
+
+    <!-- You Are The Target -->
+    <section class="section">
+        <div class="container">
+            <div class="target-content">
+                <h2>You Are the Target</h2>
+                <p>This isn't random.</p>
+                <p>Scammers study your business. They learn your vendors. They watch your transactions.</p>
+                <p>Then they send one email that looks exactly right.</p>
+                <p>The invoice matches. The timing makes sense. The request feels routine.</p>
+                <p><strong>That's why it works.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Bank Won't Save You -->
+    <section class="section section-dark bank-section">
+        <div class="container">
+            <h2>Your Bank Won't Save You</h2>
+            <p>Most business owners believe their bank is a safety net.</p>
+            <p>It isn't.</p>
+            <p>Banks are not required to verify that the account name matches the account number on a wire.</p>
+            <p>If the numbers are correct, the transfer goes through.</p>
+            <p>Once it's sent, the loss is yours.</p>
+            <p>If the money leaves the country, it is almost never recovered.</p>
+            <p class="system-line">This isn't a policy you can appeal.<br><strong>This is how the system works.</strong></p>
+        </div>
+    </section>
+
+    <!-- When It Happens, It Lands on Someone -->
+    <section class="section">
+        <div class="container">
+            <h2>When It Happens, It Lands on Someone</h2>
+            <p class="blame-list">
+                The person who approved the wire.<br>
+                The person who trusted the email.<br>
+                The person who didn't catch it.
+            </p>
+            <p>It doesn't matter how real it looked.</p>
+            <p>It doesn't matter that anyone else would have missed it.</p>
+            <p class="blame-outcome">The outcome is the same.<br>The money is gone. And someone is responsible.</p>
+        </div>
+    </section>
+
+    <!-- You Can't Train Your Way Out -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2>You Can't Train Your Way Out of a Perfect Fake</h2>
+            <p>Fraud emails used to be sloppy.</p>
+            <p>They had typos. They looked suspicious.</p>
+            <p>Not anymore.</p>
+            <p>Today's attacks are clean, precise, and often AI-generated.</p>
+            <p>They look exactly like real emails from real people.</p>
+            <p class="human-line">Your employees aren't careless.<br>They're human.<br>And this is designed to work on humans.</p>
+        </div>
+    </section>
+
+    <!-- Insurance Gap -->
+    <section class="section section-center">
+        <div class="container">
+            <div class="insurance-box">
+                <h2>Your Insurance Might Not Cover It</h2>
+                <p>Many cyber insurance policies exclude "social engineering."</p>
+                <p>If your employee was tricked into sending the wire, the claim can be denied.</p>
+                <p>You followed the process. You trusted the email.</p>
+                <p><strong>And you still take the loss.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speed of Loss -->
+    <section class="section section-dark">
+        <div class="container">
+            <h2>By the Time You Notice, It's Already Gone</h2>
+            <p class="speed-flow">
+                A vendor email comes in.<br>
+                Payment details are "updated."<br>
+                Everything looks normal.
+            </p>
+            <p>Your team processes it.</p>
+            <p>The wire clears in minutes.</p>
+            <p class="speed-punchline">By the time anyone questions it, the money is already gone.</p>
+        </div>
+    </section>
+
+    <!-- The Numbers -->
+    <section class="section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$150K</div>
+                    <div class="stat-label">Average loss per incident</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">83%</div>
+                    <div class="stat-label">Of losses are never recovered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">&lt;1%</div>
+                    <div class="stat-label">Recovery rate once funds go overseas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">71%</div>
+                    <div class="stat-label">Of businesses experienced BEC in 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">88%</div>
+                    <div class="stat-label">Of breaches caused by human error</div>
+                </div>
+            </div>
+            <p class="stats-tagline">This isn't rare. This is happening every day.</p>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section section-dark cases">
+        <div class="container">
+            <h2>This Isn't Hypothetical</h2>
+            <div class="case-cards">
+                <div class="case-card">
+                    <div class="case-amount">$1.5M</div>
+                    <div class="case-company">Title Company — California</div>
+                    <p class="case-description">Company shut down. Nine employees lost their jobs. One wire. One email. Everything gone.</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-amount">$187K</div>
+                    <div class="case-company">Law Firm</div>
+                    <p class="case-description">Wired to a spoofed client account. The domain looked right. It wasn't.</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-amount">$83K</div>
+                    <div class="case-company">Construction Company</div>
+                    <p class="case-description">Sent to a fake vendor. The invoice was identical. The bank account wasn't.</p>
+                </div>
+            </div>
+            <p class="cases-pattern">Same pattern every time.</p>
+        </div>
+    </section>
+
+    <!-- Reputation -->
+    <section class="section">
+        <div class="container">
+            <div class="reputation-content">
+                <h2>The Money Is Just the Beginning</h2>
+                <p class="reputation-list">
+                    Clients lose trust.<br>
+                    Partners ask questions.<br>
+                    Your reputation takes the hit.
+                </p>
+                <p>One incident can undo years of work.</p>
+                <p class="reputation-punchline">The cheapest crisis to manage is the one that never happens.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why EFA Works -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="why-efa-content">
+                <h2>EFA Works Where Other Tools Don't</h2>
+                <p>Traditional email security filters spam and malware.</p>
+                <p>This isn't malware.</p>
+                <p>These are legitimate-looking emails with small, critical differences. They pass through your existing defenses.</p>
+                <p>EFA works after delivery — before action.</p>
+                <p>It detects the structural signs of fraud inside the email:</p>
+                <p class="detection-list">
+                    Mismatched domains.<br>
+                    Spoofed senders.<br>
+                    Hidden inconsistencies your team can't see.
+                </p>
+                <p>It warns your team before they trust the email. Before they reply. Before they send money.</p>
+                <p class="gateway-line">We catch what your gateway misses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI -->
+    <section class="section">
+        <div class="container">
+            <div class="roi-box">
+                <div class="roi-comparison">
+                    <div class="roi-item">
+                        <div class="roi-label">Average Loss</div>
+                        <div class="roi-value loss">$150,000</div>
+                    </div>
+                    <div class="roi-vs">vs</div>
+                    <div class="roi-item">
+                        <div class="roi-label">Protection</div>
+                        <div class="roi-value protection">$1.99/user</div>
+                    </div>
+                </div>
+                <p class="roi-return">That's a 7,500x return on not losing money.</p>
+                <p class="roi-truth">This isn't an expense.<br>It's preventing a loss you won't recover from.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="pricing">
+        <div class="container">
+            <h2>You Can't Stop Fraud Emails From Being Sent.<br>But You Can Stop Them From Succeeding.</h2>
+            <p class="final-cta-body">All it takes is one mistake.</p>
+            <p class="final-cta-highlight">EFA makes sure that mistake doesn't happen.</p>
+            <a href="https://chromewebstore.google.com/detail/email-fraud-alert/yourextensionid" class="final-cta-button">Protect Your Business — $1.99/user/month</a>
+            <p class="final-cta-note">Works with Gmail and Outlook. Deploys in minutes. No IT headaches.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="business.html">Business</a>
+                <a href="seniors.html">Seniors</a>
+                <a href="learn.html">How Scams Work</a>
+                <a href="understanding-warnings.html">Understanding Warnings</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+            <p class="footer-copy">© 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
