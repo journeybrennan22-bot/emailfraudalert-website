@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Email Fraud Alert</title>
+    <meta name="description" content="Get help with Email Fraud Alert. Find answers to common questions, understand warnings, and learn how we protect your inbox.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-links a.active {
+            opacity: 1;
+            color: var(--amber);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-dropdown > a::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu-inner {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 40px 60px;
+            text-align: center;
+            background: var(--dark-mid);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Main Content */
+        .support-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        /* Support Paths */
+        .support-paths {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .support-path {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+            transition: border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .support-path:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .support-path-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 158, 11, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .support-path-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .support-path h3 {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+            color: var(--light);
+        }
+
+        .support-path p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .support-path a.path-link {
+            color: var(--amber);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .support-path a.path-link:hover {
+            text-decoration: underline;
+        }
+
+        .support-path a.path-link svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .support-path .email-link {
+            color: var(--amber);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .support-path .email-link:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-bottom: 50px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-section h2 svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .faq-item {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 2;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 600px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .faq-answer-content a {
+            color: var(--amber);
+        }
+
+        .faq-answer-content strong {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        /* Emergency Section */
+        .emergency-section {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 50px;
+        }
+
+        .emergency-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .emergency-section h3 svg {
+            width: 24px;
+            height: 24px;
+            stroke: #ef4444;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .emergency-section .intro {
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .emergency-list {
+            margin-bottom: 20px;
+        }
+
+        .emergency-list p {
+            color: var(--gray);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .emergency-list p::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--amber);
+        }
+
+        .emergency-list p strong {
+            color: var(--light);
+        }
+
+        .emergency-section .reassurance {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .emergency-section .report {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .emergency-section .report a {
+            color: var(--amber);
+            text-decoration: none;
+        }
+
+        .emergency-section .report a:hover {
+            text-decoration: underline;
+        }
+
+        /* Final Close */
+        .final-close {
+            text-align: center;
+            padding: 20px 0 0;
+        }
+
+        .final-close h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .final-close p {
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 280px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .page-header {
+                padding: 120px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .support-content {
+                padding: 40px 20px;
+            }
+
+            .support-paths {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <div class="nav-dropdown">
+                <a href="#">Solutions</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-menu-inner">
+                        <a href="business.html">Business</a>
+                        <a href="personal.html">Individuals</a>
+                        <a href="seniors.html">Seniors</a>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html" class="active">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Get the Help You Need</h1>
+        <p>Most questions are answered right here. For billing or account issues, email us and we'll get back to you.</p>
+    </div>
+
+    <div class="support-content">
+        
+        <div class="support-paths">
+            <div class="support-path">
+                <div class="support-path-icon">
+                    <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h3>Got a Warning?</h3>
+                <p>Our guide explains why warnings happen, what they mean, and what to do next.</p>
+                <a href="understanding_warnings.html" class="path-link">
+                    Understanding Warnings
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+            </div>
+            <div class="support-path">
+                <div class="support-path-icon">
+                    <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                </div>
+                <h3>How Scams Work</h3>
+                <p>See exactly how modern email fraud operates — and why EFA catches what other tools miss.</p>
+                <a href="learn.html" class="path-link">
+                    Fraud Education Center
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+            </div>
+            <div class="support-path">
+                <div class="support-path-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h3>Billing & Account</h3>
+                <p>Need help with your subscription, cancellation, or account access?</p>
+                <a href="mailto:billing@emailfraudalert.com" class="email-link">billing@emailfraudalert.com</a>
+            </div>
+        </div>
+
+        <div class="faq-section" id="faq">
+            <h2>
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Frequently Asked Questions
+            </h2>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What email platforms do you support?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        EFA works with <strong>Gmail</strong> (via Chrome extension) and <strong>Microsoft 365/Outlook</strong> (via Office add-in). For Outlook, you'll need a Microsoft 365 subscription — older or on-prem versions aren't supported.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does EFA read my email content?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <strong>No. Your email stays private.</strong><br><br>
+                        EFA analyzes technical signals — sender address, domain, reply-to fields, routing patterns. Your email content is processed locally and never leaves your device. We don't read your emails. We don't store them.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    What is a "lookalike email"?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        An email that looks right — until you look closely. One letter changed. One character added. A slightly different domain. Easy to miss.<br><br>
+                        EFA checks those details automatically — so you don't have to.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I install EFA?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <strong>For Gmail:</strong> Install from the Chrome Web Store and grant access to your contacts.<br><br>
+                        <strong>For Outlook:</strong> Install from Microsoft AppSource — the add-in appears in your Outlook ribbon.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Does EFA guarantee I won't be defrauded?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        No tool catches everything. <strong>But EFA is built to catch what actually causes losses — before you act.</strong><br><br>
+                        It detects the patterns used in real-world fraud, at the moment it matters most. For anything involving money, always verify independently.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Why did I get a warning on a legitimate email?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Because scammers use the same patterns as legitimate emails. That's the reality.<br><br>
+                        EFA is designed to give you a moment to pause — not to block you. If everything checks out, move forward. <strong>That pause is the protection.</strong><br><br>
+                        <a href="understanding_warnings.html">Learn more about warnings →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    I'm a business owner. How do I protect my team?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Fraud only needs one person to succeed.<br><br>
+                        We make it simple to protect your entire team so no one becomes the weak link. <a href="/cdn-cgi/l/email-protection#9cefe9ececf3eee8dcf9f1fdf5f0faeefde9f8fdf0f9eee8b2fff3f1">Contact us</a> for team deployment options.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    How do I cancel my subscription?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Email <a href="/cdn-cgi/l/email-protection#c2b1b7b2b2adb0b682a7afa3abaea4b0a3b7a6a3aea7b0b6eca1adaf"><span class="__cf_email__" data-cfemail="80f3f5f0f0eff2f4c0e5ede1e9ece6f2e1f5e4e1ece5f2f4aee3efed">[email&#160;protected]</span></a>. We'll handle it and you keep access through your current billing period.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    Do you offer refunds?
+                    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        You can cancel anytime and won't be charged again. At $1.99/month, EFA is one of the simplest and most effective ways to protect yourself.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="emergency-section">
+            <h3>
+                <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Think You Might Have Been Scammed?
+            </h3>
+            <p class="intro">Act quickly:</p>
+            <div class="emergency-list">
+                <p><strong>If money was sent</strong> — contact your bank immediately</p>
+                <p><strong>If login details were shared</strong> — change your passwords now</p>
+            </div>
+            <p class="reassurance">You're not the first person this has happened to. These scams are designed to fool smart people.</p>
+            <p class="report"><strong>File a report:</strong> <a href="https://www.ic3.gov" target="_blank">FBI IC3 (ic3.gov)</a> · <a href="https://reportfraud.ftc.gov" target="_blank">FTC (reportfraud.ftc.gov)</a></p>
+        </div>
+
+        <div class="final-close">
+            <h3>If Something Feels Off — Trust That Instinct.</h3>
+            <p>That moment of hesitation is your advantage. Use it.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting inboxes worldwide, one email at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#faq">FAQ</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
