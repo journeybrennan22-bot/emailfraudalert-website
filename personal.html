@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Fraud Alert - Personal Protection | Stop Scams Before They Start</title>
+    <meta name="description" content="91% of cyberattacks start with email. The average victim loses $106,557 and spends 200+ hours recovering. Protect your inbox for $1.99/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --amber-light: #fef3c7;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --red: #dc2626;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-answer {
+            font-size: 1.5rem;
+            color: var(--amber);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--gray);
+            max-width: 650px;
+            margin: 0 auto 20px;
+            line-height: 1.7;
+        }
+
+        .hero-stat-line {
+            font-size: 1.1rem;
+            color: var(--light);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .hero-closer {
+            font-size: 1.15rem;
+            color: var(--light);
+            font-weight: 600;
+            margin: 28px 0 36px;
+        }
+
+        /* Section Base */
+        section {
+            padding: 100px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container-wide {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-text {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .section-text p {
+            margin-bottom: 20px;
+        }
+
+        .section-text strong {
+            color: var(--light);
+        }
+
+        /* Evolution Section */
+        .evolution-list {
+            margin: 24px 0;
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .evolution-emphasis {
+            color: var(--light);
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-top: 28px;
+        }
+
+        .evolution-closer {
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-top: 20px;
+        }
+
+        /* Cost Section */
+        .cost-consequences {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin: 24px 0;
+        }
+
+        .cost-stat {
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid var(--red);
+            padding: 20px 24px;
+            margin: 28px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .cost-stat p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .cost-stat .number {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .cost-closer {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+
+        /* Detection Section */
+        .detection-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .detection-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 16px;
+        }
+
+        .detection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .detection-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .detection-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .detection-card h3 {
+            font-size: 1.1rem;
+            color: var(--amber);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .detection-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .detection-example {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.3);
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .detection-closer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .detection-closer p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-bottom: 12px;
+        }
+
+        .detection-closer .emphasis {
+            color: var(--light);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Moment Section */
+        .moment-opener {
+            font-size: 1.15rem;
+            color: var(--light);
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .moment-scenarios {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin: 24px 0;
+        }
+
+        .moment-trigger {
+            font-size: 1.1rem;
+            color: var(--light);
+            font-weight: 500;
+            margin: 28px 0;
+        }
+
+        .moment-quote {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 24px 28px;
+            border-radius: 12px;
+            margin: 24px 0;
+        }
+
+        .moment-quote p {
+            font-size: 1.15rem;
+            color: var(--light);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .moment-quote .attribution {
+            color: var(--amber);
+            font-weight: 600;
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+        /* How It Works */
+        .how-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .how-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-top: 16px;
+        }
+
+        .how-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .how-step {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 auto 16px;
+        }
+
+        .how-step h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .how-step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .how-closer {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.05rem;
+        }
+
+        .how-closer strong {
+            color: var(--light);
+        }
+
+        /* Privacy Section */
+        .privacy-box {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .privacy-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .privacy-box p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .privacy-box .emphasis {
+            color: var(--light);
+            font-weight: 500;
+            margin-top: 20px;
+            display: block;
+        }
+
+        /* Math Section */
+        .math-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .math-header h2 {
+            font-family: 'Space Mono', monospace;
+            font-size: 2.5rem;
+            color: var(--amber);
+        }
+
+        .math-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .math-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .math-item .number {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .math-item .number.loss {
+            color: var(--red);
+        }
+
+        .math-item .number.time {
+            color: var(--amber);
+        }
+
+        .math-item .number.recovery {
+            color: var(--red);
+        }
+
+        .math-item .number.cost {
+            color: #22c55e;
+        }
+
+        .math-item .label {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .math-closer {
+            text-align: center;
+            font-size: 1.15rem;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Mission Section */
+        .mission-content {
+            text-align: center;
+        }
+
+        .mission-content h2 {
+            max-width: 700px;
+            margin: 0 auto 28px;
+        }
+
+        .mission-text {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .mission-text p {
+            margin-bottom: 20px;
+        }
+
+        .mission-impact {
+            margin: 32px 0;
+            padding: 28px;
+            background: rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-impact p {
+            color: var(--light);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .mission-impact p:last-child {
+            margin-bottom: 0;
+        }
+
+        .mission-closer {
+            color: var(--amber);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 28px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 40px;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(245, 158, 11, 0.04) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-radius: 16px;
+            padding: 60px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .cta-box .intro {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .cta-tagline {
+            color: var(--light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 24px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .detection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .math-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .how-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .math-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .math-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .math-item {
+                padding: 20px 12px;
+            }
+
+            .math-item .number {
+                font-size: 1.25rem;
+            }
+
+            .privacy-box {
+                padding: 28px 20px;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+
+            .footer-links {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <a href="business.html">For Business</a>
+            <a href="seniors.html">For Families</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">For Individuals</div>
+            <h1>The One Thing Everyone Trusts — And Shouldn't.</h1>
+            <p class="hero-answer">Your inbox.</p>
+            <p class="hero-text">Banking. Shopping. Passwords. Healthcare. Travel. Two-factor codes. Everything important flows through email.</p>
+            <p class="hero-text">Criminals know this. They send 3.4 billion phishing emails every single day.</p>
+            <p class="hero-stat-line">91% of cyberattacks start with a message that looks completely normal.</p>
+            <p class="hero-closer">Email is the biggest unprotected vulnerability in your digital life. Until now.</p>
+            <a href="waitlist.html" class="btn btn-large">Protect Your Inbox — $1.99/month</a>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <h2>The Scams Got Smarter. Your Protection Didn't.</h2>
+            <div class="section-text">
+                <p>Ten years ago, fraud was obvious. Broken English. Nigerian princes. Sketchy attachments.</p>
+                <p>Today? AI writes the emails. They're flawless. Brand-perfect. Psychologically engineered to trigger action before thought.</p>
+                <p class="evolution-list">They look exactly like your bank's security alert. Your shipping carrier's delivery notice. Your streaming service's payment update. Your password reset. Your tax notification.</p>
+                <p class="evolution-emphasis">This is why smart people fall for them. Careful people. Security-conscious people.</p>
+                <p class="evolution-emphasis">It's not about being vigilant enough. The game changed.</p>
+                <p class="evolution-closer">EFA is how you catch up.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>One Click. Five Weeks of Your Life.</h2>
+            <div class="section-text">
+                <p>When a phishing email works, the damage isn't just financial.</p>
+                <p class="cost-consequences">Bank accounts frozen. Credit cards opened in your name. Debt collectors calling about loans you never took. Credit score destroyed. Every account locked. Hours on hold with customer service. Police reports. Government filings. Disputes that drag on for months.</p>
+                
+                <div class="cost-stat">
+                    <p>The average victim spends <span class="number">200+ hours</span> cleaning up the mess.</p>
+                    <p style="margin-top: 12px; color: var(--light);">Five full weeks. Gone. Because of one email that looked real.</p>
+                </div>
+
+                <p class="cost-closer">EFA stops it before it starts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container-wide">
+            <div class="detection-intro">
+                <h2>We See What You Can't.</h2>
+                <p>Your spam filter catches junk. EFA catches danger.</p>
+                <p>We analyze the structural DNA of every email — the parts humans never think to check:</p>
+            </div>
+
+            <div class="detection-grid">
+                <div class="detection-card">
+                    <div class="detection-example">sara.miller@ vs sara.milller@</div>
+                    <h3>Lookalike Addresses</h3>
+                    <p>Can you spot the difference? Neither can most people. We catch single-character swaps designed to impersonate people you trust.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Spoofed Senders</h3>
+                    <p>The name says "Chase Bank." The address says criminal. We expose when the display name doesn't match reality.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Reply-To Hijacking</h3>
+                    <p>You hit reply. Your message goes to a stranger. We catch when your response would be redirected to someone other than the sender.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Brand Impersonation</h3>
+                    <p>The email says DocuSign. The domain says fraud. We verify brand mentions match legitimate sender domains.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Invisible Characters</h3>
+                    <p>Cyrillic letters that look identical to English — impossible to catch with your eyes. Only software can detect these Unicode tricks.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Urgent Triggers</h3>
+                    <p>"Act now," "verify immediately," "account suspended." We flag the psychological pressure tactics designed to short-circuit your judgment.</p>
+                </div>
+            </div>
+
+            <div class="detection-closer">
+                <p>These emails pass every filter because technically, they're "clean."</p>
+                <p class="emphasis">EFA catches the lie underneath.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>They Don't Need You to Be Careless. They Need You to Be Human.</h2>
+            <div class="section-text">
+                <p class="moment-opener">Scammers don't target stupidity. They target life.</p>
+                
+                <p class="moment-scenarios">The emails that work arrive when you're rushing before a meeting. When you're expecting a package and see "delivery failed." When you're worried about a bill and see "account suspended." When you're half-asleep scrolling through your inbox at midnight.</p>
+
+                <p class="moment-trigger">All it takes is one distracted moment.</p>
+
+                <div class="moment-quote">
+                    <p>"Wait. Look closer."</p>
+                    <span class="attribution">— EFA, the pause before the mistake</span>
+                </div>
+
+                <p>You still decide. EFA makes sure you decide with clarity.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container-wide">
+            <div class="how-intro">
+                <h2>Two Minutes. Then It Just Works.</h2>
+                <p>EFA was built for people who have better things to do than become security experts.</p>
+            </div>
+
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="step-number">1</div>
+                    <h3>Install Once</h3>
+                    <p>Chrome extension or Outlook add-in. Takes less than two minutes.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">2</div>
+                    <h3>Open Any Email</h3>
+                    <p>EFA scans instantly. No buttons. No settings. No friction.</p>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">3</div>
+                    <h3>See the Warning</h3>
+                    <p>If something's wrong, you know before you click, reply, or share.</p>
+                </div>
+            </div>
+
+            <p class="how-closer"><strong>That's it.</strong> Email stays normal. Protection runs in the background.</p>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="privacy-box">
+                <h2>We Protect You. We Don't Spy on You.</h2>
+                <p>EFA scans locally in your browser. We don't store your emails. We don't read your messages. We don't track you. We don't sell anything to anyone.</p>
+                <span class="emphasis">Your inbox stays yours. We just make it safer.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container-wide">
+            <div class="math-header">
+                <h2>$1.99 vs. $106,557</h2>
+            </div>
+
+            <div class="math-grid">
+                <div class="math-item">
+                    <div class="number loss">$106,557</div>
+                    <div class="label">Average consumer fraud loss</div>
+                </div>
+                <div class="math-item">
+                    <div class="number time">200+ hrs</div>
+                    <div class="label">Time to recover from identity theft</div>
+                </div>
+                <div class="math-item">
+                    <div class="number recovery">&lt;1%</div>
+                    <div class="label">Recovery rate once funds leave the country</div>
+                </div>
+                <div class="math-item">
+                    <div class="number cost">$1.99/mo</div>
+                    <div class="label">Cost of EFA protection</div>
+                </div>
+            </div>
+
+            <p class="math-closer">One avoided scam pays for a lifetime of protection.</p>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="mission-content">
+                <h2>Every Protected Inbox Weakens the Entire Fraud Industry.</h2>
+                <div class="mission-text">
+                    <p>Here's how scammers win: volume. Send 3.4 billion emails a day, someone clicks. The math works because enough people are unprotected.</p>
+                    <p>But when protection spreads, the math breaks.</p>
+                    
+                    <div class="mission-impact">
+                        <p>Fewer clicks. Fewer victims. Less profit.</p>
+                        <p>Higher risk for criminals, lower reward.</p>
+                    </div>
+
+                    <p>EFA isn't just personal protection. It's economic warfare against a trillion-dollar criminal industry.</p>
+                    <p>The more inboxes we armor, the less viable email crime becomes — everywhere in the world.</p>
+                    <p class="mission-closer">This is how we break them. Not one inbox at a time. Globally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="cta-box">
+            <h2>You Don't Need to Become an Expert. You Just Need Protection.</h2>
+            <p class="intro">The internet isn't getting safer. AI is making scams invisible. Billions of phishing emails launch every day — in every language, targeting every country.</p>
+            <p class="intro">You can't stop them from being sent. But you can stop them from working.</p>
+            <a href="waitlist.html" class="btn btn-large">Protect Your Inbox — $1.99/month</a>
+            <p class="cta-tagline">Two minutes to install. Protection from that moment on.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting inboxes worldwide, one email at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
