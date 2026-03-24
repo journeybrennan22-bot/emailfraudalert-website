@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Warnings | Email Fraud Alert</title>
+    <meta name="description" content="You got a warning from Email Fraud Alert. Here's what it means, why you saw it, and what to do next.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --green: #22c55e;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-dropdown > a::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu-inner {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--green);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .hero-emphasis {
+            font-size: 1.25rem;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        /* Action Box */
+        .action-box {
+            max-width: 700px;
+            margin: 60px auto 0;
+            background: rgba(245, 158, 11, 0.08);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .action-box h2 {
+            font-size: 1.4rem;
+            color: var(--amber);
+            margin-bottom: 28px;
+            text-align: center;
+        }
+
+        .action-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .action-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            padding-top: 4px;
+            font-size: 1.05rem;
+        }
+
+        .step-content strong {
+            color: var(--light);
+        }
+
+        .step-content span {
+            color: var(--gray);
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .section-text {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .section-text p {
+            margin-bottom: 16px;
+        }
+
+        .section-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Detection Grid */
+        .detection-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .detection-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .detection-card h3 {
+            font-size: 1rem;
+            color: var(--amber);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .detection-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Lists */
+        .fp-list {
+            margin: 24px 0;
+        }
+
+        .fp-list li {
+            color: var(--gray);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            list-style: none;
+            font-size: 1.02rem;
+        }
+
+        .fp-list li::before {
+            content: '•';
+            color: var(--amber);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        /* Philosophy Box */
+        .philosophy-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--amber);
+            padding: 24px 28px;
+            margin-top: 28px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .philosophy-box p {
+            font-size: 1.2rem;
+            color: var(--light);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Doesn't Mean Box */
+        .doesnt-mean {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 36px;
+        }
+
+        .doesnt-mean h2 {
+            margin-bottom: 24px;
+        }
+
+        .doesnt-list {
+            margin-bottom: 28px;
+        }
+
+        .doesnt-list li {
+            color: var(--gray);
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+            list-style: none;
+            font-size: 1.02rem;
+        }
+
+        .doesnt-list li::before {
+            content: '✗';
+            color: #ef4444;
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+        }
+
+        .means-box {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .means-box p {
+            color: var(--light);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .means-box .emphasis {
+            color: var(--green);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .means-box .final {
+            margin-top: 16px;
+            margin-bottom: 0;
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Questions Box */
+        .questions-box {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 36px;
+        }
+
+        .questions-box h2 {
+            margin-bottom: 28px;
+        }
+
+        .question-list {
+            margin-bottom: 28px;
+        }
+
+        .question-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .question-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .q-num {
+            width: 28px;
+            height: 28px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .question-item p {
+            color: var(--light);
+            font-size: 1.08rem;
+            padding-top: 2px;
+            margin: 0;
+        }
+
+        .questions-footer {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .questions-footer p {
+            color: var(--gray);
+            margin-bottom: 12px;
+            font-size: 1.02rem;
+        }
+
+        .questions-footer .emphasis {
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        /* Control Section */
+        .control-section {
+            text-align: center;
+        }
+
+        .control-section h2 {
+            margin-bottom: 24px;
+        }
+
+        .control-section .intro {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .control-section .emphasis {
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        /* Support Box */
+        .support-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 44px 40px;
+        }
+
+        .support-box h2 {
+            margin-bottom: 16px;
+        }
+
+        .support-box p {
+            color: var(--gray);
+            margin-bottom: 28px;
+            font-size: 1.08rem;
+        }
+
+        .support-box .note {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+
+        /* Closing */
+        .closing {
+            text-align: center;
+            padding: 80px 40px;
+            background: var(--dark);
+        }
+
+        .closing-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .closing h2 {
+            margin-bottom: 20px;
+            color: var(--green);
+        }
+
+        .closing p {
+            color: var(--gray);
+            font-size: 1.12rem;
+            margin-bottom: 16px;
+        }
+
+        .closing .thanks {
+            color: var(--light);
+            font-weight: 500;
+            margin-top: 28px;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 280px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .action-box {
+                padding: 28px 20px;
+                margin-top: 40px;
+            }
+
+            .detection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .questions-box, .doesnt-mean, .support-box {
+                padding: 28px 20px;
+            }
+
+            .footer-links {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <div class="nav-dropdown">
+                <a href="#">Solutions</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-menu-inner">
+                        <a href="business.html">Business</a>
+                        <a href="personal.html">Individuals</a>
+                        <a href="seniors.html">Seniors</a>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">EFA Is Working</div>
+        <h1>You Got a Warning. Here's What It Means.</h1>
+        <p class="hero-text">EFA found something in this email that matches patterns commonly used in fraud. That doesn't mean it's definitely a scam — it means take a second look before you act.</p>
+        <p class="hero-emphasis">A warning isn't a crisis. It's a pause button.</p>
+
+        <div class="action-box">
+            <h2>You Got a Warning. Here's What to Do:</h2>
+            <div class="action-steps">
+                <div class="action-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <strong>Don't</strong> <span>reply, click links, or send money — not until you verify.</span>
+                    </div>
+                </div>
+                <div class="action-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <strong>Call</strong> <span>the sender at a number you find yourself — not one from the email.</span>
+                    </div>
+                </div>
+                <div class="action-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <strong>When in doubt,</strong> <span>delete it.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <h2>We Look at What You Can't See.</h2>
+            <div class="section-text">
+                <p>EFA analyzes the structure of every email — the parts most people never check. When something matches known fraud tactics, we tell you.</p>
+                <p>Here's what might have triggered this warning:</p>
+            </div>
+
+            <div class="detection-grid">
+                <div class="detection-card">
+                    <h3>Lookalike Address</h3>
+                    <p>The email is almost identical to someone you know, but not quite. (sara.miller vs sara.milller)</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Reply-To Mismatch</h3>
+                    <p>Your reply would go somewhere other than where the email came from.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Brand Impersonation</h3>
+                    <p>The email mentions a company but doesn't come from that company's domain.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Display Name Spoofing</h3>
+                    <p>The name looks official, but the email address doesn't match.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Suspicious Domain</h3>
+                    <p>The sender uses a free email service or a domain designed to deceive.</p>
+                </div>
+                <div class="detection-card">
+                    <h3>Urgent Language</h3>
+                    <p>Pressure words like "act now" or "verify immediately."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>Sometimes We Warn About Emails That Are Actually Fine.</h2>
+            <div class="section-text">
+                <p>We know. And we'd rather it work that way.</p>
+                <p>Legitimate emails can trigger warnings when:</p>
+            </div>
+
+            <ul class="fp-list">
+                <li>A coworker's name matches a brand (like "Chase" or "Amazon")</li>
+                <li>A company uses a third-party sender (Mailchimp, SendGrid)</li>
+                <li>A vendor emails from an unusual subdomain</li>
+                <li>An e-signature request includes urgent-sounding boilerplate</li>
+                <li>Your CPA or bank discusses payments, taxes, or refunds</li>
+            </ul>
+
+            <div class="section-text">
+                <p>These aren't dangerous — just patterns scammers imitate.</p>
+            </div>
+
+            <div class="philosophy-box">
+                <p>We'd rather warn you 10 times than miss the one that costs you $100,000.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <div class="doesnt-mean">
+                <h2>What a Warning Doesn't Mean</h2>
+                <ul class="doesnt-list">
+                    <li>Your device is infected</li>
+                    <li>Someone hacked your account</li>
+                    <li>The email is definitely bad</li>
+                    <li>You did something wrong</li>
+                </ul>
+                <div class="means-box">
+                    <p>A warning means:</p>
+                    <p class="emphasis">"This looks similar to a known scam. Take a moment to verify."</p>
+                    <p class="final">Your judgment comes first. Always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="questions-box">
+                <h2>When You See a Warning, Ask Yourself:</h2>
+                <div class="question-list">
+                    <div class="question-item">
+                        <div class="q-num">1</div>
+                        <p>Was I expecting this email?</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-num">2</div>
+                        <p>Do I know and trust the sender?</p>
+                    </div>
+                    <div class="question-item">
+                        <div class="q-num">3</div>
+                        <p>Is it asking me to click, sign, pay, or share something sensitive?</p>
+                    </div>
+                </div>
+                <div class="questions-footer">
+                    <p>If anything feels off — even slightly — verify before acting.</p>
+                    <p class="emphasis">A 10-second check can prevent a mistake that takes weeks to fix.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <div class="control-section">
+                <h2>EFA Doesn't Block Your Email.</h2>
+                <p class="intro">You can still open the message, reply, click links, and take action.</p>
+                <p class="intro">EFA gives you information before you act. You decide what to do with it.</p>
+                <p class="emphasis">We're a second pair of eyes — not a gatekeeper.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="support-box">
+                <h2>Still Unsure? We're Here.</h2>
+                <p>If you're not sure whether an email is legitimate — or if you think we got it wrong — reach out.</p>
+                <a href="support.html" class="btn">Contact Support</a>
+                <p class="note">We read every message. Your feedback makes EFA better.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="closing">
+        <div class="closing-content">
+            <h2>EFA Is Working.</h2>
+            <p>Every warning is a moment to pause — a chance to verify before you act.</p>
+            <p>That pause is the difference between catching fraud and falling for it.</p>
+            <p class="thanks">Thank you for trusting Email Fraud Alert.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting inboxes worldwide, one email at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
