@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Seniors from Email Scams | Email Fraud Alert</title>
+    <meta name="description" content="Seniors lost $81.5 billion to email scams last year. Email Fraud Alert protects your parents from fraud they can't see coming. $1.99/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-red: #dc2626;
+            --accent-red-hover: #b91c1c;
+            --accent-orange: #f97316;
+            --border-color: #222222;
+            --gradient-red: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            /* Nav variables (matching site-wide header) */
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --dark: #0f172a;
+            --dark-mid: #111111;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-red);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .dropdown-toggle:hover {
+            opacity: 1;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+            z-index: 200;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--accent-red);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-red-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--accent-red);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 16px;
+            line-height: 1.6;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.4);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-dark {
+            background: var(--bg-card);
+        }
+
+        .section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 700px;
+        }
+
+        .section p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Webster Hook Section */
+        .webster {
+            text-align: center;
+        }
+
+        .webster-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .webster h2 {
+            color: var(--accent-red);
+        }
+
+        .webster-body {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .webster-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Regret Section */
+        .regret {
+            text-align: center;
+        }
+
+        .regret-quotes {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .regret-quote {
+            font-size: 24px;
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .regret-body {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .regret-highlight {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-top: 32px;
+        }
+
+        /* No Undo Section */
+        .no-undo h2 {
+            color: var(--accent-red);
+        }
+
+        .no-undo-list {
+            margin: 32px 0;
+        }
+
+        .no-undo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: var(--text-secondary);
+        }
+
+        .no-undo-icon {
+            color: var(--accent-red);
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .stat-highlight {
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 3px solid var(--accent-red);
+            padding: 20px 24px;
+            margin: 32px 0;
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .system-truth {
+            font-size: 19px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-top: 24px;
+        }
+
+        /* Hidden Threat Section */
+        .hidden-threat {
+            text-align: center;
+        }
+
+        .threat-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .threat-reasons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .threat-reason {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .threat-punchline {
+            margin-top: 40px;
+        }
+
+        .threat-punchline p {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .threat-punchline strong {
+            display: block;
+            font-size: 22px;
+            color: var(--accent-red);
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        /* Dignity Section */
+        .dignity {
+            text-align: center;
+        }
+
+        .dignity-content {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .dignity-losses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin: 32px 0;
+        }
+
+        .dignity-loss {
+            background: rgba(220, 38, 38, 0.08);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 15px;
+            color: var(--text-primary);
+        }
+
+        .dignity-truth {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 24px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .stats-tagline {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 24px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Real Losses Section */
+        .losses h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .losses-intro {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .loss-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .loss-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .loss-amount {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 12px;
+        }
+
+        .loss-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Contrast Section */
+        .contrast {
+            text-align: center;
+        }
+
+        .contrast-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contrast h2 {
+            margin-bottom: 40px;
+        }
+
+        .contrast-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contrast-item {
+            text-align: center;
+        }
+
+        .contrast-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contrast-value {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .contrast-value.loss {
+            color: var(--accent-red);
+        }
+
+        .contrast-value.protection {
+            color: #22c55e;
+        }
+
+        .contrast-vs {
+            font-size: 24px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .contrast-truth {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0a0a 100%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-body {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .final-cta-highlight {
+            font-size: 24px;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.5);
+        }
+
+        .final-cta-note {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .webster-box {
+                padding: 32px 24px;
+            }
+
+            .contrast-comparison {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .contrast-vs {
+                display: none;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .loss-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud <span>Alert</span>
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-label">Protect Your Parents</span>
+            <h1>They Worked a Lifetime for This.<br>One Email Can Take It All.</h1>
+            <p class="hero-subtitle">Seniors lost $81.5 billion to scams last year. Most of it will never be recovered.</p>
+            <p class="hero-tagline">Email Fraud Alert catches the threats they can't see coming.</p>
+            <a href="#pricing" class="hero-cta">Protect Them Now</a>
+        </div>
+    </section>
+
+    <!-- Webster Hook -->
+    <section class="section webster">
+        <div class="container">
+            <div class="webster-box">
+                <h2>If They Came for the Director of the FBI, They'll Come for Your Parents.</h2>
+                <p class="webster-body">
+                    William Webster ran the FBI. Then he ran the CIA.<br>
+                    At 98 years old, scammers still targeted him.<br><br>
+                    <strong>If a lifetime of intelligence experience doesn't make someone immune, nothing does.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regret Section -->
+    <section class="section section-dark regret">
+        <div class="container">
+            <h2>Every Victim's Child Says the Same Thing</h2>
+            <div class="regret-quotes">
+                <p class="regret-quote">"I thought I would have caught it."</p>
+                <p class="regret-quote">"I thought they would have told me."</p>
+                <p class="regret-quote">"I thought we had more time."</p>
+            </div>
+            <p class="regret-body">
+                It doesn't feel obvious when it's happening.<br><br>
+                The email looks real. The voice sounds legitimate. The urgency feels convincing.<br><br>
+                By the time anyone realizes what happened, the money is already gone.
+            </p>
+        </div>
+    </section>
+
+    <!-- No Undo Button -->
+    <section class="section no-undo">
+        <div class="container">
+            <h2>There Is No Undo Button</h2>
+            <p class="section-subtitle">When a scammer convinces your parent to send money:</p>
+            
+            <div class="no-undo-list">
+                <div class="no-undo-item">
+                    <span class="no-undo-icon">✕</span>
+                    <span>The bank does not verify the name on the account. Legally, they don't have to.</span>
+                </div>
+                <div class="no-undo-item">
+                    <span class="no-undo-icon">✕</span>
+                    <span>The transfer clears in minutes.</span>
+                </div>
+                <div class="no-undo-item">
+                    <span class="no-undo-icon">✕</span>
+                    <span>If it leaves the country, it's gone forever.</span>
+                </div>
+            </div>
+
+            <div class="stat-highlight">
+                Less than 1% of international wire fraud is ever recovered.
+            </div>
+
+            <p class="system-truth">
+                Once the money leaves, the bank owes them nothing.<br>
+                <strong>That's not a policy. That's the system.</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Hidden Threat -->
+    <section class="section section-dark hidden-threat">
+        <div class="container">
+            <div class="threat-content">
+                <h2>They Won't Tell You Until It's Too Late</h2>
+                <p class="section-subtitle" style="margin: 0 auto 24px;">Most seniors don't mention suspicious emails.</p>
+                
+                <div class="threat-reasons">
+                    <span class="threat-reason">They don't want to worry you</span>
+                    <span class="threat-reason">They feel embarrassed</span>
+                    <span class="threat-reason">They don't realize anything is wrong</span>
+                </div>
+
+                <p style="font-size: 18px; color: var(--text-secondary);">
+                    By the time anyone else knows, the money is already gone.
+                </p>
+
+                <div class="threat-punchline">
+                    <p>You won't be there when it happens.</p>
+                    <strong>But EFA will be.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dignity -->
+    <section class="section dignity">
+        <div class="container">
+            <div class="dignity-content">
+                <h2>Protect Their Dignity — Not Just Their Savings</h2>
+                <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: 24px;">
+                    Seniors who fall for scams don't just lose money.
+                </p>
+                
+                <div class="dignity-losses">
+                    <span class="dignity-loss">They lose confidence</span>
+                    <span class="dignity-loss">They lose independence</span>
+                    <span class="dignity-loss">They blame themselves</span>
+                </div>
+
+                <p class="dignity-truth">
+                    Not because they weren't smart — but because the scam looked completely real.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$81.5B</div>
+                    <div class="stat-label">Lost by seniors to fraud in 2024</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$83K</div>
+                    <div class="stat-label">Average loss per victim</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5×</div>
+                    <div class="stat-label">Increase in losses over $100K since 2020</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">83%</div>
+                    <div class="stat-label">Of fraud losses are never recovered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Hours to recover from identity theft</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1 in 10</div>
+                    <div class="stat-label">Elderly Americans targeted each year</div>
+                </div>
+            </div>
+            <div class="stats-tagline">
+                Identity theft takes 200+ hours to fix. EFA takes 2 minutes to install.
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Losses -->
+    <section class="section losses">
+        <div class="container">
+            <h2>These Aren't Statistics. These Are Real People.</h2>
+            <p class="losses-intro">Every number is someone's parent. Someone's retirement. Someone's life savings.</p>
+            
+            <div class="loss-cards">
+                <div class="loss-card">
+                    <div class="loss-amount">$700,000</div>
+                    <div class="loss-description">A 71-year-old father lost everything in a romance scam</div>
+                </div>
+                <div class="loss-card">
+                    <div class="loss-amount">$750,000</div>
+                    <div class="loss-description">A 68-year-old mother lost her retirement in a crypto scam</div>
+                </div>
+                <div class="loss-card">
+                    <div class="loss-amount">$661,000</div>
+                    <div class="loss-description">A 79-year-old widow wired her savings to "Microsoft support"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contrast -->
+    <section class="section section-dark contrast">
+        <div class="container">
+            <div class="contrast-box">
+                <h2>What Are Their Life Savings Worth?</h2>
+                
+                <div class="contrast-comparison">
+                    <div class="contrast-item">
+                        <div class="contrast-label">Average Loss</div>
+                        <div class="contrast-value loss">$83,000</div>
+                    </div>
+                    <div class="contrast-vs">vs</div>
+                    <div class="contrast-item">
+                        <div class="contrast-label">Protection</div>
+                        <div class="contrast-value protection">$1.99/mo</div>
+                    </div>
+                </div>
+
+                <p class="contrast-truth">
+                    This isn't about cost.<br>
+                    It's about preventing something you can't undo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="pricing">
+        <div class="container">
+            <h2>You Can't Stop Scammers From Targeting Your Parents.<br>But You Can Protect Them.</h2>
+            <p class="final-cta-body">You won't be there when the email arrives.</p>
+            <p class="final-cta-highlight">But this will.</p>
+            <a href="https://chromewebstore.google.com/detail/email-fraud-alert/yourextensionid" class="final-cta-button">Protect Them Now — $1.99/month</a>
+            <p class="final-cta-note">Works with Gmail and Outlook. No technical skills required.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="business.html">Business</a>
+                <a href="seniors.html">Seniors</a>
+                <a href="learn.html">How Scams Work</a>
+                <a href="understanding-warnings.html">Understanding Warnings</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+            <p class="footer-copy">© 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
