@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Fraud Alert - The Email That Costs You Everything Won't Have a Single Typo</title>
+    <meta name="description" content="91% of cyberattacks start with email. EFA catches the structural lies that the human eye can't see. Protect yourself from wire fraud, identity theft, and impersonation scams for $1.99/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --amber-light: #fef3c7;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --red: #dc2626;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .dropdown-toggle:hover {
+            opacity: 1;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+            z-index: 200;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--amber);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-outline:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--amber);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 16px;
+            line-height: 1.7;
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: var(--light);
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--amber);
+            white-space: nowrap;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 4px;
+            max-width: 150px;
+        }
+
+        /* Reality Section */
+        .reality {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .reality-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .reality h2 {
+            font-size: 2.25rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .reality-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .reality-content p {
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .legal-highlight {
+            background: rgba(220, 38, 38, 0.1);
+            border-left: 4px solid var(--red);
+            padding: 20px 24px;
+            margin: 28px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .legal-highlight strong {
+            color: var(--amber);
+        }
+
+        .stat-callout {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .bottom-line {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.15rem;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Proof Section (Webster) */
+        .proof {
+            padding: 80px 40px;
+            background: var(--dark);
+        }
+
+        .proof-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proof h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .proof-content {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .proof-content p {
+            margin-bottom: 20px;
+        }
+
+        .proof-lesson {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 28px;
+            font-size: 1.05rem;
+            color: var(--light);
+        }
+
+        .proof-lesson strong {
+            color: var(--amber);
+        }
+
+        /* Pathways Section */
+        .pathways {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .pathways-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pathways h2 {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pathways-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pathway-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 36px 28px;
+            transition: all 0.3s;
+        }
+
+        .pathway-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .pathway-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--amber);
+        }
+
+        .pathway-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .pathway-link {
+            color: var(--amber);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .pathway-link:hover {
+            gap: 10px;
+        }
+
+        .pathway-link::after {
+            content: '→';
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 40px;
+            background: var(--dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .feature-example {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            background: rgba(0,0,0,0.3);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            color: var(--gray);
+        }
+
+        .feature-example .fake {
+            color: var(--red);
+        }
+
+        .feature-example .real {
+            color: var(--light);
+        }
+
+        .features-more {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--amber);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonial */
+        .testimonial {
+            padding: 80px 40px;
+            background: var(--dark);
+        }
+
+        .testimonial-container {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-quote {
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--light);
+            margin-bottom: 24px;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--amber);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-author {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .testimonial-author strong {
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 40px;
+            background: var(--dark-mid);
+        }
+
+        .pricing-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-intro h2 {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+
+        .pricing-contrast {
+            font-size: 1.2rem;
+            color: var(--gray);
+        }
+
+        .pricing-contrast strong {
+            color: var(--light);
+        }
+
+        .pricing-card {
+            max-width: 450px;
+            margin: 0 auto;
+            background: var(--dark);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--amber);
+        }
+
+        .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--amber);
+            margin-bottom: 8px;
+        }
+
+        .price span {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        .price-description {
+            color: var(--gray);
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--light);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .check svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--amber);
+            fill: none;
+            stroke-width: 3;
+        }
+
+        .pricing-closer {
+            margin-top: 20px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 40px;
+            background: var(--dark);
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 60px 40px;
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .cta-box p {
+            color: var(--gray);
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .cta-tagline {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 1.15rem;
+            margin-top: 24px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .pathways-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-stat {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .reality, .proof, .pathways, .features, .how-it-works, .pricing, .final-cta {
+                padding: 60px 20px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+
+            .footer-links {
+                gap: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .testimonial {
+                padding: 60px 20px;
+            }
+
+            .testimonial-quote {
+                font-size: 1.15rem;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">91% of cyberattacks start with an email</div>
+            <h1>The Email That Costs You Everything Won't Have a Single Typo.</h1>
+            <p class="hero-subtitle">Criminals don't make mistakes anymore. They impersonate your bank, your boss, your title company, your family. They sound exactly like the people you trust.</p>
+            <p class="hero-tagline">EFA catches the structural lies that the human eye cannot see.</p>
+            <div class="hero-buttons">
+                <a href="waitlist.html" class="btn">Get Protected — $1.99/mo</a>
+                <a href="#how" class="btn btn-outline">See How It Works</a>
+            </div>
+            <div class="hero-stat">
+                <div class="stat">
+                    <div class="stat-number">$1 Trillion+</div>
+                    <div class="stat-label">Lost to scams globally each year</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3.4 Billion</div>
+                    <div class="stat-label">Phishing emails sent daily</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">88%</div>
+                    <div class="stat-label">Of data breaches caused by human error</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reality">
+        <div class="reality-container">
+            <h2>Once the Money Leaves, It's Gone.</h2>
+            <div class="reality-content">
+                <p>Here is the truth banks won't tell you:</p>
+                
+                <div class="legal-highlight">
+                    <p>Under <strong>UCC 4A-207</strong>, banks are not legally required to verify that an account name matches an account number.</p>
+                    <p style="margin-bottom: 0;">If you wire $150,000 to "First American Title" but the account number belongs to a criminal, the bank has fulfilled its legal duty. <strong>The loss is yours.</strong></p>
+                </div>
+
+                <p>The recovery rate for international wire fraud is <span class="stat-callout">less than 1%</span>.</p>
+                
+                <p>Identity theft takes an average of <strong>200+ hours</strong> of paperwork and stress to resolve.</p>
+
+                <p class="bottom-line">You cannot fix a wire fraud after it happens. You have to stop it before you click "Send."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="proof">
+        <div class="proof-container">
+            <h2>If They Targeted the Director of the FBI, They Are Targeting You.</h2>
+            <div class="proof-content">
+                <p>William Webster ran the FBI. Then he ran the CIA. At 98 years old, he was the target of a sophisticated email fraud scheme.</p>
+                
+                <div class="proof-lesson">
+                    <p>This isn't about being "tech-savvy." AI-generated fraud is now grammatically perfect. If a top intelligence official is at risk, everyone is.</p>
+                    <p style="margin-bottom: 0;"><strong>Intelligence isn't the defense — structural detection is.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pathways">
+        <div class="pathways-container">
+            <h2>If You Have an Inbox, You're a Target.</h2>
+            <div class="pathways-grid">
+                <div class="pathway-card">
+                    <h3>For Businesses</h3>
+                    <p>Protect your firm from BEC, invoice fraud, and the career-ending mistake of a fraudulent wire. One wrong payment costs $150,000 on average. One payroll redirect costs trust you never get back.</p>
+                    <a href="business.html" class="pathway-link">Explore Business Solutions</a>
+                </div>
+                <div class="pathway-card">
+                    <h3>For Seniors & Families</h3>
+                    <p>Safeguard retirement accounts and family legacies from predatory impersonation. $81.5 billion lost by seniors last year. Your parents aren't careless — scammers are sophisticated.</p>
+                    <a href="seniors.html" class="pathway-link">Explore Family Solutions</a>
+                </div>
+                <div class="pathway-card">
+                    <h3>For Individuals</h3>
+                    <p>Secure your personal identity and finances from the 3.4 billion threats sent every day. Identity theft takes 200+ hours to fix. EFA takes 2 minutes to install.</p>
+                    <a href="personal.html" class="pathway-link">Explore Personal Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>We Scan for the Tactics Criminals Actually Use</h2>
+                <p>Every detection runs in milliseconds, every time you open an email.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-example">
+                        <span class="real">sara.miller@gmail.com</span> vs <span class="fake">sara.miIler@gmail.com</span>
+                    </div>
+                    <h3>Lookalike Addresses</h3>
+                    <p>You can't spot it. We can. Catches email addresses nearly identical to contacts you trust — the #1 tactic in email fraud.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reply-To Hijacking</h3>
+                    <p>The "From" line looks right, but your reply goes to a criminal. We alert when your reply would go to a different address than the sender.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Invisible Characters</h3>
+                    <p>Cyrillic letters that look identical to English — impossible to spot with your eyes. Only software catches this.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Recently Created Domains</h3>
+                    <p>Scammers register domains hours before attacking. We check every sender's domain age — if it was created 3 days ago, that's not your bank.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Impersonation</h3>
+                    <p>Fake DocuSign, fake IRS, fake Chase. We verify that sender domains actually match the brands, banks, and government agencies they claim to be.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Authentication Failures</h3>
+                    <p>Every legitimate sender passes SPF and DKIM checks. When an email claims to be from your bank but fails verification, we flag it.</p>
+                </div>
+            </div>
+            <p class="features-more">Plus 15 more detection layers including wire fraud language, suspicious routing, gibberish domains, and more.</p>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how">
+        <div class="container">
+            <div class="section-header">
+                <h2>Install Once. Protect Every Email.</h2>
+                <p>No complicated setup required.</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Add to Gmail or Outlook</h3>
+                    <p>Chrome extension or Microsoft 365 add-in. Takes less than a minute.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Open Any Email</h3>
+                    <p>We scan automatically. No buttons to click. No extra steps.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>See the Warning First</h3>
+                    <p>If something's wrong, you'll know before you click, reply, or send money.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="testimonial-container">
+            <p class="testimonial-quote">The email looked exactly like it came from our title company. Same logo, same signature, same wire instructions. The only difference was one letter in the domain name. If I hadn't seen the warning, I would have wired $380,000 to criminals.</p>
+            <p class="testimonial-author">— <strong>Home buyer, California</strong></p>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-intro">
+                <h2>Simple Pricing</h2>
+                <p class="pricing-contrast">The average victim loses <strong>$106,557</strong>. Protection costs <strong>less than $24/year</strong>.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="price">$1.99<span>/month</span></div>
+                <p class="price-description">Cancel anytime. No contracts.</p>
+                <ul class="pricing-features">
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> All detection features</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Gmail & Outlook support</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Instant email scanning</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Automatic updates</li>
+                    <li><span class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> Email support</li>
+                </ul>
+                <a href="waitlist.html" class="btn" style="width: 100%;">Get Protected Now</a>
+                <p class="pricing-closer">This isn't an expense. It's preventing a loss you won't recover from.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="cta-box">
+            <h2>The Easiest Crisis to Manage Is the One That Never Happens.</h2>
+            <p>Fraud doesn't announce itself. It looks like a normal Tuesday. An email from someone you trust. A request that seems reasonable. By the time you realize something is wrong, the money is gone.</p>
+            <a href="waitlist.html" class="btn">Get Protected Now — $1.99/mo</a>
+            <p class="cta-tagline">EFA is the pause before that moment.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting people from email scams, one inbox at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                  
