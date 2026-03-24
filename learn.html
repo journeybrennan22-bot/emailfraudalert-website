@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Email Fraud Works | Email Fraud Alert</title>
+    <meta name="description" content="Learn how modern email scams actually work. 91% of cyberattacks start with email. Understand the tactics scammers use and why traditional security can't stop them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --dark: #0f172a;
+            --dark-mid: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --red: #ef4444;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--amber);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .nav-links a.active {
+            opacity: 1;
+            color: var(--amber);
+        }
+
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-dropdown > a::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu-inner {
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 160px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--amber);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--amber);
+            color: var(--amber);
+        }
+
+        .btn-secondary:hover {
+            background: var(--amber);
+            color: var(--dark);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 40px 100px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--red);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: clamp(2.25rem, 5vw, 3.25rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 28px;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stat {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 40px;
+        }
+
+        .section-dark {
+            background: var(--dark);
+        }
+
+        .section-mid {
+            background: var(--dark-mid);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container-wide {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.85rem;
+            margin-bottom: 24px;
+            line-height: 1.25;
+        }
+
+        .section-text {
+            font-size: 1.08rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .section-text p {
+            margin-bottom: 20px;
+        }
+
+        .section-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--light);
+            font-weight: 500;
+        }
+
+        /* Old Advice */
+        .old-advice {
+            display: flex;
+            gap: 16px;
+            margin: 28px 0;
+            flex-wrap: wrap;
+        }
+
+        .old-advice-item {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            padding: 12px 20px;
+            color: var(--gray);
+            font-size: 1rem;
+            text-decoration: line-through;
+            text-decoration-color: var(--red);
+        }
+
+        /* Anatomy Cards */
+        .anatomy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 36px;
+        }
+
+        .anatomy-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .anatomy-card h3 {
+            font-size: 1.1rem;
+            color: var(--amber);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .anatomy-card p {
+            color: var(--gray);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .anatomy-card .example {
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin-top: 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--light);
+        }
+
+        .anatomy-card.full-width {
+            grid-column: span 2;
+        }
+
+        /* Damage Section */
+        .damage-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .damage-card {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .damage-card h3 {
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .damage-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .damage-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .damage-card .stat {
+            font-family: 'Space Mono', monospace;
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        .damage-card .legal {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid var(--red);
+            padding: 16px 20px;
+            margin-top: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .damage-card .legal p {
+            margin: 0;
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+
+        /* Why Section */
+        .why-list {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 24px 0;
+        }
+
+        .why-item {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 8px;
+            padding: 10px 18px;
+            color: var(--light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* EFA Section */
+        .efa-box {
+            background: rgba(245, 158, 11, 0.08);
+            border: 2px solid var(--amber);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .efa-box h2 {
+            color: var(--amber);
+            margin-bottom: 20px;
+        }
+
+        .efa-box .intro {
+            font-size: 1.15rem;
+            color: var(--light);
+            margin-bottom: 28px;
+        }
+
+        .efa-detects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+
+        .efa-detect-item {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px 18px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .efa-box .tagline {
+            font-size: 1.1rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        /* Reality Section */
+        .reality-box {
+            background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .reality-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .reality-box p {
+            color: var(--gray);
+            font-size: 1.08rem;
+            margin-bottom: 16px;
+        }
+
+        .reality-box .emphasis {
+            color: var(--light);
+            font-weight: 600;
+            font-size: 1.15rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            text-align: center;
+        }
+
+        .mission-section h2 {
+            margin-bottom: 24px;
+        }
+
+        .mission-section p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-section .highlight-box {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--amber);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            max-width: 600px;
+            margin: 32px auto 0;
+            text-align: left;
+        }
+
+        .mission-section .highlight-box p {
+            color: var(--light);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 40px;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .emphasis {
+            color: var(--light);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 36px;
+        }
+
+        .cta-section .price {
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 16px;
+        }
+
+        .cta-section .price span {
+            color: var(--amber);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--dark-mid);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 280px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--amber);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 120px 20px 70px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .anatomy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .anatomy-card.full-width {
+                grid-column: span 1;
+            }
+
+            .old-advice {
+                flex-direction: column;
+            }
+
+            .efa-box {
+                padding: 28px 20px;
+            }
+
+            .reality-box {
+                padding: 28px 20px;
+            }
+
+            .footer-links {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .cta-section {
+                padding: 70px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud Alert
+        </a>
+        <div class="nav-links">
+            <a href="learn.html" class="active">How Scams Work</a>
+            <div class="nav-dropdown">
+                <a href="#">Solutions</a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-menu-inner">
+                        <a href="business.html">Business</a>
+                        <a href="personal.html">Individuals</a>
+                        <a href="seniors.html">Seniors</a>
+                    </div>
+                </div>
+            </div>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">91% of cyberattacks start with email</div>
+        <h1>How Email Fraud Actually Works</h1>
+        <p class="hero-text">Scammers don't hack your computer. They hack your trust. The email that costs you everything won't look suspicious. It will look like a message from your bank. Your boss. Your vendor. Your family.</p>
+        <p class="hero-stat">The dangerous ones are the ones that look real.</p>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <h2>The Old Advice Will Get You Hurt.</h2>
+            <div class="old-advice">
+                <span class="old-advice-item">"Look for typos."</span>
+                <span class="old-advice-item">"Check for bad grammar."</span>
+                <span class="old-advice-item">"Watch for suspicious links."</span>
+            </div>
+            <div class="section-text">
+                <p>That advice is twenty years out of date.</p>
+                <p>Modern scams are written by AI. They're grammatically perfect. Visually flawless. They copy real brands down to the pixel and real people down to the signature.</p>
+                <p><span class="highlight">3.4 billion phishing emails are sent every day.</span> Almost none of them have typos.</p>
+                <p>If you're still looking for spelling mistakes, you're looking for the wrong thing.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>These Emails Don't Trip Any Alarms.</h2>
+            <div class="section-text">
+                <p>No malware. No bad links. No attachments. No red flags.</p>
+                <p>Because technically, they're just emails. Normal text. Normal formatting. Normal requests.</p>
+                <p><span class="highlight">The deception isn't in the delivery. It's in the details you were never meant to notice.</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container-wide">
+            <h2>What Makes a "Perfect Fake"</h2>
+            <div class="anatomy-grid">
+                <div class="anatomy-card">
+                    <h3>Lookalike Domains</h3>
+                    <p>One character. Invisible at a glance. Devastating if you miss it.</p>
+                    <div class="example">paypa1.com instead of paypal.com</div>
+                </div>
+                <div class="anatomy-card">
+                    <h3>Reply-To Hijacking</h3>
+                    <p>The email shows your CFO's name. You hit reply. Your message goes to a server in Eastern Europe.</p>
+                </div>
+                <div class="anatomy-card">
+                    <h3>Display Name Spoofing</h3>
+                    <p>The sender says "Bank of America." The actual email address tells a different story.</p>
+                    <div class="example"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4321222d282c25222e26312a20226e222f2631373003242e222a2f6d202c2e">[email&#160;protected]</a></div>
+                </div>
+                <div class="anatomy-card">
+                    <h3>Perfect Context</h3>
+                    <p>The message fits your day. An invoice you expected. A delivery you ordered. A login alert that makes sense.</p>
+                </div>
+                <div class="anatomy-card full-width">
+                    <h3>Manufactured Urgency</h3>
+                    <p>"Your account will be locked in 24 hours." "Wire transfer required today." "Verify immediately to avoid suspension."</p>
+                    <p style="margin-top: 12px;">Pressure that makes you act before you think. That's the entire design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>Where the Real Damage Happens</h2>
+            <div class="damage-grid">
+                <div class="damage-card">
+                    <h3>Business Email Compromise</h3>
+                    <p>A vendor sends updated wire instructions. The email looks exactly like every other invoice you've processed. The request seems routine. The wire goes through.</p>
+                    <p><strong style="color: var(--light);">The money is gone.</strong></p>
+                    <div class="legal">
+                        <p>Under UCC 4A-207, your bank isn't required to verify the account name matches the number. If you followed a fraudulent instruction, the loss is yours. Not the bank's. <strong>Yours.</strong></p>
+                    </div>
+                    <p style="margin-top: 16px;">Businesses lose <span class="stat">$6.7 billion</span> to this every year.</p>
+                </div>
+                <div class="damage-card">
+                    <h3>Identity Theft</h3>
+                    <p>An email asks you to verify your account. You click, enter your information, move on with your day.</p>
+                    <p>Weeks later, you discover someone opened credit cards in your name. Filed a tax return as you. Drained your accounts.</p>
+                    <p>Recovery takes <span class="stat">200+ hours</span> on average. That's five weeks of full-time work — just to get your own identity back.</p>
+                </div>
+                <div class="damage-card">
+                    <h3>Government & Authority Impersonation</h3>
+                    <p>The IRS. The FBI. Social Security. Medicare. Criminals impersonate them all.</p>
+                    <p>A former Director of the FBI and CIA was targeted at age 98. If William Webster wasn't too smart for this, neither are you.</p>
+                    <p><strong style="color: var(--light);">Neither am I.</strong></p>
+                    <p>Intelligence isn't the defense. Structural detection is.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <h2>Because They're Designed for the Human Brain.</h2>
+            <div class="section-text">
+                <p>These scams don't exploit software. They exploit you.</p>
+            </div>
+            <div class="why-list">
+                <span class="why-item">Trust</span>
+                <span class="why-item">Routine</span>
+                <span class="why-item">Timing</span>
+                <span class="why-item">Distraction</span>
+                <span class="why-item">Pressure</span>
+            </div>
+            <div class="section-text">
+                <p><span class="highlight">88% of data breaches are caused by human error</span> — not system flaws.</p>
+                <p>Scammers don't need to hack your firewall. They need you to trust one email at the wrong moment.</p>
+                <p>That's it. That's all it takes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <h2>Gateways Stop Malware. They Don't Stop Fraud.</h2>
+            <div class="section-text">
+                <p>Your spam filter catches viruses, bad links, known threats.</p>
+                <p>But a wire fraud email is just text. No malware. No malicious link. It looks like a normal conversation.</p>
+                <p><span class="highlight">Your security sees nothing wrong.</span></p>
+                <p>That's why it gets through.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <div class="efa-box">
+                <h2>The Reading Layer.</h2>
+                <p class="intro">EFA works at the only moment that matters: after delivery, before action.</p>
+                <p style="color: var(--gray); margin-bottom: 24px;">It analyzes the structure of the email — not just the content — and catches what your eyes can't:</p>
+                <div class="efa-detects">
+                    <span class="efa-detect-item">Lookalike domains</span>
+                    <span class="efa-detect-item">Spoofed senders</span>
+                    <span class="efa-detect-item">Reply-to mismatches</span>
+                    <span class="efa-detect-item">Hidden routing</span>
+                    <span class="efa-detect-item">Deceptive patterns</span>
+                </div>
+                <p class="tagline">Your gateway protects the perimeter. EFA protects the moment before you click, reply, or send.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="reality-box">
+                <h2>You're Not Supposed to Catch This.</h2>
+                <p>These emails are engineered to bypass your judgment. Professional fraudsters spend their entire careers perfecting them.</p>
+                <p>If it feels like you "should have noticed," you're wrong.</p>
+                <p class="emphasis">That's exactly how they're built.</p>
+                <p style="margin-top: 20px;">Awareness helps. But awareness alone will never be enough.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-mid">
+        <div class="container">
+            <div class="mission-section">
+                <h2>Breaking the Economics of Fraud.</h2>
+                <p>Email fraud is a trillion-dollar industry because it works. Low risk. High reward. Infinite scale.</p>
+                <p>Every person who uses EFA changes that equation.</p>
+                <div class="highlight-box">
+                    <p>Every protected inbox makes fraud less profitable. Every warning neutralizes a scammer's most powerful weapon: the moment before you trust them.</p>
+                </div>
+                <p style="margin-top: 28px;">We're not just building an app. We're making email safe again.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section section-dark">
+        <h2>Understanding the Problem Isn't Enough to Stop It.</h2>
+        <p>But it makes one thing clear:</p>
+        <p class="emphasis">You need protection designed for how fraud actually works — not how it worked ten years ago.</p>
+        <a href="waitlist.html" class="btn">Get Protected</a>
+        <p class="price">EFA is that protection. <span>$1.99/mo</span></p>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud Alert
+                </a>
+                <p>Protecting inboxes worldwide, one email at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div cl
