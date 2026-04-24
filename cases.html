@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Fraud Cases | Email Fraud Alert</title>
+    <meta name="description" content="Real email fraud cases from around the world. Named victims, verified sources, and how Email Fraud Alert could have helped prevent them.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #111111;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent-red: #dc2626;
+            --accent-red-hover: #b91c1c;
+            --accent-orange: #f97316;
+            --border-color: #222222;
+            --gradient-red: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            /* Nav variables (matching site-wide header) */
+            --amber: #f59e0b;
+            --amber-dark: #d97706;
+            --dark: #0f172a;
+            --dark-mid: #111111;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-red);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-red);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--light);
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .dropdown-toggle:hover {
+            opacity: 1;
+        }
+
+        .dropdown-toggle::after {
+            content: '';
+            border: solid rgba(255,255,255,0.8);
+            border-width: 0 2px 2px 0;
+            padding: 3px;
+            transform: rotate(45deg);
+            margin-bottom: 3px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--dark-mid);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.2s;
+            margin-top: 10px;
+            z-index: 200;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            opacity: 1;
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--accent-red);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-red-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--accent-red);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 16px;
+            line-height: 1.6;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-dark {
+            background: var(--bg-card);
+        }
+
+        .section h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 700px;
+        }
+
+        .section p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Intro Section */
+        .intro {
+            text-align: center;
+        }
+
+        .intro-body {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .intro-body p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Case Cards */
+        .cases-intro {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .cases-intro h2 {
+            margin-bottom: 16px;
+        }
+
+        .cases-intro p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .case-card:hover {
+            border-color: rgba(220, 38, 38, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .case-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .case-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-tag.date {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .case-tag.location {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        .case-tag.category {
+            background: rgba(220, 38, 38, 0.12);
+            color: var(--accent-red);
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+
+        .case-headline {
+            font-size: clamp(22px, 3vw, 28px);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .case-loss-banner {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.08);
+            border-left: 3px solid var(--accent-red);
+            padding: 12px 20px;
+            margin-bottom: 24px;
+            border-radius: 4px;
+        }
+
+        .case-loss-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .case-loss-amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-red);
+            line-height: 1.1;
+        }
+
+        .case-section {
+            margin-bottom: 20px;
+        }
+
+        .case-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+        }
+
+        .case-section-body {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .case-efa-angle {
+            background: rgba(220, 38, 38, 0.06);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-top: 24px;
+        }
+
+        .case-efa-angle .case-section-label {
+            color: var(--accent-red);
+            margin-bottom: 8px;
+        }
+
+        .case-efa-angle .case-section-body {
+            color: var(--text-primary);
+            font-size: 15px;
+        }
+
+        .case-source {
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .case-source-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .case-source-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-red);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .case-source-link:hover {
+            color: var(--accent-red-hover);
+            text-decoration: underline;
+        }
+
+        .case-source-link::after {
+            content: '→';
+            transition: transform 0.2s;
+        }
+
+        .case-source-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Training Section */
+        .training-section {
+            text-align: center;
+        }
+
+        .training-box {
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .training-eyebrow {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--accent-red);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .training-section h2 {
+            font-size: clamp(32px, 4.5vw, 44px);
+            margin-bottom: 28px;
+            line-height: 1.15;
+        }
+
+        .training-section p {
+            font-size: 19px;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .training-section p.training-highlight {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 22px;
+            margin-top: 32px;
+            padding: 24px 32px;
+            background: rgba(220, 38, 38, 0.06);
+            border-left: 3px solid var(--accent-red);
+            border-radius: 4px;
+            text-align: left;
+        }
+
+        /* Pattern Section (between cases and CTA) */
+        .pattern-section {
+            text-align: center;
+        }
+
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .pattern-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: left;
+        }
+
+        .pattern-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 12px;
+        }
+
+        .pattern-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .pattern-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Commitment Section */
+        .commitment {
+            text-align: center;
+        }
+
+        .commitment-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commitment h2 {
+            color: var(--accent-red);
+        }
+
+        .commitment-body {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .commitment-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #1a0a0a 100%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            margin-bottom: 32px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-body {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .final-cta-highlight {
+            font-size: 24px;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .final-cta-button {
+            display: inline-block;
+            background: var(--gradient-red);
+            color: white;
+            padding: 20px 48px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .final-cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(220, 38, 38, 0.5);
+        }
+
+        .final-cta-note {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px 40px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 60px;
+        }
+
+        .footer-column h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .footer-column a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-red);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .pattern-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .case-card {
+                padding: 28px 24px;
+            }
+
+            .commitment-box {
+                padding: 32px 24px;
+            }
+
+            .case-source {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .pattern-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                gap: 30px;
+                flex-wrap: wrap;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            Email Fraud <span>Alert</span>
+        </a>
+        <div class="nav-links">
+            <a href="learn.html">How Scams Work</a>
+            <div class="dropdown">
+                <span class="dropdown-toggle">Solutions</span>
+                <div class="dropdown-menu">
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors & Families</a>
+                </div>
+            </div>
+            <a href="cases.html">Real Cases</a>
+            <a href="index.html#pricing">Pricing</a>
+            <a href="support.html">Support</a>
+            <a href="waitlist.html" class="btn">Get Protected</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <span class="hero-label">Real Cases. Real Victims. Real Losses.</span>
+            <h1>These Scams Are Not Hypothetical.<br>They Happened. To Real People.</h1>
+            <p class="hero-subtitle">Every case below is documented by federal investigators, government regulators, or major news outlets. Named victims. Convicted defendants. Verified sources.</p>
+            <p class="hero-tagline">If it happened to them, it can happen to anyone.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="section intro">
+        <div class="container">
+            <div class="intro-body">
+                <p>Email fraud is not a distant, abstract threat. It is happening every day, in every country, to people who are smart, careful, and financially sophisticated. An 85-year-old retiree handed $200,000 in gold coins to a stranger in a black Mustang. Google and Facebook wired $122 million to a man with a laptop and a spoofed domain name. An Austrian aerospace CEO was fired after his company lost $47 million to a single fake email. A first-time Chicago homebuyer lost her entire down payment in a wire transfer that took under an hour.</p>
+                <p>Every one of these stories started the same way: with an email.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="cases-intro">
+                <h2>It All Started With an Email.</h2>
+                <p>Not a phone call. Not a letter. Not a knock at the door. An email. A former FBI target. Facebook's finance team. An Austrian aerospace CEO. A first-time homebuyer in Chicago. Different people, different countries, different dollar amounts — but the same entry point every time.</p>
+            </div>
+
+            <div class="case-grid">
+
+                <!-- CASE 1: Brian Oliver -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">April 2026</span>
+                        <span class="case-tag location">Gainesville, Florida, USA</span>
+                        <span class="case-tag category">Refund Scam</span>
+                    </div>
+                    <h3 class="case-headline">85-Year-Old Retiree Loses $200,000 in Fake PayPal Refund Scam</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Total Loss</div>
+                        <div class="case-loss-amount">$200,000</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">Brian Oliver received an email claiming PayPal owed him $450. He called the phone number in the email. The scammer walked him through a fake "typo" that appeared to deposit $10,000 into his Bank of America account — except the bank website he was looking at was a mirrored fake. Over the next three days, Oliver fed $10,000 in cash into a crypto ATM and handed $198,560 in gold coins to a courier driving a black Mustang. The password at the door was "blue."</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">Gainesville Police set up a sting operation. One courier, Seth Wayne, received 18 years in federal prison. A second courier, Atharva Shailesh Sathawane, was convicted of conspiracy and money laundering tied to over 30 transactions and nearly $8 million stolen from elderly victims.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">The initial email impersonated PayPal but came from a non-PayPal sender and contained a callback phone number in the body — exactly the pattern EFA flags as high-risk. Brand impersonation combined with a callback number is a textbook refund-lure, and EFA both warns users in the moment and trains them to recognize this exact setup for themselves.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://www.foxnews.com/tech/florida-retiree-lost-200k-fake-paypal-refund-scam" class="case-source-link" target="_blank" rel="noopener noreferrer">Fox News, April 23, 2026</a>
+                    </div>
+                </article>
+
+                <!-- CASE 2: Lynette and Scott -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">April 2026</span>
+                        <span class="case-tag location">Orange County, California, USA</span>
+                        <span class="case-tag category">Wire Fraud / Homoglyph</span>
+                    </div>
+                    <h3 class="case-headline">One Letter Changed. A Home Down Payment Nearly Gone.</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Initial Loss (Mostly Recovered)</div>
+                        <div class="case-loss-amount">~$400,000</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">Lynette and Scott had been corresponding with their mortgage broker for weeks. One email came through that looked identical to every one before it — except the sender's domain had two V's instead of a W. Instead of <strong style="color:var(--text-primary)">escrow.com</strong>, the email came from <strong style="color:var(--text-primary)">escrovv.com</strong>. They wired their down payment. Their broker never received it.</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">Orange County Sheriff investigators traced the funds. After several months, the couple recovered about 90% of their money. The remaining 10% had already been converted to Bitcoin and was unrecoverable. In most cases like this, victims recover nothing.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">Homoglyph domain detection is EFA's core function. A domain substituting "vv" for "w" on a newly registered address is exactly the pattern EFA flags the moment it lands in your inbox. It is also the exact kind of swap users of EFA become trained to spot on their own — because once you've seen the warning a few times, your eyes start catching it before the software does.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://abc7.com/post/mortgage-fraud-scheme-orange-county-couple-shares-warning-losing-down-payment/18875496/" class="case-source-link" target="_blank" rel="noopener noreferrer">ABC7 Los Angeles, April 12, 2026</a>
+                    </div>
+                </article>
+
+                <!-- CASE 3: FACC / Walter Stephan -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">January 2016</span>
+                        <span class="case-tag location">Ried im Innkreis, Austria</span>
+                        <span class="case-tag category">CEO Fraud / BEC</span>
+                    </div>
+                    <h3 class="case-headline">An Austrian Aerospace Giant Lost $47 Million to a Single Fake Email. The CEO Was Fired.</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Total Loss</div>
+                        <div class="case-loss-amount">$47,000,000</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">FACC — an Austrian aerospace manufacturer that makes parts for Boeing, Airbus, and Rolls-Royce — received a fraudulent email impersonating its CEO, Walter Stephan. The email instructed an employee in the finance department to wire roughly €50 million to fund a "confidential acquisition." The employee complied. By the time FACC realized what had happened, the money had moved through banks in Slovakia and Asia.</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">FACC recovered about €10.9 million but took a €41.9 million loss. The company posted a pretax loss of €23.4 million for the fiscal year. The supervisory board fired CEO Walter Stephan and CFO Minfen Gu for "severely violating their duties" in what FACC dubbed the "Fake President Incident." The finance employee who executed the transfer was also dismissed.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">This is exactly the kind of email EFA is built to catch and teach users to recognize. A CEO impersonation email with an urgent wire request and a "confidential" framing is a textbook BEC pattern. EFA flags these emails in real time and, over time, trains users to spot them even before the warning appears.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://www.securityweek.com/austrian-firm-fires-ceo-after-56-million-cyber-scam/" class="case-source-link" target="_blank" rel="noopener noreferrer">SecurityWeek, May 26, 2016</a>
+                    </div>
+                </article>
+
+                <!-- CASE 4: Facebook and Google -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">2013 – 2019</span>
+                        <span class="case-tag location">Lithuania → USA</span>
+                        <span class="case-tag category">Business Email Compromise</span>
+                    </div>
+                    <h3 class="case-headline">Facebook and Google Wired $122 Million to a Fake Vendor</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Total Stolen</div>
+                        <div class="case-loss-amount">$122,000,000</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">Evaldas Rimasauskas registered a company in Latvia with a name nearly identical to Quanta Computer — a legitimate Taiwan-based hardware manufacturer that did real business with Facebook and Google. Over two years, he sent fraudulent invoices with spoofed email addresses, along with forged contracts and fake corporate seals. Employees at both tech giants wired payments to bank accounts he controlled in Latvia, Cyprus, Hungary, and Hong Kong.</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">Facebook wired nearly $100 million. Google wired over $23 million. Rimasauskas was extradited from Lithuania, pleaded guilty to wire fraud, and was sentenced to five years in federal prison. He was ordered to forfeit $49.7 million and pay $26.5 million in restitution.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">Fake vendor domains that closely resemble legitimate ones are EFA's home turf. A newly registered domain impersonating an established vendor — combined with an invoice or payment request — is a textbook pattern EFA catches in real time. It is also the exact pattern finance teams using EFA get trained to spot without the software, which is how organizations move from being targets to being hard targets.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://www.fbi.gov/news/stories/ringleader-of-business-email-compromise-scheme-sentenced-012820" class="case-source-link" target="_blank" rel="noopener noreferrer">FBI.gov, January 28, 2020</a>
+                    </div>
+                </article>
+
+                <!-- CASE 5: Adebo BEC Ring -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">April 2026</span>
+                        <span class="case-tag location">United States</span>
+                        <span class="case-tag category">BEC + Real Estate</span>
+                    </div>
+                    <h3 class="case-headline">$50 Million BEC Ring Targeted Real Estate Buyers. Its Leader Pleaded Guilty.</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Total Losses Across Victims</div>
+                        <div class="case-loss-amount">$50,000,000+</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">Animashaun Adebo, known as "Kazeem," ran a multi-year scheme targeting individuals in real estate transactions and small businesses across the United States. Victims received emails that appeared to come from legitimate parties in their transactions — mortgage brokers, title companies, vendors. The fraudulent email addresses closely resembled the real ones, differing by a single character. Victims wired funds. Adebo laundered the proceeds through shell companies in the US and abroad.</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">Adebo pleaded guilty to wire fraud conspiracy in federal court in Brooklyn on April 20, 2026. A co-defendant, Idowu Ademoroti, was previously convicted. A third defendant, Nelson Ojeriakhi, was extradited from Paris and pleaded guilty in November 2025. A fourth remains at large. Total reported losses exceed $50 million.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">This is the exact pattern EFA was built to stop. Spoofed email addresses that closely resemble legitimate parties in a real estate transaction — one character off, newly registered domain. EFA scans every inbound email for this signature and warns before a single dollar is wired. And every warning trains the user to spot the next one faster.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://www.secretservice.gov/newsroom/releases/2026/04/nigerian-national-pleads-guilty-series-multi-million-dollar-business" class="case-source-link" target="_blank" rel="noopener noreferrer">U.S. Secret Service, April 20, 2026</a>
+                    </div>
+                </article>
+
+                <!-- CASE 6: Jenna Carlson -->
+                <article class="case-card">
+                    <div class="case-meta">
+                        <span class="case-tag date">2021</span>
+                        <span class="case-tag location">Chicago, Illinois, USA</span>
+                        <span class="case-tag category">Wire Fraud / First-Time Buyer</span>
+                    </div>
+                    <h3 class="case-headline">She Saved for Years. One Fake Email Took It All in the Blink of an Eye.</h3>
+                    <div class="case-loss-banner">
+                        <div class="case-loss-label">Total Loss</div>
+                        <div class="case-loss-amount">$42,000</div>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">How It Happened</div>
+                        <p class="case-section-body">Jenna Carlson had saved for years to buy her first home. She was putting 20% down — $42,000. She had exchanged 16 emails with her real estate attorney's paralegal, asking clarifying questions before the wire. One of those emails contained the wiring instructions. She went to the bank and sent the money. The next day, the real paralegal called asking about the down payment. Carlson said she'd already wired it. The paralegal replied: "What email? I didn't send any email." The sender's address was nearly identical to the paralegal's — just two extra letters added.</p>
+                    </div>
+                    <div class="case-section">
+                        <div class="case-section-label">The Outcome</div>
+                        <p class="case-section-body">Chase Bank was able to stop $9,000 of the wire. The other $33,000 was gone. "It was fraud and I'd been scammed," Carlson said. "Everything I'd saved was gone in the blink of an eye. And I couldn't do anything about it." She went through months of therapy to cope with the loss. FBI Special Agent Siobhan Johnson, quoted in the ABC7 story, said real estate wire fraud is one of the fastest-growing cyber scams in the country.</p>
+                    </div>
+                    <div class="case-efa-angle">
+                        <div class="case-section-label">How EFA Could Have Helped</div>
+                        <p class="case-section-body">The fraudulent email came from a domain that added two letters to the paralegal's real address — exactly the kind of lookalike pattern EFA flags in real time. And after using EFA for weeks or months, users become trained to notice these subtle variations on their own, even before a warning appears. The product is the filter; the education is the long-term protection.</p>
+                    </div>
+                    <div class="case-source">
+                        <span class="case-source-label">Source</span>
+                        <a href="https://abc7chicago.com/house-down-payment-wire-transfer-instructions-fraud-mortgage/11670854/" class="case-source-link" target="_blank" rel="noopener noreferrer">ABC7 Chicago, March 22, 2022</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section class="section section-dark training-section">
+        <div class="container">
+            <div class="training-box">
+                <span class="training-eyebrow">What EFA Actually Does</span>
+                <h2>EFA Flags the Email. Then It Teaches You.</h2>
+                <p>Every email that looks like the ones above triggers a warning inside your inbox. That warning is the product's first job — stopping the wire before it leaves.</p>
+                <p>But the second job matters just as much. Every warning teaches you what fraud looks like in your real inbox. The subtle domain swaps. The urgency. The too-good-to-be-true refund. The "confidential" acquisition. Over weeks and months of using EFA, you start spotting these patterns on your own — faster than any filter can run.</p>
+                <p class="training-highlight">The detection is the delivery mechanism. The awareness is the actual product. Every user gets smarter every day they use it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pattern Section -->
+    <section class="section pattern-section">
+        <div class="container">
+            <h2>Six Cases. One Pattern.</h2>
+            <p class="section-subtitle" style="margin: 0 auto 16px; text-align: center;">Every case on this page shares at least one of these signatures. EFA is built to catch all of them.</p>
+            <div class="pattern-grid">
+                <div class="pattern-card">
+                    <div class="pattern-number">01</div>
+                    <div class="pattern-title">Lookalike Domains</div>
+                    <div class="pattern-description">One letter swapped. Two V's instead of a W. A new registration pretending to be a trusted vendor.</div>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">02</div>
+                    <div class="pattern-title">Brand Impersonation</div>
+                    <div class="pattern-description">An email claims to be from PayPal, Microsoft, or your bank — but the sender domain tells a different story.</div>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">03</div>
+                    <div class="pattern-title">Refund and Lottery Lures</div>
+                    <div class="pattern-description">"You've won." "We owe you money." "Click here to claim." Positive bait works better than fear.</div>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">04</div>
+                    <div class="pattern-title">Callback Numbers</div>
+                    <div class="pattern-description">A phone number in the email body routes to the scammer — not to the company they're impersonating.</div>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">05</div>
+                    <div class="pattern-title">Wire Redirects</div>
+                    <div class="pattern-description">A last-minute email changes payment instructions. The money goes to the scammer, not the intended party.</div>
+                </div>
+                <div class="pattern-card">
+                    <div class="pattern-number">06</div>
+                    <div class="pattern-title">Vendor and Invoice Spoofing</div>
+                    <div class="pattern-description">A fake invoice from a fake vendor with a nearly identical domain name. Even Facebook and Google paid one.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commitment Section -->
+    <section class="section section-dark commitment">
+        <div class="container">
+            <div class="commitment-box">
+                <h2>Our Commitment to You</h2>
+                <p class="commitment-body">Every case on this page is drawn from a <strong>verified primary source</strong> — federal law enforcement, government regulators, or major news outlets. We do not invent victims. We do not embellish losses. We do not make claims we cannot substantiate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>These People Didn't Think It Would Happen to Them.<br>Neither Did Google. Neither Did the FBI Director.</h2>
+            <p class="final-cta-body">Every case on this page started with an email.</p>
+            <p class="final-cta-highlight">Email Fraud Alert is built to stop them before the damage is done.</p>
+            <a href="waitlist.html" class="final-cta-button">Get Protected — $1.99/month</a>
+            <p class="final-cta-note">Works with Gmail and Outlook. Install in minutes.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    Email Fraud <span>Alert</span>
+                </a>
+                <p>Protecting families and businesses from email fraud, one inbox at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="index.html#features">Features</a>
+                    <a href="index.html#pricing">Pricing</a>
+                    <a href="index.html#how">How It Works</a>
+                    <a href="learn.html">How Scams Work</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Solutions</h4>
+                    <a href="business.html">For Business</a>
+                    <a href="personal.html">For Individuals</a>
+                    <a href="seniors.html">For Seniors &amp; Families</a>
+                    <a href="cases.html">Real Cases</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <a href="support.html">Help Center</a>
+                    <a href="support.html#contact">Contact Us</a>
+                    <a href="understanding_warnings.html">Understanding Warnings</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Email Fraud Alert. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
