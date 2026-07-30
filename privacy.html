@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy – Email Fraud Alert</title>
+  <style>
+    :root { --brand:#f59e0b; --text:#1a1a1a; --muted:#666; }
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,Inter,system-ui,sans-serif;line-height:1.6;color:#333;margin:0}
+    main{max-width:840px;margin:0 auto;padding:40px 20px}
+    h1{color:var(--text);border-bottom:2px solid var(--brand);padding-bottom:10px;margin-top:0}
+    h2{color:var(--text);margin-top:28px}
+    h3{margin-top:20px}
+    p{margin:12px 0}
+    ul{margin:8px 0 16px 20px}
+    .last-updated{color:var(--muted);font-style:italic}
+    a{color:var(--brand)}
+    .note{background:#fff7ed;border-left:4px solid var(--brand);padding:10px 12px;margin:14px 0}
+    footer{margin-top:36px;color:var(--muted)}
+  </style>
+</head>
+<body>
+<!-- ============================================================================
+     PRE-PUBLISH CHECKLIST (Journey) — REMOVE THIS ENTIRE COMMENT AND ALL OTHER
+     "JOURNEY" COMMENTS IN THIS FILE BEFORE DEPLOYING TO THE LIVE URL.
+     Open items, each also flagged inline:
+       1. Retention periods for reputation queries, telemetry (D1) events, and
+          account/billing — confirm against production; do not publish unverified numbers.
+       2. EFA LLC mailing address (Sections 1 and 13).
+       3. Exact fields EFA receives from Stripe (Section 2.6) — do not overstate.
+       4. Publish/effective date (top of page).
+       5. Confirm this policy covers the CURRENT Chrome extension (footer).
+     Verified against the Outlook add-in code and corrected in this revision:
+       - Reputation sends the sender's DOMAIN (may include subdomains), NOT eTLD+1.
+         (If you want the stronger "registrable domain only" promise back, that is a
+          one-line client normalization for the v6.56.0 backlog, not a copy change.)
+       - Telemetry does NOT currently send verdict taps (reportWarningVerdict is unwired);
+         the verdict wording was removed. Re-add only if/when the buttons ship.
+     ============================================================================ -->
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last Updated: July 30, 2026</p>
+  <!-- JOURNEY: set this to the actual publish date. -->
+
+
+  <p>
+    Email Fraud Alert ("EFA", "we", "us", or "our") is operated by EFA LLC.
+    This Privacy Policy explains what information our Outlook add-in and browser extension (the "Service") process,
+    how that information is used, and the choices available to you.
+  </p>
+
+  <div class="note">
+    <strong>Plain language summary:</strong> EFA performs fraud analysis locally on your device, and
+    by default does <em>not</em> transmit any information derived from the emails it analyzes. We do
+    not transmit or store your email content, subject lines, attachments, or recipients on
+    EFA‑operated servers; that information is processed locally to perform fraud analysis.
+    EFA has two optional network features, and <strong>both are off until you turn them on</strong>:
+    a sender‑domain reputation check (transmits only a sender's domain — the part of the address after
+    the @, e.g., <code>example.com</code>, which may include subdomains — over HTTPS to our reputation
+    service; never your email content, addresses, subjects, or attachments) and anonymous usage
+    statistics (which warning types appear and how serious they are, tied to a random install
+    identifier that is never linked to you or to any message). The first time you use EFA, it asks you
+    to choose, with both features switched off, and you can change your choice at any time in the
+    add‑in's settings.
+  </div>
+
+  <h2>1. Who we are</h2>
+  <p>
+    Data Controller: EFA LLC, doing business as Email Fraud Alert.<br/>
+    Website: <a href="https://www.emailfraudalert.com">www.emailfraudalert.com</a><br/>
+    Contact: <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a><br/>
+    Mailing address: <!-- JOURNEY: add EFA LLC mailing address before publishing --><em>[add mailing address]</em>
+  </p>
+
+  <h2>2. Information we process</h2>
+
+  <h3>2.1 First‑run choice</h3>
+  <p>
+    The first time you use EFA, it shows a short screen describing the two optional network features
+    below, <strong>both switched off</strong>, and asks you to choose. EFA does not enable either
+    feature unless you turn it on there, and you can change your choice at any time in the add‑in's
+    settings. EFA's local, on‑device fraud analysis works the same whether or not you enable either
+    optional feature.
+  </p>
+
+  <h3>2.2 Local email analysis</h3>
+  <p>
+    To detect potential fraud, EFA analyzes technical characteristics of the message within your mail client
+    (for example: sender address, display name, reply‑to domain, header authentication results, URLs and attachments).
+    This analysis happens <strong>locally on your device</strong> or within the Outlook runtime.
+    We do not transmit email bodies, subjects, attachments, or recipients to our servers.
+  </p>
+
+  <h3>2.3 Domain reputation checks (optional — off by default)</h3>
+  <p>
+    <strong>This feature is off until you turn it on.</strong> When you enable it, EFA queries our
+    reputation service to assess sender risk. In doing so, the client transmits
+    <strong>only the sender's domain</strong> — the part of the email address after the @
+    (for example, <code>example.com</code>), which may include subdomains.
+    <strong>We do not send the part of the address before the @, full URLs, paths, IP addresses,
+    message headers, or any email content.</strong>
+    If a message contains a QR code and this feature is enabled, EFA may also check the domain that the
+    QR code links to. Requests are sent over encrypted HTTPS to our reputation service (hosted with
+    Cloudflare). Standard connection metadata handled by our edge provider (such as IP address at the
+    network layer) is used only to route and secure the request and is not used to identify you. You
+    can turn reputation checks off again at any time in the add‑in's settings.
+  </p>
+
+  <h3>2.4 Anonymous usage statistics (optional — off by default)</h3>
+  <p>
+    <strong>This feature is off until you turn it on.</strong> When you enable it, EFA sends anonymous
+    usage events to measure how often warnings appear. Each event contains
+    <strong>only</strong>: the type(s) of warning shown (e.g., <code>wire-fraud</code>) and their severity, the app version,
+    a timestamp, and a <strong>random install identifier</strong>.
+    <strong>No email content, addresses, domains, subjects, bodies, attachments, or anything else derived from a message
+    or a person is ever included.</strong> The install identifier is a random value (not derived from your account, device,
+    or mail); it is generated only if you enable this feature, lets us count distinct installs without knowing who you are,
+    is never linked to your identity or to any message, and is removed if you turn the feature off. You can turn usage
+    statistics off again at any time in the add‑in's settings.
+  </p>
+
+  <h3>2.5 Access to your mailbox and contacts (Outlook add‑in)</h3>
+  <p>
+    To do its job inside Outlook, EFA requests read access to parts of your own mailbox through Microsoft.
+    Microsoft handles authentication and issues the access credentials the add‑in uses to request permitted
+    information from Microsoft Graph. <strong>EFA does not transmit those credentials to EFA LLC's servers or to
+    unrelated third parties.</strong> EFA requests permission to:
+  </p>
+  <ul>
+    <li>read your basic profile, to run the add‑in for your account;</li>
+    <li>read your contacts, to compare incoming senders to people you already know and detect lookalikes;</li>
+    <li>read your mail, to analyze the message you are viewing and to learn (on your device) which domains you regularly correspond with, from your Sent Items;</li>
+    <li>read your mailbox settings, to detect mail‑forwarding rules that may indicate a compromised account and warn you. This permission allows reading settings only; it does not permit EFA to send, move, or alter mail.</li>
+  </ul>
+  <p>
+    EFA uses this access to analyze mail <strong>on your device</strong>. It does not copy your mailbox,
+    contacts, or settings to our servers. Where information (such as domains learned from your Sent Items)
+    is remembered between sessions, it is stored in your own Microsoft account's add‑in storage, not by EFA.
+  </p>
+
+  <h3>2.6 Account & billing (paid plans only)</h3>
+  <p>
+    If you subscribe to a paid plan, your payment is processed by our payment processor, Stripe. Stripe
+    collects your payment details. EFA receives from Stripe only what is needed to manage your
+    subscription, such as your email address and subscription status. EFA does not receive or store your
+    full card number.
+    <!-- JOURNEY / VERIFY: state exactly what EFA LLC receives and stores from Stripe (e.g., email,
+         Stripe customer ID, subscription status). Do not say "we collect billing details" unless
+         literally true. Adjust the sentence above to the confirmed fields. -->
+  </p>
+
+  <h2>3. Information we do <em>not</em> transmit to or store on EFA‑operated servers</h2>
+  <p>EFA reads and processes some of this information locally on your device to detect fraud, but it is not sent to or stored on our servers:</p>
+  <ul>
+    <li>Email body/content</li>
+    <li>Subject lines</li>
+    <li>Attachments</li>
+    <li>Recipient names or addresses</li>
+    <li>Full URLs or paths (reputation checks send only the sender's domain, which may include subdomains)</li>
+    <li>Your contact list contents (contacts are processed locally only)</li>
+    <li>Browsing history or personal files</li>
+  </ul>
+
+  <h2>4. How we use information</h2>
+  <ul>
+    <li>To detect and warn you about potential email fraud locally</li>
+    <li>If you enable reputation checks, to compare sender domains against threat intelligence and domain‑age signals</li>
+    <li>To provide and support paid subscriptions (via Stripe)</li>
+    <li>To provide customer support</li>
+    <li>If you enable usage statistics, to improve detection quality using <strong>anonymous usage counts</strong> — warning
+        types, severity, version — tied to a random install identifier, never to your identity, and never including email
+        content or message metadata</li>
+  </ul>
+
+  <h2>5. Data processing locations</h2>
+  <p>
+    Email analysis runs on your device/Outlook environment. Reputation checks (which send only the
+    sender's domain) are handled by our reputation service hosted with Cloudflare.
+    All communications use HTTPS/TLS.
+  </p>
+
+  <h2>6. Third‑party services</h2>
+  <ul>
+    <li><strong>Cloudflare</strong> – secure delivery and reputation service hosting (requests contain only sender domains and never message content). See <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's Privacy Policy</a>.</li>
+    <li><strong>Stripe</strong> – subscription and payment processing. See <a href="https://stripe.com/privacy">Stripe's Privacy Policy</a>.</li>
+    <li><strong>Microsoft Graph API</strong> – optional contact access for lookalike detection (processed locally). See <a href="https://privacy.microsoft.com/">Microsoft's Privacy Statement</a>.</li>
+  </ul>
+
+  <h2>7. Security</h2>
+  <p>
+    We implement administrative, technical, and organizational measures appropriate to the nature of
+    the limited data we process. Reputation queries are transmitted via HTTPS. Sensitive operations like billing are handled by audited third parties (e.g., Stripe).
+    As with any software, no system is 100% secure; report issues to the contact below.
+  </p>
+
+  <h2>8. Data retention</h2>
+  <p>
+    We do not retain email content or message metadata. Reputation results may be cached on the client briefly to improve performance and are not associated with a user or message.
+    Account and billing records are retained while your subscription is active and as required by law. We do not sell personal data.
+  </p>
+  <!-- JOURNEY / ACTION BEFORE PUBLISHING: insert the actual server-side retention for the two optional
+       features and for account/billing, confirmed against production. One Amigo proposed "24-hour
+       transient logs for reputation queries" and "90-day aggregated D1 records for telemetry" — treat
+       those as UNVERIFIED until you confirm them against the live Cloudflare Workers; do not publish
+       numbers you haven't confirmed. The telemetry worker stores events (D1) to produce counts — say
+       how long raw events are kept (or that they're aggregated and raw events discarded after N days).
+       For the reputation worker, state whether domain queries are logged at all and for how long.
+       Replace the sentence below with the confirmed facts; do not publish vague language. -->
+  <p>
+    For the two optional features, when you enable them: anonymous usage events are stored to produce
+    aggregate counts, and reputation queries are processed to return a risk signal. We retain this
+    information only as long as necessary for those purposes.
+    <!-- Replace with confirmed retention periods (see comment above). -->
+  </p>
+
+  <h2>9. Your rights & choices</h2>
+  <ul>
+    <li><strong>Access/Deletion:</strong> You may request access to or deletion of your account/billing data by contacting support.</li>
+    <li><strong>Revoke permissions:</strong> You can revoke the add‑in/extension's permissions (e.g., contact access) at any time in your Microsoft 365 settings.</li>
+    <li><strong>First‑run choice:</strong> Both optional network features are off by default. EFA asks you to choose the first time you use it, with both switched off, and does not enable either unless you turn it on.</li>
+    <li><strong>Turn optional network features on or off:</strong> You can enable or disable domain reputation checks and anonymous usage statistics independently in the add‑in's settings at any time. Local fraud analysis continues to work with these turned off.</li>
+    <li><strong>Uninstall:</strong> You may remove the add‑in/extension at any time, which stops all processing.</li>
+  </ul>
+
+  <h2>10. Legal bases & regional disclosures</h2>
+  <p>
+    Where applicable (e.g., GDPR/UK GDPR): our on‑device fraud analysis and delivery of the Service rely on our
+    legitimate interest in protecting users from fraud and on our contract with you (paid subscriptions).
+    The two optional network features — domain reputation checks and anonymous usage statistics — rely on
+    <strong>your consent</strong>, which you give by enabling a feature and can withdraw at any time by turning it
+    off in the add‑in's settings. Mailbox and contact access relies on the permission you grant through Microsoft.
+    For CCPA/CPRA, we do not "sell" or "share" personal information as defined by law.
+  </p>
+
+  <h2>11. Children's privacy</h2>
+  <p>
+    The Service is not directed to children under 13 (or the age of digital consent in your jurisdiction).
+    We do not knowingly collect information from children.
+  </p>
+
+  <h2>12. Changes to this policy</h2>
+  <p>
+    We may update this Privacy Policy from time to time.
+    Material changes will be indicated by updating the "Last Updated" date above and posting the revised policy at this URL.
+    If we materially change how the optional network features handle data, EFA will also ask you to review and consent
+    again before the changed behavior takes effect. Routine updates that do not change data handling will not re‑prompt you.
+  </p>
+
+  <h2>13. Contact</h2>
+  <p>
+    EFA LLC (Email Fraud Alert)<br/>
+    <!-- JOURNEY: add EFA LLC mailing address before publishing --><em>[mailing address]</em><br/>
+    <a href="mailto:support@emailfraudalert.com">support@emailfraudalert.com</a><br/>
+    <a href="https://www.emailfraudalert.com">www.emailfraudalert.com</a>
+  </p>
+
+  <footer>
+    For transparency, this policy applies to our Outlook add‑in and browser extension.
+    <!-- JOURNEY / VERIFY: confirm this policy accurately covers the CURRENT Chrome extension —
+         its permissions and any network egress — against the shipped manifest. This file was
+         reconciled against the Outlook add-in code; the Chrome build was not independently verified. -->
+  </footer>
+</main>
+</body>
+</html>
